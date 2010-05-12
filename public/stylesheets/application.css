@@ -30,6 +30,7 @@ a {
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  width: 70%;
 }
 
 #flash_notice {
@@ -78,4 +79,9 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
+}
+
+#user_nav {
+  float: right;
+  font-size: 12px;
 }
