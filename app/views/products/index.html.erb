@@ -1,16 +1,8 @@
 <% title "Products" %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
+<ul>
   <% for product in @products %>
-    <tr>
-      <td><%=h product.name %></td>
-      <td><%=h product.description %></td>
-      <td><%= link_to "Show", product %></td>
-    </tr>
+    <li>
+      <%= link_to h(product.name), product %>
+    </li>
   <% end %>
-</table>
-
+</ul>

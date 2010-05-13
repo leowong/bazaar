@@ -1,6 +1,10 @@
 <% title "Product" %>
 
 <p>
+  <strong>Store:</strong>
+  <%= link_to @product.user.username, @product.user %>
+</p>
+<p>
   <strong>Name:</strong>
   <%=h @product.name %>
 </p>
@@ -9,6 +13,3 @@
   <%=h @product.description %>
 </p>
 
-<p>
-  <%= link_to "View All", products_path %>
-</p>

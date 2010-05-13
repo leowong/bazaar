@@ -13,6 +13,7 @@ class Admin::ProductsController < Admin::BaseController
   
   def create
     @product = Product.new(params[:product])
+    @product.user_id = current_user.id
     if @product.save
       flash[:notice] = "Successfully created product."
       redirect_to [:admin, @product]

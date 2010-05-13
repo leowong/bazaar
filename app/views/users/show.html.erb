@@ -1,0 +1,19 @@
+<% title "User" %>
+
+<p>
+  <strong>Username:</strong>
+  <%=h @user.username %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%=h @user.email %>
+</p>
+
+<h2>Products</h2>
+<ul>
+  <% for product in @user.products %>
+    <li>
+      <%= link_to h(product.name), product %>
+    </li>
+  <% end %>
+</ul>
