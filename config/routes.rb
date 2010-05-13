@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :products
   end
 
+  map.store ':username', :controller => 'users', :action => 'show'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
