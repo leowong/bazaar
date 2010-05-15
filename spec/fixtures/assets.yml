@@ -1,0 +1,7 @@
+one:
+  viewable_id: 1
+  viewable_type: MyString
+
+two:
+  viewable_id: 1
+  viewable_type: MyString

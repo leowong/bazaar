@@ -9,34 +9,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100512183912) do
+ActiveRecord::Schema.define(:version => 20100515080949) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "viewable_id"
+    t.string   "viewable_type"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
 
   create_table "products", :force => true do |t|
-    t.string   "name",        :default => "", :null => false
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id",     :default => 0,  :null => false
+    t.string    "name",        :default => "", :null => false
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id",     :default => 0,  :null => false
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "session_id", :null => false
+    t.text      "data"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "persistence_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "username"
+    t.string    "email"
+    t.string    "crypted_password"
+    t.string    "password_salt"
+    t.string    "persistence_token"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
