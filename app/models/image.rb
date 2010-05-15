@@ -1,12 +1,10 @@
 class Image < Asset
   has_attached_file :attachment, 
-                    :styles => {
-                      :mini => '48x48>',
-                      :small => '100x100>',
-                      :product => '240x240>',
-                      :large => '600x600>'
-                    }, 
+                    :storage => ENV['S3_BUCKET'] ? :s3 : :filesystem,
+                    :bucket => ENV['S3_BUCKET'],
+                    :styles => { :mini => '48x48>', :small => '100x100>', :product => '240x240>', :large => '600x600>' }, 
                     :default_style => :product,
-                    :url => "/assets/products/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
+                    :url => ENV['S3_BUCKET'] ? "assets/products/:id/:style/:basename.:extension" : "/assets/products/:id/:style/:basename.:extension",
+                    :path => ENV['S3_BUCKET'] ? "assets/products/:id/:style/:basename.:extension" : ":rails_root/public/assets/products/:id/:style/:basename.:extension",
+                    :s3_credentials => { :access_key_id => ENV['S3_KEY'], :secret_access_key => ENV['S3_SECRET'] }
 end
