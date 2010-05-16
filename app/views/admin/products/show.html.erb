@@ -14,3 +14,15 @@
   <%= link_to "Destroy", [:admin, @product], :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", admin_products_path %>
 </p>
+
+<h2>Images</h2>
+<% for image in @product.images %>
+  <div>
+    <%= image_tag image.attachment.url(:mini) %>
+    <%= link_to "Show", image %>
+    <%= link_to "Edit", edit_image_path(image) %>
+    <%= link_to "Destroy", image, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+<% end %>
+
+<%= render :partial => 'images/form' %>

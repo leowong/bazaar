@@ -5,6 +5,7 @@ class Admin::ProductsController < Admin::BaseController
   
   def show
     @product = Product.find(params[:id])
+    @image = Image.new(:viewable_id => @product.id, :viewable_type => "Product")
   end
 
   def new

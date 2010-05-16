@@ -13,3 +13,6 @@
   <%=h @product.description %>
 </p>
 
+<% for image in @product.images %>
+  <%= image_tag image.attachment.url(:mini) %>
+<% end %>

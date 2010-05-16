@@ -1,6 +1,8 @@
 <% form_for @image, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
+    <%= f.hidden_field :viewable_id %>
+    <%= f.hidden_field :viewable_type %>
     <%= f.label :attachment %><br />
     <%= f.file_field :attachment %>
   </p>

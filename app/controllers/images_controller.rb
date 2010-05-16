@@ -8,14 +8,15 @@ class ImagesController < ApplicationController
   end
   
   def new
-    @image = Image.new
+    flash[:notice] = "To upload an image, please go to a specific product first."
+    redirect_to admin_products_url
   end
   
   def create
     @image = Image.new(params[:image])
     if @image.save
       flash[:notice] = "Successfully created image."
-      redirect_to @image
+      redirect_to admin_product_url(@image.viewable)
     else
       render :action => 'new'
     end
@@ -29,7 +30,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     if @image.update_attributes(params[:image])
       flash[:notice] = "Successfully updated image."
-      redirect_to @image
+      redirect_to admin_product_url(@image.viewable)
     else
       render :action => 'edit'
     end
@@ -39,6 +40,6 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.destroy
     flash[:notice] = "Successfully destroyed image."
-    redirect_to images_url
+    redirect_to admin_product_url(@image.viewable)
   end
 end
