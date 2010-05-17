@@ -5,6 +5,7 @@
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'jquery' %>
+    <%= include_tiny_mce_if_needed %>
     <%= yield(:head) %>
   </head>
   <body>

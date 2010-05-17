@@ -1,4 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
+  uses_tiny_mce
+
   def index
     @products = Product.all
   end

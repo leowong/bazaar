@@ -1,13 +1,6 @@
-<% title "Product" %>
+<% title @product.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%=h @product.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @product.description %>
-</p>
+<%= @product.description %>
 
 <p>
   <%= link_to "Edit", edit_admin_product_path(@product) %> |

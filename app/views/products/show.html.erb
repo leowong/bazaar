@@ -1,4 +1,4 @@
-<% title "Product" %>
+<% title @product.name %>
 <% javascript "product" %>
 
 <div id="product-images">
@@ -15,10 +15,5 @@
   <%= link_to @product.user.username, store_path(@product.user.username) %>
 </p>
 <p>
-  <strong>Name:</strong>
-  <%=h @product.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @product.description %>
+  <%= @product.description %>
 </p>
