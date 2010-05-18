@@ -1,4 +1,10 @@
 <% title "Products" %>
+
+<% form_tag products_url, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search], :size => "25" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
 <ul>
   <% for product in @products %>
     <li>
@@ -7,3 +13,4 @@
     </li>
   <% end %>
 </ul>
+

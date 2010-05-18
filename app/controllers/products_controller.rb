@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @search = Product.name_like_all(params[:search].to_s.split)
+    @products = @search.all
   end
   
   def show
