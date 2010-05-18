@@ -3,6 +3,7 @@
   <% for product in @products %>
     <li>
       <%= link_to h(product.name), product %>
+      <%= number_to_currency product.price %>
     </li>
   <% end %>
 </ul>

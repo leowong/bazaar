@@ -15,5 +15,9 @@
   <%= link_to @product.user.username, store_path(@product.user.username) %>
 </p>
 <p>
+  <strong>Price:</strong>
+  <%= number_to_currency @product.price %>
+</p>
+<p>
   <%= @product.description %>
 </p>

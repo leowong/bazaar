@@ -1,5 +1,9 @@
 <% title @product.name %>
 
+<p>
+  <b>Price:</b>
+  <%= number_to_currency(@product.price) %>
+</p>
 <%= @product.description %>
 
 <p>

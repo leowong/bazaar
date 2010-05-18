@@ -3,10 +3,12 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Price</th>
   </tr>
   <% for product in @products %>
     <tr>
       <td><%=h product.name %></td>
+      <td><%= number_to_currency(product.price) %></td>
       <td><%= link_to "Show", [:admin, product] %></td>
       <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
       <td><%= link_to "Destroy", [:admin, product], :confirm => 'Are you sure?', :method => :delete %></td>
