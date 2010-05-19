@@ -10,11 +10,17 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<ul>
+<ul class="product-listing">
   <% for product in @products %>
     <li>
-      <%= link_to h(product.name), product %>
-      <%= number_to_currency product.price %>
+      <% link_to product do %>
+        <%= image_tag product.images.first.attachment.url(:small) unless product.images.empty? %>
+      <% end %>
+      <% link_to product, :class => "info" do %>
+        <span class="name"><%= h(product.name) %></span>
+        <span class="price selling"><%= number_to_currency product.price %></span>
+	<span class="store"><%= product.user.username %></span>
+      <% end %>
     </li>
   <% end %>
 </ul>

@@ -1,145 +1,173 @@
-/* core */
-
-body {
-  background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 12px;
-}
-
-a img {
-  border: none;
-}
-
-a {
-  color: #0000FF;
-}
-
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
-
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
-  min-height: 420px;
+#wrapper {
+    padding: 20px 40px;
+    border: solid 1px #999;
+    margin-top: 20px;
+    min-height: 420px;
 }
 
 #flash_notice, #flash_error {
-  padding: 5px 8px;
-  margin: 10px 0;
-  width: 70%;
+    padding: 5px 8px;
+    margin: 10px 0;
+    width: 70%;
 }
 
 #flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+    background-color: #CFC;
+    border: solid 1px #6C6;
 }
 
 #flash_error {
-  background-color: #FCC;
-  border: solid 1px #C66;
+    background-color: #FCC;
+    border: solid 1px #C66;
 }
 
 .fieldWithErrors {
-  display: inline;
+    display: inline;
 }
 
 #errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+    width: 400px;
+    border: 2px solid #CF0000;
+    padding: 0px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
 }
 
 #errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: 0;
+    background-color: #c00;
+    color: #fff;
 }
 
 #errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 8px;
+    color: #333;
+    margin-bottom: 0;
+    padding: 8px;
 }
 
 #errorExplanation ul {
-  margin: 2px 24px;
+    margin: 2px 24px;
 }
 
 #errorExplanation ul li {
-  font-size: 12px;
-  list-style: disc;
+    font-size: 12px;
+    list-style: disc;
 }
 
 #user_nav {
-  float: right;
-  font-size: 12px;
+    float: right;
+    font-size: 12px;
 }
 
-/* extention */
-
 #product-images {
-  margin-right: 10px;
-  width: 270px;
-  float: right;
+    margin-right: 10px;
+    width: 270px;
+    float: right;
 }
 
 #product-images #main-image {
-  min-height: 250px;
-  position: relative;
+    min-height: 250px;
+    position: relative;
 }
 
 #product-images #main-image img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 ul.thumbnails {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 ul.thumbnails li {
-  float: left;
-  margin-right: 5px;
-  padding: 3px;
-  border: 1px solid #ffffff;
-  min-height: 50px;
-  width: 50px;
-  position: relative;
+    float: left;
+    margin-right: 5px;
+    padding: 3px;
+    border: 1px solid #ffffff;
+    min-height: 50px;
+    width: 50px;
+    position: relative;
 }
 
 ul.thumbnails li img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 ul.thumbnails li:hover {
-  border-color: #cccccc;
+    border-color: #cccccc;
 }
 
 ul.thumbnails li.selected {
-  border-color: #999999;
+    border-color: #999999;
+}
+
+.product-listing {
+    list-style: none;
+    margin-top: 2em;
+    padding: 0;
+}
+
+.product-listing li {
+    height: 160px;
+    width: 120px;
+    text-align: center;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    position: relative;
+}
+
+.product-listing li a {
+    display: block;
+    text-decoration: none;
+    color: #111111;
+}
+
+.product-listing li a.info {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 5px;
+    width: 130px;
+    min-height: 60px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+}
+
+.product-listing li a.info span {
+    display: block;
+}
+
+.product-listing li:hover {
+    border-color: #777777;
+}
+
+.product-listing li:hover a.info {
+    background-color: #777777;
+    color: #FFFFFF;
+}
+
+.product-listing li a.info span.name {
+    color: #2E6AB1;
+}
+
+.product-listing li a.info span.store {
+    font-weight: bold;
 }
