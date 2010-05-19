@@ -1,7 +1,12 @@
 <% title "Products" %>
 
+<div style="float:right">
+  Sort by:
+  <%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
+</div>
+
 <% form_tag products_url, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search], :size => "25" %>
+  <%= text_field_tag :q, params[:q], :size => "25" %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
@@ -13,4 +18,3 @@
     </li>
   <% end %>
 </ul>
-
