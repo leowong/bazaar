@@ -14,7 +14,7 @@
   <% for product in @products %>
     <li>
       <% link_to product do %>
-        <%= image_tag product.images.first.attachment.url(:small) unless product.images.empty? %>
+        <%= image_tag product.images.first.cloudfront_url(:small) unless product.images.empty? %>
       <% end %>
       <% link_to product, :class => "info" do %>
         <span class="name"><%= h(product.name) %></span>
