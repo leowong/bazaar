@@ -15,7 +15,7 @@
 <h2>Images</h2>
 <% for image in @product.images %>
   <div>
-    <%= image_tag image.cloudfront_url(:mini) %>
+    <%= image_tag cloudfront(image.attachment.url(:mini)) %>
     <%= link_to "Show", image %>
     <%= link_to "Edit", edit_image_path(image) %>
     <%= link_to "Destroy", image, :confirm => 'Are you sure?', :method => :delete %>

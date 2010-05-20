@@ -16,4 +16,8 @@ module ApplicationHelper
     end
     uri.sub('?&', '?')
   end
+
+  def cloudfront(url)
+    url.gsub(/https?:\/\/s3.amazonaws.com\/bazaar-staging/, 'http://d1llmx3bs1dc42.cloudfront.net')
+  end
 end

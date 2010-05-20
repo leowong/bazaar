@@ -1,6 +1,6 @@
 <% title "Image" %>
 
-<%= image_tag @image.cloudfront_url %>
+<%= image_tag cloudfront(@image.attachment.url) %>
 
 <p>
   <strong>Attachment:</strong>

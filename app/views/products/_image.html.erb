@@ -1,1 +1,1 @@
-<%= image_tag @product.images.first.cloudfront_url(:product) unless @product.images.empty? %>
+<%= image_tag cloudfront(@product.images.first.attachment.url(:product)) unless @product.images.empty? %>

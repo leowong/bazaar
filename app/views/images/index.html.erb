@@ -6,7 +6,7 @@
   </tr>
   <% for image in @images %>
     <tr>
-      <td><%= image_tag image.cloudfront_url(:mini) %></td>
+      <td><%= image_tag cloudfront(image.attachment.url(:mini)) %></td>
       <td><%=h image.attachment %></td>
       <td><%= link_to "Show", image %></td>
       <td><%= link_to "Edit", edit_image_path(image) %></td>
