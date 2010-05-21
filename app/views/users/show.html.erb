@@ -1,19 +1,30 @@
-<% title "User" %>
+<% title @user.store_name %>
 
-<p>
-  <strong>Username:</strong>
-  <%=h @user.username %>
-</p>
-<p>
+<div style="float:left;margin:0 10px;border:1px solid #DDD">
+  <div id="map_canvas" style="width:240px;height:150px"></div>
+</div>
+
+<div>
+  <strong>Address:</strong>
+  <%=h @user.address %>
+</div>
+<div>
   <strong>Email:</strong>
   <%=h @user.email %>
-</p>
+</div>
 
-<h2>Products</h2>
-<ul>
+<div class="clear"></div>
+<ul class="product-listing">
   <% for product in @user.products %>
     <li>
-      <%= link_to h(product.name), product %>
+      <% link_to product do %>
+        <%= image_tag cloudfront(product.images.first.attachment.url(:small)) unless product.images.empty? %>
+      <% end %>
+      <% link_to product, :class => "info" do %>
+        <span class="name"><%= h(product.name) %></span>
+        <span class="price selling"><%= number_to_currency product.price %></span>
+	<span class="store"><%= product.user.username %></span>
+      <% end %>
     </li>
   <% end %>
 </ul>

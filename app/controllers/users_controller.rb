@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     end
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated profile."
-      redirect_to @user
+      redirect_to store_path(@user.username)
     else
       render :action => 'edit'
     end

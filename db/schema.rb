@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100518082312) do
+ActiveRecord::Schema.define(:version => 20100520212647) do
 
   create_table "assets", :force => true do |t|
     t.integer  "viewable_id"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(:version => 20100518082312) do
     t.string    "persistence_token"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.string    "address"
+    t.string    "latitude",          :default => "0.0"
+    t.string    "longitude",         :default => "0.0"
+    t.string    "store_name"
   end
 
 end

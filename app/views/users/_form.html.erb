@@ -5,6 +5,10 @@
     <%= f.text_field :username %>
   </p>
   <p>
+    <%= f.label :store_name %><br />
+    <%= f.text_field :store_name %>
+  </p>
+  <p>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
@@ -15,6 +19,14 @@
   <p>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :email, "Latitude & Longitude" %><br />
+    <%= f.text_field :latitude %> <%= f.text_field :longitude %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

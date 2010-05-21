@@ -1,0 +1,32 @@
+<% if controller_name == "users" && controller.action_name == "show" && @latitude != 0 && @longitude != 0 %>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script type="text/javascript">
+    document.write([
+      '<script src="http://ditu.google.cn/maps/api/js?v=3&amp;sensor=false&amp;language=zh-CN&amp;region=CN&amp;key=', {
+        'localhost': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRHSzd3a6K1IEq1xpn8dAXXEWiNcA',
+        'bazaar.heroku.com': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxRxmaxseuRV0u0rG5KRQ9rlkPoa_RREv5uGDJhVJ8nRnzdG_SFKIS88RA'
+      }[window.location.host],
+      '" type="text/javascript"><\/script>'
+    ].join(''));
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var latlng = new google.maps.LatLng(<%= @user.latitude %>, <%= @user.longitude %>);
+      var myOptions = {
+        zoom: 13,
+        center: latlng,
+        mapTypeControl: false,
+        navigationControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+      var marker = new google.maps.Marker({
+        position: latlng,
+        title: "<%= "#{@user.store_name}: #{@user.address}" %>"
+      });
+      marker.setMap(map);
+    });
+  </script>
+<% end %>
