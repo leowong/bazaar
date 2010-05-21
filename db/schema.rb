@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100520212647) do
+ActiveRecord::Schema.define(:version => 20100521093738) do
 
   create_table "assets", :force => true do |t|
     t.integer  "viewable_id"
@@ -40,17 +40,17 @@ ActiveRecord::Schema.define(:version => 20100520212647) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.string    "username"
-    t.string    "email"
-    t.string    "crypted_password"
-    t.string    "password_salt"
-    t.string    "persistence_token"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "address"
-    t.string    "latitude",          :default => "0.0"
-    t.string    "longitude",         :default => "0.0"
-    t.string    "store_name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address"
+    t.string   "store_name"
+    t.decimal  "latitude",          :precision => 8, :scale => 6, :default => 0.0
+    t.decimal  "longitude",         :precision => 9, :scale => 6, :default => 0.0
   end
 
 end
