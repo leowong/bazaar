@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :user_sessions
 
-  map.resources :users, :as => 'stores'
+  map.resources :users, :as => 'stores', :only => [:index, :show]
 
   map.resources :products, :only => [:index, :show]
 
@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
     admin.resources :products
+    admin.resources :users, :as => 'stores'
   end
 
   map.store ':username', :controller => 'users', :action => 'show'

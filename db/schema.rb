@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100521093738) do
+ActiveRecord::Schema.define(:version => 20100522203947) do
 
   create_table "assets", :force => true do |t|
     t.integer  "viewable_id"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(:version => 20100521093738) do
     t.datetime "updated_at"
     t.string   "address"
     t.string   "store_name"
-    t.decimal  "latitude",          :precision => 8, :scale => 6, :default => 0.0
-    t.decimal  "longitude",         :precision => 9, :scale => 6, :default => 0.0
+    t.decimal  "latitude",          :default => 0.0
+    t.decimal  "longitude",         :default => 0.0
+    t.text     "description"
   end
 
 end

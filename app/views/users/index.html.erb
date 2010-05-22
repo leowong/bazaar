@@ -7,15 +7,24 @@
   <%= radio_button_tag 'type', "stores", true %>Stores
 <% end %>
 
-<ul>
+<ul style="list-style:none;margin:20px 0;padding:0;width:50%">
   <% for user in @users %>
-    <li>
-      <%=h user.username %>
-      <%= link_to "Show", user.username %>
-      <%= link_to "Edit", edit_user_path(user) %>
-      <%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %>
+    <li style="margin: 5px 0">
+      <div class="clear"></div>
+      <div style="float:left;width:48px;height:48px;border:1px solid #DDD;margin-right:15px;text-align:center">
+	<% unless user.products.empty? || user.products.first.images.empty? %>
+	  <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini))), store_path(user.username) %>
+	<% end %>
+      </div>
+      <div style="min-height:60px">
+        <div>
+          <strong><%= link_to h(user.store_name), store_path(user.username) %></strong> -
+	  <%=h user.address %>
+        </div>
+        <div style="margin-top:3px">
+	  <%= truncate h(user.description), 70 %>
+        </div>
+      </div>
     </li>
   <% end %>
 </ul>
-
-<p><%= link_to "New User", new_user_path %></p>

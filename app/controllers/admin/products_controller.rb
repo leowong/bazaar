@@ -2,7 +2,8 @@ class Admin::ProductsController < Admin::BaseController
   uses_tiny_mce
 
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = current_user.products
   end
   
   def show
