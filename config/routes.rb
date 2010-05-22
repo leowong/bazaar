@@ -7,9 +7,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :user_sessions
 
-  map.resources :users
+  map.resources :users, :as => 'stores'
 
   map.resources :products, :only => [:index, :show]
+
+  map.search 'search', :controller => 'search', :action => 'index'
 
   map.namespace :admin do |admin|
     admin.resources :products
@@ -49,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "products"
+  map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
 

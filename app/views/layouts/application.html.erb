@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><%= h(yield(:title) || "Untitled") %></title>
+    <title><%= h(yield(:title) || "Bazaar") %></title>
     <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
     <!--[if lt IE 8]>
@@ -16,27 +16,21 @@
   </head>
   <body>
     <div id="wrapper" class="container">
-      <div id="user_nav">
-	<%= link_to "Products", products_path %>
-	<%= link_to "Stores", users_path %> -
-	<% if current_user %>
-	  <%= link_to "Admin", admin_products_path %>
-	  <%= link_to "Account", edit_user_path(:current) %>
-	  <%= link_to "Logout", logout_path %>
-	<% else %>
-	  <%= link_to "Register", new_user_path %>
-	  <%= link_to "Login", login_path %>
-	<% end %>
+      <div id="header">
+	<%= render :partial => 'shared/user_nav' %>
+        <h1><%= link_to "Bazaar", root_url %></h1>
       </div>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
+      <div id="main" class="clear">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
       
-      <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
-      <%- end -%>
+        <%- if show_title? -%>
+          <h2><%=h yield(:title) %></h2>
+        <%- end -%>
       
-      <%= yield %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

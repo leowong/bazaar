@@ -128,7 +128,7 @@ ul.thumbnails li.selected {
     width: 120px;
     text-align: center;
     float: left;
-    margin: 10px;
+    margin: 10px 20px 10px 0;
     padding: 10px;
     border: 1px solid #dddddd;
     position: relative;
@@ -170,4 +170,8 @@ ul.thumbnails li.selected {
 
 .product-listing li a.info span.store {
     font-weight: bold;
+}
+
+h1 a {
+    text-decoration: none;
 }

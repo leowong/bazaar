@@ -1,9 +1,4 @@
-<% title "Products", false %>
-
-<div style="float:right">
-  Sort by:
-  <%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
-</div>
+<% title "Bazaar", false %>
 
 <% form_tag search_url, :method => 'get' do %>
   <%= text_field_tag :q, params[:q], :size => "25" %>
