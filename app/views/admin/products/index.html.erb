@@ -1,19 +1,15 @@
-<% title "Products" %>
+<% title @products.first.user.store_name %>
 
+<div style="border-bottom:1px solid #DDD;margin-bottom:10px">
+  <h3>Products</h3>
+</div>
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-  </tr>
   <% for product in @products %>
     <tr>
-      <td><%=h product.name %></td>
-      <td><%= number_to_currency(product.price) %></td>
-      <td><%= link_to "Show", [:admin, product] %></td>
-      <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
-      <td><%= link_to "Destroy", [:admin, product], :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to h(product.name), [:admin, product] %></td>
+      <td style="text-align:right"><%= link_to "Destroy", [:admin, product], :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Product", new_admin_product_path %></p>
+<%= link_to "New Product", new_admin_product_path %>

@@ -1,11 +1,10 @@
-<% title @user.store_name, false %>
+<% title @user.store_name %>
 
-<div style="float:left;margin-right:20px;border:1px solid #DDD">
-  <div id="map_canvas" style="width:240px;height:150px"></div>
-</div>
-
-<div>
-  <h2><%= @user.store_name %></h2>
+<div style="border-bottom:1px solid #DDD;margin-bottom:10px">
+  <div style="float:right">
+    <%= link_to "Edit", edit_admin_user_path("current") %>
+  </div>
+  <h3>Profile</h3>
 </div>
 <div>
   <strong>Address:</strong>
@@ -15,19 +14,7 @@
   <strong>Email:</strong>
   <%=h @user.email %>
 </div>
-
-<div class="clear"></div>
-<ul class="product-listing">
-  <% for product in @user.products %>
-    <li>
-      <% link_to product do %>
-        <%= image_tag cloudfront(product.images.first.attachment.url(:small)) unless product.images.empty? %>
-      <% end %>
-      <% link_to product, :class => "info" do %>
-        <span class="name"><%= h(product.name) %></span>
-        <span class="price selling"><%= number_to_currency product.price %></span>
-	<span class="store"><%= product.user.username %></span>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <strong>Latitude & Longitude:</strong>
+  <%=h @user.latitude %>, <%=h @user.longitude %>
+</div>

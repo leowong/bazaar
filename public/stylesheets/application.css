@@ -2,6 +2,7 @@
     padding: 20px 40px;
     border: solid 1px #999;
     margin-top: 20px;
+    margin-bottom: 60px;
     min-height: 420px;
 }
 
@@ -59,7 +60,7 @@
     list-style: disc;
 }
 
-#user_nav {
+#navigation {
     float: right;
     font-size: 12px;
 }

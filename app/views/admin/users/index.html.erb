@@ -5,15 +5,24 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<ul>
+<hr class="space" />
+<table>
   <% for user in @users %>
-    <li>
-      <%=h user.username %>
-      <%= link_to "Show", store_path(user.username) %>
-      <%= link_to "Edit", edit_admin_user_path(user) %>
-      <%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
-    </li>
+    <tr>
+      <td>
+	<%= link_to user.username, store_path(user.username) %>
+      </td>
+      <td>
+	<%=h user.store_name %>
+      </td>
+      <td>
+	<%=h user.created_at %>
+      </td>
+      <td style="text-align:right">
+	<%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <p><%= link_to "New User", new_admin_user_path %></p>

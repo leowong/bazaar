@@ -10,14 +10,17 @@
   </div>
 </div>
 
-<p>
-  <strong>Store:</strong>
-  <%= link_to @product.user.store_name, store_path(@product.user.username) %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency @product.price %>
-</p>
-<p>
-  <%= @product.description %>
-</p>
+<div style="width:60%">
+  <div>
+    <strong>Price:</strong>
+    <%= number_to_currency @product.price %>
+  </div>
+  <div>
+    <strong>Store:</strong>
+    <%= link_to @product.user.store_name, store_path(@product.user.username) %> -
+    <%= @product.user.address %>
+  </div>
+  <div style="margin-top:20px">
+    <%= @product.description %>
+  </div>
+</div>

@@ -2,14 +2,18 @@ class Admin::UsersController < Admin::BaseController
   def index
     if params[:q] && !params[:q].empty?
       @search = User.username_or_store_name_like_all(params[:q].to_s.split)
-      @users = @search.all
+      @users = @search.descend_by_created_at
     else
-      @users = User.all
+      @users = User.descend_by_created_at
     end
   end
   
   def show
-    @user = User.find_by_username(params[:id])
+    unless params[:id] == "current"
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
     puts params
   end
 
@@ -21,7 +25,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Registration successful."
-      redirect_to root_url
+      redirect_to admin_users_url
     else
       render :action => 'new'
     end
@@ -43,7 +47,7 @@ class Admin::UsersController < Admin::BaseController
     end
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated profile."
-      redirect_to store_path(@user.username)
+      redirect_to admin_user_path("current")
     else
       render :action => 'edit'
     end

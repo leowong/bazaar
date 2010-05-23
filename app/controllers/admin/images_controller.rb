@@ -1,12 +1,4 @@
-class ImagesController < ApplicationController
-  def index
-    @images = Image.all
-  end
-  
-  def show
-    @image = Image.find(params[:id])
-  end
-  
+class Admin::ImagesController < Admin::BaseController
   def new
     flash[:notice] = "To upload an image, please go to a specific product first."
     redirect_to admin_products_url

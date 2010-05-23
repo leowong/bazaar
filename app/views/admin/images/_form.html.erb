@@ -1,4 +1,4 @@
-<% form_for @image, :html => { :multipart => true } do |f| %>
+<% form_for [:admin, @image], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.hidden_field :viewable_id %>

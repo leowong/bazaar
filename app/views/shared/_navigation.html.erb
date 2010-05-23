@@ -1,0 +1,10 @@
+<div id="navigation">
+  <% if current_user %>
+    <%= link_to h(current_user.store_name), store_path(current_user.username) %> |
+    <%= link_to "View Profile", admin_user_path(:current) %> |
+    <%= link_to "Manage Products", admin_products_path %> |
+    <%= link_to "Logout", logout_path %>
+  <% else %>
+    <%= link_to "Login", login_path %>
+  <% end %>
+</div>
