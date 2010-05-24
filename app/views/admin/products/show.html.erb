@@ -1,11 +1,7 @@
 <% title @product.name, false %>
 
 <div style="border-bottom:1px solid #DDD;margin-bottom:10px">
-<div style="float:right">
-  <%= link_to "Destroy", [:admin, @product], :confirm => 'Are you sure?', :method => :delete %>
-</div>
-
-<h2 style="margin-bottom:0"><%= @product.name %></h2>
+  <h2 style="margin-bottom:0"><%= @product.name %></h2>
 </div>
 
 <div style="float:right">

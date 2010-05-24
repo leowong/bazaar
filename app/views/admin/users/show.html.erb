@@ -1,11 +1,17 @@
-<% title @user.store_name %>
+<% title @user.store_name, false %>
 
 <div style="border-bottom:1px solid #DDD;margin-bottom:10px">
-  <div style="float:right">
-    <%= link_to "Edit", edit_admin_user_path("current") %>
-  </div>
   <h3>Profile</h3>
 </div>
+
+<div style="float:right">
+  <%= link_to "Edit", edit_admin_user_path("current") %>
+</div>
+
+<div style="float:left;margin-right:20px;border:1px solid #DDD">
+  <div id="map_canvas" style="width:240px;height:150px"></div>
+</div>
+
 <div>
   <strong>Address:</strong>
   <%=h @user.address %>

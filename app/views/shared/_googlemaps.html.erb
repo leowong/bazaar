@@ -11,7 +11,7 @@
   </script>
 
   <script type="text/javascript">
-    $(document).ready(function() {
+    function initialize() {
       var latlng = new google.maps.LatLng(<%= @user.latitude %>, <%= @user.longitude %>);
       var myOptions = {
         zoom: 13,
@@ -27,6 +27,11 @@
         title: "<%= "#{@user.store_name}: #{@user.address}" %>"
       });
       marker.setMap(map);
-    });
+    };
+  </script>
+<% else %>
+  <script type="text/javascript">
+    function initialize() {
+    };
   </script>
 <% end %>

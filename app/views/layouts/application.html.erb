@@ -15,7 +15,7 @@
     <%= javascript_include_tag 'application' %>
     <%= yield(:head) %>
   </head>
-  <body>
+  <body onload="initialize()">
     <div id="wrapper" class="container">
       <div id="header">
 	<%= render :partial => 'shared/navigation' %>
