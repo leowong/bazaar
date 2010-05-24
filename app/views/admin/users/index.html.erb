@@ -19,7 +19,8 @@
 	<%=h user.created_at %>
       </td>
       <td style="text-align:right">
-	<%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
+	<%= link_to "Edit", edit_admin_user_path(user == current_user ? "current" : user) %>
+        <%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
       </td>
     </tr>
   <% end %>

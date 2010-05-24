@@ -32,14 +32,16 @@
     <%= f.label :email, "Latitude & Longitude" %><br />
     <%= f.text_field :latitude %> <%= f.text_field :longitude %>
   </p>
-  <p>
-    <%= f.label :roles %><br />
-    <% for role in User::ROLES %>
-      <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
-      <%=h role.humanize %><br />
-    <% end %>
-    <%= hidden_field_tag "user[roles][]", "" %>
-  </p>
+  <% if admin? %>
+    <p>
+      <%= f.label :roles %><br />
+      <% for role in User::ROLES %>
+        <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
+        <%=h role.humanize %><br />
+      <% end %>
+      <%= hidden_field_tag "user[roles][]", "" %>
+    </p>
+  <% end %>
 
   <p><%= f.submit %></p>
 <% end %>

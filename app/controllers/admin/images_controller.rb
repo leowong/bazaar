@@ -1,4 +1,6 @@
 class Admin::ImagesController < Admin::BaseController
+  load_and_authorize_resource
+  
   def new
     flash[:notice] = "To upload an image, please go to a specific product first."
     redirect_to admin_products_url
