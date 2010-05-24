@@ -12,6 +12,7 @@
     <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' %>
     <%= render :partial => 'shared/googlemaps'%>
     <%= include_tiny_mce_if_needed %>
+    <%= javascript_include_tag 'application' %>
     <%= yield(:head) %>
   </head>
   <body>
