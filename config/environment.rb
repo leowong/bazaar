@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "paperclip"
   config.gem "tiny_mce"
   config.gem "searchlogic"
+  config.gem "cancan"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

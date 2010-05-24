@@ -7,19 +7,17 @@
 }
 
 #flash_notice, #flash_error {
-    padding: 5px 8px;
-    margin: 10px 0;
+    padding: 2px 8px;
+    margin-bottom: 10px;
     width: 70%;
 }
 
 #flash_notice {
     background-color: #CFC;
-    border: solid 1px #6C6;
 }
 
 #flash_error {
     background-color: #FCC;
-    border: solid 1px #C66;
 }
 
 .fieldWithErrors {

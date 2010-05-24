@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100522203947) do
+ActiveRecord::Schema.define(:version => 20100524124309) do
 
   create_table "assets", :force => true do |t|
     t.integer  "viewable_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20100522203947) do
     t.decimal  "latitude",          :default => 0.0
     t.decimal  "longitude",         :default => 0.0
     t.text     "description"
+    t.integer  "roles_mask"
   end
 
 end
