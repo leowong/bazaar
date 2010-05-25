@@ -168,9 +168,11 @@ ul.thumbnails li.selected {
 }
 
 .product-listing li a.info span.store {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 h1 a {
     text-decoration: none;
 }
+
+#map_canvas { float:right; margin: 0 0 20px 20px; border:1px solid #DDD; padding:0px; }

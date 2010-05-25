@@ -1,8 +1,6 @@
 <% title @user.store_name, false %>
 
-<div style="float:left;margin-right:20px;border:1px solid #DDD">
-  <div id="map_canvas" style="width:240px;height:150px"></div>
-</div>
+<div id="map_canvas" style="width:240px;height:150px"></div>
 
 <div>
   <h2><%= @user.store_name %></h2>
@@ -16,7 +14,8 @@
   <%=h @user.email %>
 </div>
 
-<div class="clear"></div>
+<hr />
+
 <ul class="product-listing">
   <% for product in @user.products %>
     <li>

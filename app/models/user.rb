@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :email, :address, :latitude, :longitude, :store_name
 
-  named_scope :with_role, lambda { |role| { :conditions => "roles_mask & #{2**ROLES.index(role.role.to_s)} > 0"} }
+  named_scope :with_role, lambda { |role| { :conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
 
   ROLES = %w[admin moderator seller]
 

@@ -6,6 +6,7 @@ module ApplicationHelper
 
   def reset_ordering_parameter
     uri = request.request_uri
+    uri = uri.gsub(/page=[0-9]*/, '')
     if uri.index("order=")
       uri = uri.sub(/&?order=\w*/, '')
     end
@@ -14,7 +15,7 @@ module ApplicationHelper
     else
       uri += "?order="
     end
-    uri.sub('?&', '?')
+    uri = uri.sub('?&', '?')
   end
 
   def cloudfront(url)

@@ -16,7 +16,7 @@
       <% link_to product, :class => "info" do %>
         <span class="name"><%= h(product.name) %></span>
         <span class="price selling"><%= number_to_currency product.price %></span>
-	<span class="store"><%= product.user.username %></span>
+	<span class="store"><%= product.user.store_name %></span>
       <% end %>
     </li>
   <% end %>

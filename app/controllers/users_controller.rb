@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
     if params[:q] && !params[:q].empty?
-      @search = User.username_or_store_name_like_all(params[:q].to_s.split)
-      @users = @search.all
+      @search = User.with_role(:seller).username_or_store_name_like_all(params[:q].to_s.split)
+      @users = @search.paginate :page => params[:page], :per_page => 10
     else
-      @users = User.all
+      @users = User.with_role(:seller).paginate :page => params[:page], :per_page => 10
     end
   end
   

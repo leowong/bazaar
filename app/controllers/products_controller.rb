@@ -2,12 +2,13 @@ class ProductsController < ApplicationController
   def index
     @search = Product.name_like_all(params[:q].to_s.split)
     if params[:order] == "pa"
-      @products = @search.ascend_by_price
+      @search = @search.ascend_by_price
     elsif params[:order] == "pd"
-      @products = @search.descend_by_price
+      @search = @search.descend_by_price
     else
-      @products = @search.ascend_by_price
+      @search = @search.ascend_by_price
     end
+    @products = @search.paginate :page => params[:page], :per_page => 10
   end
   
   def show

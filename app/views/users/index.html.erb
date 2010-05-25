@@ -9,6 +9,8 @@
 
 <ul style="list-style:none;margin:20px 0;padding:0;width:50%">
   <% for user in @users %>
+    <%# if user.role? :seller %>
+    <% if true %>
     <li style="margin: 5px 0">
       <div class="clear"></div>
       <div style="float:left;width:48px;height:48px;border:1px solid #DDD;margin-right:15px;text-align:center">
@@ -26,5 +28,11 @@
         </div>
       </div>
     </li>
+    <% end %>
   <% end %>
 </ul>
+
+<hr class="space" />
+<div id="pagination" class="clear" style="text-align:center">
+  <%= will_paginate @products %>
+</div>

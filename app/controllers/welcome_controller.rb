@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @products = Product.find :all, :order => "created_at DESC"
+    @products = Product.all :order => "created_at DESC", :limit => 10
   end
 end
