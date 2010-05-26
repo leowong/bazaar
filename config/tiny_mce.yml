@@ -6,7 +6,9 @@
 #  - fullscreen
 theme: advanced
 plugins:
+ - emotions
  - paste
+ - table
  - fullscreen
 language: zh
 paste_convert_headers_to_strong: true
@@ -17,6 +19,6 @@ paste_strip_class_attributes: true
 theme: advanced
 theme_advanced_toolbar_align: left
 theme_advanced_toolbar_location: top
-theme_advanced_buttons1: bold,italic,underline,forecolor,backcolor,link,unlink,numlist,bullist,outdent,indent,blockquote,justifyleft,justifycenter,justifyright,removeformat,cleanup,fullscreen
+theme_advanced_buttons1: bold,italic,underline,forecolor,backcolor,undo,redo,emotions,link,unlink,numlist,bullist,outdent,indent,blockquote,justifyleft,justifycenter,justifyright,table,removeformat,cleanup,fullscreen
 theme_advanced_buttons2: ''
 theme_advanced_buttons3: ''
