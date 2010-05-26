@@ -1,15 +1,15 @@
 <div id="navigation">
   <% if current_user %>
-    <%= link_to h(current_user.store_name), store_path(current_user.username) %> |
     <% if admin? %>
-      <%= link_to "Stores", admin_users_url %> |
+      <%= link_to t('layout.navigation.stores'), admin_users_url %> |
     <% end %>
+    <%= link_to h(current_user.store_name), store_path(current_user.username) %> |
+    <%= link_to t('layout.navigation.profile'), admin_user_path(:current) %> |
     <% if seller? %>
-      <%= link_to "Products", admin_products_path %> |
+      <%= link_to t('layout.navigation.products'), admin_products_path %> |
     <% end %>
-    <%= link_to "Profile", admin_user_path(:current) %> |
-    <%= link_to "Logout", logout_path %>
+    <%= link_to t('layout.navigation.logout'), logout_path %>
   <% else %>
-    <%= link_to "Login", login_path %>
+    <%= link_to t('layout.navigation.login'), login_path %>
   <% end %>
 </div>

@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><%= h(yield(:title) || "Bazaar") %></title>
+    <title><%= t('site.name') %> - <%= h(yield(:title) || t('site.tagline')) %></title>
     <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
     <!--[if lt IE 8]>
@@ -19,7 +19,7 @@
     <div id="wrapper" class="container">
       <div id="header">
 	<%= render :partial => 'shared/navigation' %>
-        <h1><%= link_to "Bazaar", root_url %></h1>
+        <h1><%= link_to t('site.name'), root_url %></h1>
       </div>
       <div id="main" class="clear">
         <%- flash.each do |name, msg| -%>

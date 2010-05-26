@@ -1,10 +1,8 @@
-<% title "Bazaar", false %>
-
 <% form_tag search_url, :method => 'get' do %>
   <%= text_field_tag :q, params[:q], :size => "25" %>
-  <%= submit_tag "Search", :name => nil %>
-  <%= radio_button_tag 'type', "products", true %>Products
-  <%= radio_button_tag 'type', "stores" %>Stores
+  <%= submit_tag t('search'), :name => nil %>
+  <%= radio_button_tag 'type', "products", true %><%= t('activerecord.models.product') %>
+  <%= radio_button_tag 'type', "stores" %><%= t('activerecord.models.user') %>
 <% end %>
 
 <ul class="product-listing">

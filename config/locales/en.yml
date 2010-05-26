@@ -3,3 +3,16 @@
 
 en:
   hello: "Hello world"
+
+  site:
+    name: "Bazaar"
+    tagline: "Start discovering the world around you"
+
+  layout:
+    navigation:
+      stores: "Stores"
+      products: "Products"
+      profile: "Profile"
+      logout: "Logout"
+
+  search: "Search"
