@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :email, :contact, :password, :password_confirmation, :address, :latitude, :longitude, :store_name, :description, :roles
-  acts_as_authentic
+
+  acts_as_authentic do |c|
+    c.validate_email_field = false
+  end
+
   has_many :products, :dependent => :destroy
 
   validates_presence_of :username, :store_name, :contact, :address, :description, :latitude, :longitude
