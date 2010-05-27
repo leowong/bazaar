@@ -16,12 +16,14 @@
     <%= yield(:head) %>
   </head>
   <body onload="initialize()">
-    <div id="wrapper" class="container">
-      <div id="header">
-	<%= render :partial => 'shared/navigation' %>
-        <h1><%= link_to t('site.name'), root_url %></h1>
-      </div>
-      <div id="main" class="clear">
+    <div id="info">
+      <%= render :partial => 'shared/navigation' %>
+    </div>
+    <div id="header" class="clear">
+      <span class="logo"><h1><%= link_to t('site.name'), root_url %></h1></span>
+    </div>
+    <div id="wrapper">
+      <div id="main" class="container clear">
         <%- flash.each do |name, msg| -%>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <%- end -%>
@@ -32,6 +34,8 @@
       
         <%= yield %>
       </div>
+    </div>
+    <div id="footer">
     </div>
   </body>
 </html>

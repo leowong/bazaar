@@ -1,9 +1,20 @@
+body {
+    background-color: #B9B9B9;
+}
+
+.container {
+    width: 900px;
+}
+
 #wrapper {
     padding: 20px 40px;
-    border: solid 1px #999;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    margin: 0px;
     min-height: 420px;
+    background-color: #FFF;
+}
+
+#main {
+    margin-bottom: 40px;
 }
 
 #flash_notice, #flash_error {
@@ -58,9 +69,57 @@
     list-style: disc;
 }
 
-#navigation {
-    float: right;
-    font-size: 12px;
+#info                      { text-align: right; background-color: #444; color:#CCC; font-size:10px; padding:0.45em 1em; position:relative; }
+#info #navigation          { display:inline; font-size:12px; }
+#info #navigation a        { text-decoration:none; color:#CCC; }
+#info #navigation a:hover  { color:#EEE; }
+
+#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; }
+#header .logo     { position:absolute; top:20px; left:32px; }
+#header .logo h1  { font-size: 28px; }
+#header a         { color:#FFF; }
+
+#search .input {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#search .input input[type="text"] {
+    font-size: 200%;
+    padding: 2px;
+    text-align: left;
+    height: 29px;
+    width: 700px;
+}
+
+#search .submit {
+    float: left;
+    margin: 12px 0 0 0;
+    padding: 0;
+}
+
+#search .submit input[type="submit"] {
+    height: 35px;
+    padding: 2px;
+    margin: 0;
+    text-align: center;
+    width: 100px;
+    background-color: #E0E0E0;
+    border: 1px solid #CCC;
+}
+
+#q {
+    background-color: #FFFFDD;
+    color: #222;
+}
+
+#search .type {
+    text-align: center;
+}
+
+#footer {
+    min-height: 80px;
 }
 
 #product-images {

@@ -1,11 +1,19 @@
-<% form_tag search_url, :method => 'get' do %>
-  <%= text_field_tag :q, params[:q], :size => "25" %>
-  <%= submit_tag t('search'), :name => nil %>
-  <%= radio_button_tag 'type', "products", true %><%= t('activerecord.models.product') %>
-  <%= radio_button_tag 'type', "stores" %><%= t('activerecord.models.user') %>
-<% end %>
+<div id="search">
+  <% form_tag search_url, :method => 'get' do %>
+    <div class="input">
+      <%= text_field_tag :q, params[:q], :size => "25" %>
+    </div>
+    <div class="submit">
+      <%= submit_tag t('search'), :name => nil %>
+    </div>
+    <div class="type clear">
+      <%= radio_button_tag 'type', "products", true %><%= t('activerecord.models.product') %>
+      <%= radio_button_tag 'type', "stores" %><%= t('activerecord.models.user') %>
+    </div>
+  <% end %>
+</div>
 
-<ul class="product-listing">
+<ul class="product-listing clear">
   <% for product in @products %>
     <li>
       <% link_to product do %>
