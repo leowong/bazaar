@@ -1,11 +1,17 @@
 class Product < ActiveRecord::Base
   attr_accessible :name, :price, :description
-  belongs_to :user
+  belongs_to :user, :touch => true
   has_many :images, :as => :viewable, :dependent => :destroy
 
   validates_presence_of :name, :price, :description
   validates_numericality_of :price
   validate :price_must_be_at_least_a_cent
+
+  named_scope :with_images, :conditions => ['assets_count > 0']
+
+  def has_images?
+    assets_count > 0
+  end
 
   protected
 

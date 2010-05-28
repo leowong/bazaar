@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100526154928) do
+ActiveRecord::Schema.define(:version => 20100528215345) do
 
   create_table "assets", :force => true do |t|
     t.integer   "viewable_id"
@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(:version => 20100526154928) do
   end
 
   create_table "products", :force => true do |t|
-    t.string    "name",        :default => "",  :null => false
+    t.string    "name",         :default => "", :null => false
     t.text      "description"
     t.timestamp "created_at"
     t.timestamp "updated_at"
-    t.integer   "user_id",     :default => 0,   :null => false
-    t.decimal   "price",       :default => 0.0
+    t.integer   "user_id",      :default => 0,  :null => false
+    t.decimal   "price"
+    t.integer   "assets_count", :default => 0
   end
 
   create_table "sessions", :force => true do |t|
@@ -49,8 +50,8 @@ ActiveRecord::Schema.define(:version => 20100526154928) do
     t.timestamp "updated_at"
     t.string    "address"
     t.string    "store_name"
-    t.decimal   "latitude",          :default => 0.0
-    t.decimal   "longitude",         :default => 0.0
+    t.decimal   "latitude"
+    t.decimal   "longitude"
     t.text      "description"
     t.integer   "roles_mask"
     t.string    "contact"
