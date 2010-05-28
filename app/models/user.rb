@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :store_name, :abbreviation, :contact, :address, :description, :latitude, :longitude
   validate :username_can_not_be_preserved_word
+  validates_uniqueness_of :abbreviation
   validates_numericality_of :latitude, :longitude
 
   named_scope :with_role, lambda { |role| { :conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
