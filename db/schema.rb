@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100528215345) do
+ActiveRecord::Schema.define(:version => 20100528231902) do
 
   create_table "assets", :force => true do |t|
     t.integer   "viewable_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100528215345) do
     t.text      "description"
     t.integer   "roles_mask"
     t.string    "contact"
+    t.string    "abbreviation"
   end
 
 end

@@ -1,7 +1,7 @@
 <% title @user.store_name, false %>
 
 <div style="border-bottom:1px solid #DDD;margin-bottom:10px">
-  <h3>Profile</h3>
+  <h3><%=h @user.store_name %></h3>
 </div>
 
 <div style="float:right">
@@ -12,6 +12,10 @@
   <div id="map_canvas" style="width:240px;height:150px"></div>
 </div>
 
+<div>
+  <strong>Abbreviation:</strong>
+  <%=h @user.abbreviation %>
+</div>
 <div>
   <strong>Address:</strong>
   <%=h @user.address %>

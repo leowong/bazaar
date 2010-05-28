@@ -26,9 +26,9 @@
       <div class="info">
       <% link_to product do %>
         <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
-        <span class="price"><%= number_to_currency product.price %></span>
       <% end %>
-      <span class="store"><%= link_to truncate(h(product.user.store_name), :length => 12), store_path(product.user.username) %></span>
+      <span class="price"><%= number_to_currency product.price %></span>
+      <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
       </div>
     </li>
   <% end %>

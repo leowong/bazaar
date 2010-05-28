@@ -276,7 +276,6 @@ ul.thumbnails li.selected {
 .product-listing li a {
     display: block;
     text-decoration: none;
-    /* font-size: smaller; */
 }
 
 .product-listing li .info {
@@ -290,7 +289,6 @@ ul.thumbnails li.selected {
 }
 
 .product-listing li .info span {
-    display: block;
     text-align: center;
 }
 
@@ -300,7 +298,6 @@ ul.thumbnails li.selected {
 
 .product-listing li .info span.price {
     color: #000;
-    /* font-weight: bold; */
 }
 
 .product-listing li .info span.store a {
