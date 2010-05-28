@@ -20,7 +20,12 @@
       <%= render :partial => 'shared/navigation' %>
     </div>
     <div id="header" class="clear">
-      <span class="logo"><h1><%= link_to t('site.name'), root_url %></h1></span>
+      <span class="logo">
+	<%= link_to image_tag('logo.png'), root_url %>
+      </span>
+      <span class="name">
+	<h1><%= link_to t('site.name'), root_url %></h1>
+      </span>
     </div>
     <div id="wrapper">
       <div id="main" class="container clear">
@@ -36,6 +41,11 @@
       </div>
     </div>
     <div id="footer">
+      <div class="container">
+	<div class="note">
+	  &copy; 2010 - <%= link_to t('site.name'), root_url %>
+	</div>
+      </div>
     </div>
   </body>
 </html>

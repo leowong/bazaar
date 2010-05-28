@@ -1,14 +1,16 @@
 <div id="search">
-  <% form_tag search_url, :method => 'get' do %>
+  <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
-      <%= text_field_tag :q, params[:q], :size => "25" %>
+      <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
     </div>
     <div class="submit">
+      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
       <%= submit_tag t('search'), :name => nil %>
     </div>
     <div class="type clear">
-      <%= radio_button_tag 'type', "products", true %><%= t('activerecord.models.product') %>
-      <%= radio_button_tag 'type', "stores" %><%= t('activerecord.models.user') %>
+      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+      &nbsp;
+      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
     </div>
   <% end %>
 </div>
@@ -16,14 +18,19 @@
 <ul class="product-listing clear">
   <% for product in @products %>
     <li>
+      <div class="image-shadow">
+	<% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div class="info">
       <% link_to product do %>
-        <%= image_tag cloudfront(product.images.first.attachment.url(:small)) unless product.images.empty? %>
+        <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
+        <span class="price"><%= number_to_currency product.price %></span>
       <% end %>
-      <% link_to product, :class => "info" do %>
-        <span class="name"><%= h(product.name) %></span>
-        <span class="price selling"><%= number_to_currency product.price %></span>
-	<span class="store"><%= product.user.store_name %></span>
-      <% end %>
+      <span class="store"><%= link_to truncate(h(product.user.store_name), :length => 12), store_path(product.user.username) %></span>
+      </div>
     </li>
   <% end %>
 </ul>
+
