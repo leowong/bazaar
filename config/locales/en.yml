@@ -15,4 +15,12 @@ en:
       profile: "Profile"
       logout: "Logout"
 
-  search: "Search"
+  search:
+    search: "Search"
+    price_low_to_high: "Price: low to high"
+    price_high_to_low: "Price: high to low"
+    nothing_found: "Nothing found."
+
+  pagination:
+    previous: "Previous"
+    next: "Next"

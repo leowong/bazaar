@@ -1,9 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def ordering_options
-    [['Price: low to high', 'pa'], ['Price: high to low', 'pd']]
+    [[t('search.price_low_to_high'), 'pa'], [t('search.price_high_to_low'), 'pd']]
   end
 
+  # OPTIMIZE: It works, but ugly! Definitely there's a better way.
   def reset_ordering_parameter
     uri = request.request_uri
     uri = uri.gsub(/page=[0-9]*/, '')

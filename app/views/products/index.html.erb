@@ -1,33 +1,55 @@
 <% title "Products", false %>
 
-<div style="float:right">
-  Sort by:
-  <%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
+<div id="search">
+  <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
+    <div class="input">
+      <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+    </div>
+    <div class="submit">
+      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
+      <%= submit_tag t('search.search'), :name => nil %>
+    </div>
+    <div class="type clear">
+      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+      &nbsp;
+      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+    </div>
+    <% unless @products.size < 2 %>
+      <div class="sorting-options">
+	<%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
-<% form_tag search_url, :method => 'get' do %>
-  <%= text_field_tag :q, params[:q], :size => "25" %>
-  <%= submit_tag "Search", :name => nil %>
-  <%= radio_button_tag 'type', "products", true %>Products
-  <%= radio_button_tag 'type', "stores" %>Stores
-<% end %>
+<% if @products.size == 0 %>
+  <div class="product-listing">
+    <%= t('search.nothing_found') %>
+  </div>
+<% else %>
 
-<ul class="product-listing">
+<ul class="product-listing clear">
   <% for product in @products %>
     <li>
+      <div class="image-shadow">
+	<% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div class="info">
       <% link_to product do %>
-        <%= image_tag cloudfront(product.images.first.attachment.url(:small)) unless product.images.empty? %>
+        <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
       <% end %>
-      <% link_to product, :class => "info" do %>
-        <span class="name"><%= h(product.name) %></span>
-        <span class="price selling"><%= number_to_currency product.price %></span>
-	<span class="store"><%= product.user.abbreviation %></span>
-      <% end %>
+      <span class="price"><%= number_to_currency product.price %></span>
+      <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+      </div>
     </li>
   <% end %>
 </ul>
 
 <hr class="space" />
 <div id="pagination" class="clear" style="text-align:center">
-  <%= will_paginate @products %>
+  <%= will_paginate @products, :previous_label => t('pagination.previous'), :next_label => t('pagination.next') %>
 </div>
+
+<% end %>

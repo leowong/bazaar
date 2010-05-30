@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @search = Product.name_like_all(params[:q].to_s.split)
+    @search = Product.with_images.name_like_all(params[:q].to_s.split)
     if params[:order] == "pa"
       @search = @search.ascend_by_price
     elsif params[:order] == "pd"
@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     else
       @search = @search.ascend_by_price
     end
-    @products = @search.paginate :page => params[:page], :per_page => 10
+    @products = @search.paginate :page => params[:page], :per_page => 15
   end
   
   def show
