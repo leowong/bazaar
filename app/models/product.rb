@@ -9,6 +9,18 @@ class Product < ActiveRecord::Base
 
   named_scope :with_images, :conditions => ['assets_count > 0']
 
+  def self.random_ids(total)
+    ps = with_images.all :select => :id , :order => "random()"
+    ids = []
+    until ids.length == total do
+      id =  ps[rand(ps.length)]["id"].to_i
+      unless ids.include?(id)
+        ids << id
+      end
+    end
+    ids
+  end
+
   def has_images?
     assets_count > 0
   end

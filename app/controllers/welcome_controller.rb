@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @products = Product.with_images :order => "updated_at DESC", :limit => 20
+    # For SQLite and PostgreSQL only, not MySQL compatible.
+    @products = Product.with_images.id_equals(Product.random_ids(15)).all(:order => "random()", :limit => 15)
   end
 end
