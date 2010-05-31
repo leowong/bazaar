@@ -1,3 +1,25 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'quicksand' %>
+  <script type="text/javascript">
+    $(function() {
+      $('#toss.button').click(function(e) {
+        $.get( $(this).attr('href'), function(data) {
+          $('#product-listing').quicksand( $(data).find('li'));
+        });  
+        e.preventDefault();  
+      });
+    });
+  </script>
+<% end %>
+
+<% content_for :header do %>
+  <div class="buttons">
+    <ul>
+      <li><a id="toss" class="button" href="/toss"><%= t('welcome.toss') %></a></li>
+    </ul>
+  </div>
+<% end %>
+
 <div id="search">
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
@@ -15,9 +37,9 @@
   <% end %>
 </div>
 
-<ul class="product-listing clear">
+<ul id="product-listing" class="product-listing clear">
   <% for product in @products %>
-    <li>
+    <li data-id="product-<%= product.id %>">
       <div class="image-shadow">
 	<% link_to product do %>
           <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
@@ -33,3 +55,4 @@
     </li>
   <% end %>
 </ul>
+

@@ -124,6 +124,28 @@ body {
 #header .name h1  { font-size: 28px; }
 #header a         { color:#FFF; }
 
+#header .buttons {
+  float: right;
+  padding: 26px 16px 0 0;
+}
+
+#header .buttons ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+#header .buttons ul li a {
+    text-decoration: none;
+    background: url("/images/button-white.png") no-repeat scroll left center transparent;
+    display: block;
+    padding: 0 16px;
+}
+
+#header .buttons ul li a:hover {
+    background: url("/images/button-green.png") no-repeat scroll left center transparent;
+}
+
 #search {
     margin: 0 20px;
     position: relative;

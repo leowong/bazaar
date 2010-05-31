@@ -26,6 +26,7 @@
       <span class="name">
 	<h1><%= link_to t('site.name'), root_url %></h1>
       </span>
+      <%= yield(:header) %>
     </div>
     <div id="wrapper">
       <div id="main" class="container clear">
