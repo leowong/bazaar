@@ -10,9 +10,9 @@
       <%= submit_tag t('search.search'), :name => nil %>
     </div>
     <div class="type clear">
-      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+      <%= radio_button_tag 'type', "products" %><%= label_tag "type_products", t('activerecord.models.product') %>
       &nbsp;
-      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+      <%= radio_button_tag 'type', "stores", true %><%= label_tag "type_stores", t('activerecord.models.user') %>
     </div>
   <% end %>
 </div>
