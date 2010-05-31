@@ -15,7 +15,10 @@
 <% content_for :header do %>
   <div class="buttons">
     <ul>
-      <li><a id="toss" class="button" href="/toss"><%= t('welcome.toss') %></a></li>
+      <li>
+	<span style="display:none"><%= image_tag 'button-green.png' %></span>
+	<a id="toss" class="button" href="/toss"><%= t('welcome.toss') %></a>
+      </li>
     </ul>
   </div>
 <% end %>

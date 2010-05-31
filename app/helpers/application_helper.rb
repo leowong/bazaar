@@ -1,7 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def ordering_options
-    [[t('search.price_low_to_high'), 'pa'], [t('search.price_high_to_low'), 'pd']]
+    [
+      [t('search.pageviews_high_to_low'), 'pvd'],
+      [t('search.price_low_to_high'), 'pa'],
+      [t('search.price_high_to_low'), 'pd']
+    ]
   end
 
   # OPTIMIZE: It works, but ugly! Definitely there's a better way.

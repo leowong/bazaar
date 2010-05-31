@@ -169,6 +169,7 @@
     search: "搜索"
     price_low_to_high: "价格: 由低到高"
     price_high_to_low: "价格: 由高到低"
+    pageviews_high_to_low: "关注度"
     no_products_found: "没有找到符合条件的商品。"
     no_stores_found: "没有找到符合条件的店铺。"
 

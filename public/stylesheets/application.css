@@ -366,11 +366,6 @@ ul.store-listing li {
     margin: 27px 27px;
 }
 
-ul.store-listing li .image {
-    width: 58px;
-    height: 58px;
-}
-
 ul.store-listing li .info {
     margin-left: 80px;
     padding-top: 2px;
