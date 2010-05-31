@@ -1,38 +1,51 @@
 <% title "Stores", false %>
 
-<% form_tag search_url, :method => 'get' do %>
-  <%= text_field_tag :q, params[:q], :size => "25" %>
-  <%= submit_tag "Search", :name => nil %>
-  <%= radio_button_tag 'type', "products" %>Products
-  <%= radio_button_tag 'type', "stores", true %>Stores
+<div id="search">
+  <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
+    <div class="input">
+      <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+    </div>
+    <div class="submit">
+      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
+      <%= submit_tag t('search.search'), :name => nil %>
+    </div>
+    <div class="type clear">
+      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+      &nbsp;
+      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+    </div>
+  <% end %>
+</div>
+
+<% if @users.size == 0 %>
+  <div class="store-listing">
+    <%= t('search.no_stores_found') %>
+  </div>
+<% else %>
+  <ul class="store-listing">
+    <% for user in @users %>
+      <li>
+        <div class="image-shadow image">
+	  <% unless user.products.empty? || user.products.first.images.empty? %>
+	    <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini))), store_path(user.username) %>
+	  <% end %>
+        </div>
+        <div class="info">
+          <div class="title">
+            <% link_to store_path(user.username) do %>
+	      <%= truncate h(user.store_name), 30 %> -
+	      <%= truncate h(user.address), 30 %>
+	    <% end %>
+          </div>
+          <div style="margin-top:3px">
+	    <%= truncate h(user.description), 90 %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+  </ul>
 <% end %>
 
-<ul style="list-style:none;margin:20px 0;padding:0;width:50%">
-  <% for user in @users %>
-    <%# if user.role? :seller %>
-    <% if true %>
-    <li style="margin: 5px 0">
-      <div class="clear"></div>
-      <div style="float:left;width:48px;height:48px;border:1px solid #DDD;margin-right:15px;text-align:center">
-	<% unless user.products.empty? || user.products.first.images.empty? %>
-	  <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini))), store_path(user.username) %>
-	<% end %>
-      </div>
-      <div style="min-height:60px">
-        <div>
-          <strong><%= link_to h(user.store_name), store_path(user.username) %></strong> -
-	  <%=h user.address %>
-        </div>
-        <div style="margin-top:3px">
-	  <%= truncate h(user.description), 70 %>
-        </div>
-      </div>
-    </li>
-    <% end %>
-  <% end %>
-</ul>
-
-<hr class="space" />
-<div id="pagination" class="clear" style="text-align:center">
-  <%= will_paginate @products %>
+<div id="pagination" class="clear">
+  <%= will_paginate @users, :previous_label => t('pagination.previous'), :next_label => t('pagination.next') %>
 </div>
