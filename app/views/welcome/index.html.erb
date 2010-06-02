@@ -1,35 +1,9 @@
-<% content_for :head do %>
-  <%= javascript_include_tag 'quicksand' %>
-  <script type="text/javascript">
-    $(function() {
-      $('#toss.button').click(function(e) {
-        $.get( $(this).attr('href'), function(data) {
-          $('#product-listing').quicksand( $(data).find('li'));
-        });  
-        e.preventDefault();  
-      });
-    });
-  </script>
-<% end %>
-
-<% content_for :header do %>
-  <div class="buttons">
-    <ul>
-      <li>
-	<span style="display:none"><%= image_tag 'button-green.png' %></span>
-	<a id="toss" class="button" href="/toss"><%= t('welcome.toss') %></a>
-      </li>
-    </ul>
-  </div>
-<% end %>
-
 <div id="search">
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
     </div>
     <div class="submit">
-      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
       <%= submit_tag t('search.search'), :name => nil %>
     </div>
     <div class="type clear">
@@ -40,22 +14,38 @@
   <% end %>
 </div>
 
-<ul id="product-listing" class="product-listing clear">
-  <% for product in @products %>
-    <li data-id="product-<%= product.id %>">
-      <div class="image-shadow">
-	<% link_to product do %>
-          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
-	<%  end %>
-      </div>
-      <div class="info">
-      <% link_to product do %>
-        <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
-      <% end %>
-      <span class="price"><%= number_to_currency product.price %></span>
-      <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
-      </div>
-    </li>
+<% cols = 5 %>
+<% rows = (@products.length / cols).to_i %>
+<% start = 0 %>
+<table class="product-listing">
+  <% rows.times do %>
+    <tbody>
+      <tr>
+	<% for product in @products[start...start=start+cols] %>
+          <td>
+	    <table class="product-item">
+	      <tbody>
+		<tr>
+		  <td class="image">
+		    <div class="image"><div class="image-shadow">
+		      <% link_to product do %>
+	                <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+		      <% end %>
+		    </div>
+		    <div class="info clear">
+		      <% link_to product do %>
+                        <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
+		      <% end %>
+		      <span class="price"><%= number_to_currency product.price %></span>
+		      <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+		    </div>
+		  </td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </td>
+        <% end %>
+      </tr>
+    </tbody>
   <% end %>
-</ul>
-
+</table>

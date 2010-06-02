@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
     <![endif]-->
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' %>
+    <%= javascript_include_tag 'jquery' %>
     <%= render :partial => 'shared/googlemaps'%>
     <%= include_tiny_mce_if_needed %>
     <%= javascript_include_tag 'application' %>
@@ -21,7 +21,7 @@
     </div>
     <div id="header" class="clear">
       <span class="logo">
-	<%= link_to image_tag('logo.png'), root_url %>
+	<%= link_to image_tag('logo.gif'), root_url %>
       </span>
       <span class="name">
 	<h1><%= link_to t('site.name'), root_url %></h1>
