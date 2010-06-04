@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  before_filter :set_cache_buster, :only => :toss
+
   def index
     # For SQLite and PostgreSQL only, not MySQL compatible.
     @products = Product.with_images.id_equals(Product.random_ids(15)).all(:order => "random()", :limit => 15)
@@ -7,5 +9,5 @@ class WelcomeController < ApplicationController
   def toss
     @products = Product.with_images.id_equals(Product.random_ids(15)).all(:order => "random()", :limit => 15)
     render :layout => false
-  end    
+  end
 end
