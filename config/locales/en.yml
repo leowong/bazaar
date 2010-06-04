@@ -29,3 +29,12 @@ en:
 
   welcome:
     toss: "Toss!"
+
+  user_sessions:
+    login: "Login"
+    username: "Username"
+    password: "Password"
+    remember_me: "Remember me"
+    sign_in: "Sign in"
+    login_successful: "Logged in successfully"
+    logout_successful: "You have been logged out."

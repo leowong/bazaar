@@ -66,20 +66,6 @@ a {
     margin-bottom: 25px;
 }
 
-#flash_notice, #flash_error {
-    padding: 2px 8px;
-    margin-bottom: 10px;
-    width: 70%;
-}
-
-#flash_notice {
-    background-color: #CFC;
-}
-
-#flash_error {
-    background-color: #FCC;
-}
-
 .fieldWithErrors {
     display: inline;
 }
@@ -126,30 +112,22 @@ a {
 #header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #DDD; }
 
 #header .logo     { position:absolute; top:10px; left:32px; }
-#header .name { position:absolute; top:20px; left:88px; }
+#header .name     { position:absolute; top:20px; left:88px; }
 #header .name h1  { font-size: 28px; }
 #header a         { color:#FFF; }
 
-#header .buttons {
-  float: right;
-  padding: 26px 16px 0 0;
+#header .flash-messages {
+    position: absolute;
+    top: 26px;
+    right: 16px;
 }
 
-#header .buttons ul {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
+#flash_notice {
+    color: #FFF;
 }
 
-#header .buttons ul li a {
-    text-decoration: none;
-    background: url("/images/button-white.png") no-repeat scroll left center transparent;
-    display: block;
-    padding: 0 16px;
-}
-
-#header .buttons ul li a:hover {
-    background: url("/images/button-green.png") no-repeat scroll left center transparent;
+#flash_error {
+    color: #F00;
 }
 
 #search {
@@ -346,6 +324,10 @@ div.store-listing {
     min-height: 480px;
     height: auto !important;
     height: 480px;
+}
+
+#login .text input {
+    width: 210px;
 }
 
 h1 a {

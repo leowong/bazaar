@@ -26,14 +26,15 @@
       <span class="name">
 	<h1><%= link_to t('site.name'), root_url %></h1>
       </span>
+      <span class="flash-messages">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+      </span>
       <%= yield(:header) %>
     </div>
     <div id="wrapper">
       <div id="main" class="container clear">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <%- end -%>
-      
         <%- if show_title? -%>
           <h2><%=h yield(:title) %></h2>
         <%- end -%>
