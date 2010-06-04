@@ -12,8 +12,8 @@
     <%= javascript_include_tag 'jquery' %>
     <%= render :partial => 'shared/googlemaps'%>
     <%= include_tiny_mce_if_needed %>
-    <%= javascript_include_tag 'application' %>
     <%= yield(:head) %>
+    <%= javascript_include_tag 'application' %>
   </head>
   <body onload="initialize()">
     <div id="info">
@@ -41,6 +41,7 @@
       
         <%= yield %>
       </div>
+      <%= yield(:wrapper) %>
     </div>
     <div id="footer">
       <div class="container">

@@ -1,0 +1,19 @@
+<ul id="product-listing" class="product-listing clear">
+  <% for product in @products %>
+    <li data-id="product-<%= product.id %>">
+      <div class="image-shadow">
+	<% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div>
+	<!-- for ie6/7's sake -->
+      </div>
+      <div class="info">
+        <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
+        <span class="price"><%= number_to_currency product.price %></span>
+        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+      </div>
+    </li>
+  <% end %>
+</ul>

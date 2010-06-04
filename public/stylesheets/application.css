@@ -12,7 +12,7 @@ a {
 
 .image-shadow {
     float:left;
-    background: url(/images/shadowAlpha.png) no-repeat bottom right !important;
+    /* background: url(/images/shadowAlpha.png) no-repeat bottom right !important; */
     background: url(/images/shadow.gif) no-repeat bottom right;
     margin: 10px 0 0 10px !important;
     margin: 10px 0 0 5px;
@@ -54,12 +54,15 @@ a {
 }
 
 #wrapper {
-    padding: 20px 40px;
+    
+    padding: 20px 80px;
     margin: 0px;
-    min-height: 480px;
-    height: auto !important;
-    height: 480px;
+    min-height: 680px !important;
+    /* height: auto !important; */
+    height: auto;
+    height: 680px;
     background-color: #FFF;
+    position: relative;
 }
 
 #main {
@@ -130,6 +133,32 @@ a {
     color: #F00;
 }
 
+#wrapper .buttons {
+    width: 80px;
+    position: absolute;
+    top: 32px;
+    left: 52px;
+}
+
+#wrapper .buttons ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper .buttons ul li a {
+    text-decoration: none;
+    color: #000;
+    background: url("/images/button-green.png") no-repeat scroll left center transparent;
+    display: block;
+    padding: 0 16px;
+}
+
+#wrapper .buttons ul li a:hover {
+    /* background: url("/images/button-green.png") no-repeat scroll left center transparent; */
+}
+
+
 #search {
     margin: 0 20px;
     position: relative;
@@ -137,12 +166,12 @@ a {
 
 #search .input {
     text-align: left;
-    margin-left: 50px;
+    margin-left: 45px;
 }
 
 #search .input input {
     font-size: 200%;
-    width: 740px;
+    width: 758px;
     background: url(/images/search.gif) no-repeat bottom right #FFFFDD;
 }
 
@@ -159,6 +188,7 @@ a {
 #q {
     background-color: #FFFFDD;
     color: #222;
+    margin-top: 12px;
     margin-bottom: 12px;
 }
 
@@ -262,34 +292,45 @@ div.product-listing {
     height: 480px;
 }
 
-table.product-listing {
-    width: 790px;
-    margin: 0 auto;
-    padding: 0;
+ul.product-listing {
+    list-style: none;
+    display: block;
+    height: 400px;
 }
 
-table.product-item {
-    margin: 0;
-    padding: 0;
+ul.product-listing li {
+    display: inline;
+    width: 120px;
+    float: left;
+    margin: 0 21px;
+    position: relative;
+    min-height: 190px;
+    height: auto !important;
+    height: 190px;
 }
 
-table.product-item .info {
+ul.product-listing li .info {
+    position: absolute;
+    top: 120px;
+    right: 0;  /* for ie7 */
+    left: 0;   /* for ie7 */
+    width: 120px;
     text-align: center;
 }
 
-table.product-item .info span {
+ul.product-listing li .info a {
     display: block;
 }
 
-table.product-item .info a .name{
+ul.product-listing li .info .name a {
     color: #2E6AB1;
 }
 
-table.product-item .info .price {
+ul.product-listing li .info .price {
     color: #000;
 }
 
-table.product-item .info .store a {
+ul.product-listing li .info .store a {
     color: #808080;
 }
 

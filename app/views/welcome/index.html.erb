@@ -1,3 +1,15 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'quicksand' %>
+<% end %>
+
+<% content_for :wrapper do %>
+  <div class="buttons">
+    <ul>
+      <li><a id="toss" class="button" href="/toss"><%= t('welcome.toss') %></a></li>
+    </ul>
+  </div>
+<% end %>
+
 <div id="search">
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
@@ -14,38 +26,22 @@
   <% end %>
 </div>
 
-<% cols = 5 %>
-<% rows = (@products.length / cols).to_i %>
-<% start = 0 %>
-<table class="product-listing">
-  <% rows.times do %>
-    <tbody>
-      <tr>
-	<% for product in @products[start...start=start+cols] %>
-          <td>
-	    <table class="product-item">
-	      <tbody>
-		<tr>
-		  <td class="image">
-		    <div class="image"><div class="image-shadow">
-		      <% link_to product do %>
-	                <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
-		      <% end %>
-		    </div>
-		    <div class="info clear">
-		      <% link_to product do %>
-                        <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
-		      <% end %>
-		      <span class="price"><%= number_to_currency product.price %></span>
-		      <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
-		    </div>
-		  </td>
-		</tr>
-	      </tbody>
-	    </table>
-	  </td>
-        <% end %>
-      </tr>
-    </tbody>
+<ul id="product-listing" class="product-listing clear">
+  <% for product in @products %>
+    <li data-id="product-<%= product.id %>">
+      <div class="image-shadow">
+	<% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div>
+	<!-- for ie6/7's sake -->
+      </div>
+      <div class="info">
+        <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
+        <span class="price"><%= number_to_currency product.price %></span>
+        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+      </div>
+    </li>
   <% end %>
-</table>
+</ul>
