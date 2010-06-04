@@ -15,10 +15,8 @@ $(document).ready(function() {
   } else {
     $('#toss').click(function(e) {
       $('#toss').fadeOut(200);
-      /* $('.image-shadow').css('background', 'none !important'); */
       $.get($(this).attr('href'), function(data) {
         $('#product-listing').quicksand($(data).find('li'), function() {
-	  /* $('li div.image').addClass('image-shadow'); */
           $('#toss').delay(500).fadeIn(500);
         });
       });

@@ -14,9 +14,7 @@
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
-    </div>
-    <div class="submit">
-      <%= submit_tag t('search.search'), :name => nil %>
+      <%= submit_tag '', :name => nil, :class => "submit" %>
     </div>
     <div class="type clear">
       <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>

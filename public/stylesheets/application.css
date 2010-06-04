@@ -161,35 +161,53 @@ a {
 
 #search {
     margin: 0 20px;
-    position: relative;
 }
 
 #search .input {
     text-align: left;
-    margin-left: 45px;
+    margin: 0 45px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    position: relative;
 }
 
 #search .input input {
     font-size: 200%;
-    width: 758px;
-    background: url(/images/search.gif) no-repeat bottom right #FFFFDD;
+    width: 721px;
+    vertical-align: middle;
+    /* background: url(/images/search.gif) no-repeat bottom right #FFFFDD; */
 }
 
-#search .submit input {
-    background-color: #DDDDDD;
+#search .input input.submit {
+    font-size: 14px;
+    display: inline;
+    background: url(/images/search.gif) 0 0 no-repeat;
     color: #333333;
-    display: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 29px;
+    width: 29px;
+    position: absolute;
+    top: 15px;
+    left: 729px;
 }
 
 #search label {
     font-weight: normal;
 }
 
-#q {
+input#q {
+    height: 29px;
     background-color: #FFFFDD;
     color: #222;
     margin-top: 12px;
     margin-bottom: 12px;
+    padding-right: 36px;
+    border-top: 1px solid #CCC;
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    border-left: 1px solid #CCC;
 }
 
 #search .type {
