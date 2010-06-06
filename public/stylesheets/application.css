@@ -56,10 +56,9 @@ a {
 #wrapper {
     padding: 20px 80px;
     margin: 0px;
-    /* height: auto !important; */
+    min-height: 570px;
     height: auto !important;
-    height: 680px;
-    min-height: 680px;
+    height: 570px;
     background-color: #FFF;
     position: relative;
 }
@@ -314,17 +313,17 @@ div.product-listing {
     margin: 48px 0 0 48px;
     font-size: larger;
     text-align: center;
-    min-height: 680px;
+    min-height: 570px;
     height: auto !important;
-    height: 680px;
+    height: 570px;
 }
 
 ul.product-listing {
     list-style: none;
     display: block;
-    min-height: 546px;
+    min-height: 570px;
     height: auto !important;
-    height: 546px;
+    height: 570px;
 }
 
 ul.product-listing li {
