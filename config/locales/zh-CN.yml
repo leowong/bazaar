@@ -190,3 +190,6 @@
     sign_in: "登录"
     login_successful: "登录成功"
     logout_successful: "注销成功"
+
+  users:
+    newly_added: "最新店铺"

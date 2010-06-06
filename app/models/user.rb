@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_numericality_of :latitude, :longitude
 
   named_scope :with_role, lambda { |role| { :conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
+  named_scope :recent, lambda { |*args| {:conditions => ["created_at > ?", (args.first || 4.weeks.ago)]} }
 
   ROLES = %w[admin moderator seller]
   PRESERVED_WORDS = %w[
@@ -22,6 +23,12 @@ class User < ActiveRecord::Base
     jobs legal tos news success business status
     api dev privacy goodies highlight
   ]
+
+  def self.new_store
+    # for SQLite and PostgreSQL only, not MySQL compatible
+    ids = with_role(:seller).recent.all(:select => :id, :order => "random()")
+    find(ids[rand(ids.length)].id.to_i)
+  end
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum

@@ -18,6 +18,14 @@
   <body onload="initialize()">
     <div id="info">
       <%= render :partial => 'shared/navigation' %>
+      <div class="new_store">
+	<% @new_store = new_store %>
+	<% link_to store_path(@new_store.username) do %>
+          <strong><%= t('users.newly_added') %></strong>:
+          <%= truncate(@new_store.store_name, 25) %> -
+	  <%= truncate(@new_store.description, 50) %>
+        <% end %>
+      </div>
     </div>
     <div id="header" class="clear">
       <span class="logo">

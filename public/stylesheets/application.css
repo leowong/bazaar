@@ -105,10 +105,45 @@ a {
     list-style: disc;
 }
 
-#info                      { text-align: right; background-color: #444; color:#CCC; font-size:10px; padding:0.45em 1em; position:relative; border-bottom: 1px solid #777 }
-#info #navigation          { display:inline; font-size:12px; }
-#info #navigation a        { text-decoration:none; color:#CCC; }
-#info #navigation a:hover  { color:#EEE; }
+#info {
+    background-color: #444;
+    color: #CCC;
+    font-size: 12px;
+    text-align: left;
+    height: 18px;
+    margin: 0;
+    padding: 0.45em 1em;
+    border-bottom: 1px solid #777
+}
+
+#info a {
+    color: #CCC;
+}
+
+#info a:hover {
+    color: #FFF;
+}
+
+#info .new_store {
+    display: inline;
+    max-width: 70%;
+    height: 18px;
+    overflow: hidden;
+}
+
+#info #navigation {
+    float: right;
+    color: #CCC;
+}
+
+#info #navigation a {
+    text-decoration: none;
+    color: #CCC;
+}
+
+#info #navigation a:hover {
+    color: #EEE;
+}
 
 #header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #DDD; }
 
@@ -132,14 +167,23 @@ a {
 }
 
 #wrapper .buttons {
+    margin: 0;
+    padding: 0;
+    /* font-size: 14px; */
     width: 80px;
     position: absolute;
     top: 32px;
     left: 52px;
+    text-align: left; /* for ie6/7 */
 }
 
 #wrapper .buttons ul {
-    list-style: none outside none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper .buttons ul li {
     margin: 0;
     padding: 0;
 }
@@ -148,8 +192,9 @@ a {
     text-decoration: none;
     color: #000;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
-    display: block;
-    padding: 0 16px;
+    display: inline;
+    margin: 0;
+    padding: 0 0 0 16px;
 }
 
 #wrapper .buttons ul li a:hover {

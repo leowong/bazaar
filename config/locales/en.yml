@@ -40,3 +40,6 @@ en:
     sign_in: "Sign in"
     login_successful: "Logged in successfully"
     logout_successful: "You have been logged out."
+
+  users:
+    newly_added: "Newly added"
