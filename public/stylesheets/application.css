@@ -11,7 +11,7 @@ a {
 }
 
 .image-shadow {
-    float:left;
+    float: left;
     /* background: url(/images/shadowAlpha.png) no-repeat bottom right !important; */
     background: url(/images/shadow.gif) no-repeat bottom right;
     margin: 10px 0 0 10px !important;
@@ -54,13 +54,12 @@ a {
 }
 
 #wrapper {
-    
     padding: 20px 80px;
     margin: 0px;
-    min-height: 680px !important;
     /* height: auto !important; */
-    height: auto;
+    height: auto !important;
     height: 680px;
+    min-height: 680px;
     background-color: #FFF;
     position: relative;
 }
@@ -158,7 +157,6 @@ a {
     /* background: url("/images/button-green.png") no-repeat scroll left center transparent; */
 }
 
-
 #search {
     margin: 0 20px;
 }
@@ -210,16 +208,27 @@ input#q {
     border-left: 1px solid #CCC;
 }
 
-#search .type {
+#search .info {
     text-align: left;
-    margin-left: 56px;
-    margin-bottom: 24px;
+    width: 758px;
+    margin: 0 0 24px 45px;
 }
 
-#search .sorting-options {
-    position: absolute;
-    top: 56px;
-    right: 27px;
+#search .info .search-options {
+    float: right;
+    margin-top: -3px;
+}
+
+#search .info .count-number {
+    margin-left: 7px;
+}
+
+.sorting-options {
+    width: 759px;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    margin-left: 65px;
+    text-align: right;
 }
 
 select {
@@ -305,15 +314,17 @@ div.product-listing {
     margin: 48px 0 0 48px;
     font-size: larger;
     text-align: center;
-    min-height: 480px;
+    min-height: 680px;
     height: auto !important;
-    height: 480px;
+    height: 680px;
 }
 
 ul.product-listing {
     list-style: none;
     display: block;
-    height: 400px;
+    min-height: 546px;
+    height: auto !important;
+    height: 546px;
 }
 
 ul.product-listing li {

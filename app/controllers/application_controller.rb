@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
+  before_filter :set_cache_buster
+
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message # "Access denied."
     redirect_to root_url

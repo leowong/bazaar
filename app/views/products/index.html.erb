@@ -4,45 +4,46 @@
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+      <%= submit_tag '', :name => nil, :class => "submit" %>
     </div>
-    <div class="submit">
-      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
-      <%= submit_tag t('search.search'), :name => nil %>
-    </div>
-    <div class="type clear">
-      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
-      &nbsp;
-      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
-    </div>
-    <% unless @products.size < 2 %>
-      <div class="sorting-options">
-	<%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
+    <div class="info clear">
+      <div class="search-options">
+        <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+        &nbsp;
+        <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
       </div>
-    <% end %>
+      <div class="count-number">
+	<%= @products_count.to_s %> <%= t('search.result') %>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<% if @products.size == 0 %>
+<% if @products_count == 0 %>
   <div class="product-listing">
     <%= t('search.no_products_found') %>
   </div>
 <% else %>
-  <ul class="product-listing clear">
+  <% unless @products_count < 2 %>
+    <div class="sorting-options">
+      <%= select_tag 'o', options_for_select(ordering_options, params[:order]), :onchange => "window.location='#{reset_ordering_parameter}'+this.options[this.selectedIndex].value;" %>
+    </div>
+  <% end %>
+  <ul id="product-listing" class="product-listing clear">
     <% for product in @products %>
-      <li>
+      <li data-id="product-<%= product.id %>">
         <div class="image-shadow">
-          <% link_to product do %>
+	  <% link_to product do %>
             <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
 	  <%  end %>
         </div>
+        <div>
+	  <!-- for ie6/7's sake -->
+        </div>
         <div class="info">
-          <% link_to product do %>
-            <span class="name"><%= truncate(h(product.name), :length => 12) %></span>
-          <% end %>
+          <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
           <span class="price"><%= number_to_currency product.price %></span>
-          <span class="store">
-            <%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %>
-	  </span>
+          <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
         </div>
       </li>
     <% end %>

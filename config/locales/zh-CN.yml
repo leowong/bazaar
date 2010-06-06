@@ -167,9 +167,11 @@
 
   search:
     search: "搜索"
+    result: "条搜索结果"
+    total: "{{products}} 件商品, &nbsp; {{stores}} 家店铺"
     price_low_to_high: "价格: 由低到高"
     price_high_to_low: "价格: 由高到低"
-    pageviews_high_to_low: "关注度"
+    pageviews_high_to_low: "关注度: 由高到低"
     no_products_found: "没有找到符合条件的商品。"
     no_stores_found: "没有找到符合条件的店铺。"
 

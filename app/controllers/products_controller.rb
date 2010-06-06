@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
       @search = @search.descend_by_pageviews_count
     end
 
+    @products_count = @search.size
     @products = @search.paginate :page => params[:page], :per_page => 15
   end
   

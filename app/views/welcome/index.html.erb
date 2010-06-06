@@ -16,10 +16,15 @@
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
       <%= submit_tag '', :name => nil, :class => "submit" %>
     </div>
-    <div class="type clear">
-      <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
-      &nbsp;
-      <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+    <div class="info clear">
+      <div class="search-options">
+        <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+        &nbsp;
+        <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+      </div>
+      <div class="count-number">
+	<%=t 'search.total', :products => @products_count, :stores => @stores_count %>
+      </div>
     </div>
   <% end %>
 </div>
