@@ -1,5 +1,11 @@
+body, #wrapper, .container {
+    font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+    font-size: 12px;
+}
+
 body {
     background-color: #B9B9B9;
+    color: #000;
 }
 
 .container {
@@ -8,6 +14,12 @@ body {
 
 a {
     text-decoration: none;
+    color: #2E6AB1;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #2E6AB1;
 }
 
 .image-shadow {
@@ -125,8 +137,7 @@ a {
 }
 
 #info .new_store {
-    display: inline;
-    max-width: 70%;
+    max-width: 81%;
     height: 18px;
     overflow: hidden;
 }
@@ -214,6 +225,7 @@ a {
 }
 
 #search .input input {
+    height: 30px;
     font-size: 200%;
     width: 721px;
     vertical-align: middle;
@@ -231,8 +243,9 @@ a {
     height: 29px;
     width: 29px;
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 729px;
+    overflow: hidden;
 }
 
 #search label {
@@ -409,35 +422,62 @@ ul.product-listing li .info .store a {
 
 ul.store-listing {
     list-style: none;
-    margin: 30px 0 0 16px;
+    margin: 48px 0 0 34px;
     padding: 0;
     width: 80%;
+    min-height: 570px;
+    height: auto !important;
+    height: 570px;
 }
 
 ul.store-listing li {
-    margin: 27px 27px;
+    display: list-item;
+    margin: 0 27px;
+    clear: both;
+}
+
+ul.store-listing li .image {
+    /* display: none; */
+    width: 80px;
+    float: left;
+}
+
+ul.store-listing li a img {
+    padding: 3px;
+    border: 1px solid #CCC;
 }
 
 ul.store-listing li .info {
-    margin-left: 80px;
-    padding-top: 2px;
-    min-height: 60px;
-    height: auto !important;
-    height: 60px;
+    width: 85%;
+    float: left;
     font-size: 12px;
+    /* margin: 0 0 0 80px; */
+    padding: 2px 0 0 0;
+    min-height: 80px;
+    height: auto !important;
+    height: 80px;
 }
 
 ul.store-listing li .info .title {
     font-size: 14px;
 }
 
+ul.store-listing li .info .description {
+    margin-top: 3px;
+}
+
+ul.store-listing li .info .description a {
+    color: #000;
+    display: block;
+}
+
 div.store-listing {
     margin: 48px 0 0 48px;
     font-size: larger;
     text-align: center;
-    min-height: 480px;
+    min-height: 570px;
     height: auto !important;
-    height: 480px;
+    height: 570px;
 }
 
 #login .text input {

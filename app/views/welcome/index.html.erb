@@ -23,7 +23,7 @@
         <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
       </div>
       <div class="count-number">
-	<%=t 'search.total', :products => @products_count, :stores => @stores_count %>
+	<%= t('search.total', :products => @products_count, :stores => @stores_count) %>
       </div>
     </div>
   <% end %>

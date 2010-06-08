@@ -4,15 +4,17 @@
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
     <div class="input">
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+      <%= submit_tag '', :name => nil, :class => "submit" %>
     </div>
-    <div class="submit">
-      <a href="javascript:document.sitesearch.submit()" style="cursor:default"><%= image_tag 'search.gif' %></a>
-      <%= submit_tag t('search.search'), :name => nil %>
-    </div>
-    <div class="type clear">
-      <%= radio_button_tag 'type', "products" %><%= label_tag "type_products", t('activerecord.models.product') %>
-      &nbsp;
-      <%= radio_button_tag 'type', "stores", true %><%= label_tag "type_stores", t('activerecord.models.user') %>
+    <div class="info clear">
+      <div class="search-options">
+        <%= radio_button_tag 'type', "products" %><%= label_tag "type_products", t('activerecord.models.product') %>
+        &nbsp;
+        <%= radio_button_tag 'type', "stores", true %><%= label_tag "type_stores", t('activerecord.models.user') %>
+      </div>
+      <div class="count-number">
+	<%= @users_count.to_s %> <%= t('search.result') %>
+      </div>
     </div>
   <% end %>
 </div>
@@ -25,22 +27,26 @@
   <ul class="store-listing">
     <% for user in @users %>
       <li>
-        <div class="image-shadow image">
+	<div class="image">
+        <div class="image-shadow">
 	  <% unless user.products.empty? || user.products.first.images.empty? %>
-	    <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini))), store_path(user.username) %>
+	    <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini)), :width => 48, :height => 48), store_path(user.username) %>
 	  <% end %>
         </div>
+	</div>
+
         <div class="info">
           <div class="title">
             <% link_to store_path(user.username) do %>
-	      <%= truncate h(user.store_name), 30 %> -
+	      <%= truncate h(user.store_name), 18 %> -
 	      <%= truncate h(user.address), 30 %>
 	    <% end %>
           </div>
-          <div style="margin-top:3px">
-	    <%= truncate h(user.description), 90 %>
+          <div class="description">
+	    <%= link_to truncate(h(user.description), 90), store_path(user.username) %>
           </div>
         </div>
+
       </li>
       <% end %>
   </ul>
