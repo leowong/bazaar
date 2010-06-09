@@ -1,35 +1,51 @@
 <% title @user.store_name, false %>
 
-<div id="map_canvas" style="width:240px;height:150px"></div>
+<div id="store-info">
+  <h2><%= link_to @user.store_name, store_path(@user.username) %></h2>
+  <div class="clearfix"> <!-- ie6/7 fix -->
+    <div id="map_canvas" style="width:270px;height:100px">
+      <!-- for google maps -->
+    </div>
+    <div class="attributes">
+      <div class="clearfix">
+        <div class="key"><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</div>
+        <div class="value"><%=h @user.store_name %></div>
+      </div>
+      <div  class="clearfix">
+        <div class="key"><strong><%= t('activerecord.attributes.user.address') %></strong>:</div>
+        <div class="value"><%=h @user.address %></div>
+      </div>
+      <div class="clearfix">
+        <div class="key"><strong><%= t('activerecord.attributes.user.contact') %></strong>:</div>
+        <div class="value"><%=h @user.contact %></div>
+      </div>
+      <div class="clearfix">
+        <div class="key"><strong><%= t('users.url') %></strong>:</div>
+        <div class="value"><%= link_to store_url(@user.username), store_url(@user.username) %></div>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <%= simple_format h(@user.description) %>
+  </div>
+</div>
 
-<div>
-  <h2><%= @user.store_name %></h2>
-</div>
-<div>
-  <strong>Address:</strong>
-  <%=h @user.address %>
-</div>
-<div>
-  <strong>Contact:</strong>
-  <%=h @user.contact %>
-</div>
-<div style="margin-top:15px">
-  <%=h @user.description %>
-</div>
-
-<hr />
-
-<ul class="product-listing">
-  <% for product in @user.products %>
-    <li>
-      <% link_to product do %>
-        <%= image_tag cloudfront(product.images.first.attachment.url(:small)) unless product.images.empty? %>
-      <% end %>
-      <% link_to product, :class => "info" do %>
-        <span class="name"><%= h(product.name) %></span>
-        <span class="price selling"><%= number_to_currency product.price %></span>
-	<span class="store"><%= product.user.username %></span>
-      <% end %>
+<ul id="product-listing" class="product-listing clear">
+  <% for product in @user.products.with_images %>
+    <li data-id="product-<%= product.id %>">
+      <div class="image-shadow">
+        <% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div>
+        <!-- for ie6/7's sake -->
+      </div>
+      <div class="info">
+        <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
+        <span class="price"><%= number_to_currency product.price %></span>
+        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+      </div>
     </li>
   <% end %>
 </ul>

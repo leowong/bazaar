@@ -144,6 +144,10 @@
         name: "品名"
         price: "价格"
         description: "描述"
+      user:
+        store_name: "公司名称"
+        address: "公司地址"
+        contact: "联系方式"
   
   activemodel:
     errors:
@@ -193,3 +197,4 @@
 
   users:
     newly_added: "最新店铺"
+    url: "店铺网址"

@@ -22,6 +22,14 @@ a:hover {
     color: #2E6AB1;
 }
 
+h1 a {
+    text-decoration: none;
+}
+
+h2 a, h2 a:hover {
+    color: #000;
+}
+
 .image-shadow {
     float: left;
     /* background: url(/images/shadowAlpha.png) no-repeat bottom right !important; */
@@ -484,11 +492,36 @@ div.store-listing {
     width: 210px;
 }
 
-h1 a {
-    text-decoration: none;
+#store-info {
+    width: 759px;
+    margin-left: 65px;
 }
 
-#map_canvas { float:right; margin: 0 0 20px 20px; border:1px solid #DDD; padding:0px; }
+#store-info #map_canvas {
+    float: left;
+    margin: 0 20px 0 0;
+    padding: 0;
+    border: 1px solid #DDD;
+}
+
+#store-info .attributes {
+    float: left;
+    line-height: 26px;
+}
+
+#store-info .attributes .key {
+    width: 5.5em;
+    float: left;
+    margin-left: 5px;
+}
+
+#store-info .attributes .value {
+    float: left;
+}
+
+#store-info .description {
+    margin-top: 20px;
+}
 
 /* pagination */
 
