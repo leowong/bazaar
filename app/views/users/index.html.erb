@@ -29,8 +29,8 @@
       <li>
 	<div class="image">
         <div class="image-shadow">
-	  <% unless user.products.empty? || user.products.first.images.empty? %>
-	    <%= link_to image_tag(cloudfront(user.products.first.images.first.attachment.url(:mini)), :width => 48, :height => 48), store_path(user.username) %>
+	  <% unless user.products.with_images.empty? %>
+	    <%= link_to image_tag(cloudfront(user.products.with_images.descend_by_pageviews_count.first.images.first.attachment.url(:mini)), :width => 48, :height => 48), store_path(user.username) %>
 	  <% end %>
         </div>
 	</div>

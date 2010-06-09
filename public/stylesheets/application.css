@@ -76,9 +76,9 @@ h2 a, h2 a:hover {
 #wrapper {
     padding: 20px 80px;
     margin: 0px;
-    min-height: 570px;
+    min-height: 697px;
     height: auto !important;
-    height: 570px;
+    height: 697px;
     background-color: #FFF;
     position: relative;
 }
@@ -521,6 +521,18 @@ div.store-listing {
 
 #store-info .description {
     margin-top: 20px;
+}
+
+#store-products ul.product-listing {
+    min-height: 0px;
+    height: auto !important;
+    height: 0px;
+}
+
+#store-products ul.product-listing li {
+    min-height: 172px;
+    height: auto !important;
+    height: 172px;
 }
 
 /* pagination */
