@@ -35,7 +35,7 @@
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :email, "Latitude & Longitude" %><br />
+    <%= f.label :email, t('users.latitude_n_longitude') %><br />
     <%= f.text_field :latitude %> <%= f.text_field :longitude %>
   </p>
   <p>
@@ -46,5 +46,5 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit t('buttons.submit') %></p>
 <% end %>

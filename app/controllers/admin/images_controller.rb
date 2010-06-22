@@ -9,7 +9,7 @@ class Admin::ImagesController < Admin::BaseController
   def create
     @image = Image.new(params[:image])
     if @image.save
-      flash[:notice] = "Successfully created image."
+      flash[:notice] = t('messages.created_successful')
       redirect_to admin_product_url(@image.viewable)
     else
       render :action => 'new'
@@ -23,7 +23,7 @@ class Admin::ImagesController < Admin::BaseController
   def update
     @image = Image.find(params[:id])
     if @image.update_attributes(params[:image])
-      flash[:notice] = "Successfully updated image."
+      flash[:notice] = t('messages.updated_successful')
       redirect_to admin_product_url(@image.viewable)
     else
       render :action => 'edit'
@@ -33,7 +33,7 @@ class Admin::ImagesController < Admin::BaseController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    flash[:notice] = "Successfully destroyed image."
+    flash[:notice] = t('messages.destroyed_successful')
     redirect_to admin_product_url(@image.viewable)
   end
 end

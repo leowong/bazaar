@@ -1,9 +1,13 @@
 <% title "Stores", false %>
 
-<% form_tag admin_users_url, :method => 'get' do %>
-  <%= text_field_tag :q, params[:q], :size => "25" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div id="search" style="margin-left:0">
+  <% form_tag admin_users_url, :name => "sitesearch", :method => 'get' do %>
+    <div class="input" style="margin-left:0">
+      <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+      <%= submit_tag '', :name => nil, :class => "submit" %>
+    </div>
+  <% end %>
+</div>
 
 <hr class="space" />
 <table>
@@ -22,14 +26,14 @@
 	<%=h user.contact %>
       </td>
       <td>
-	<%=h user.created_at %>
+	<%=h user.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %>
       </td>
       <td style="text-align:right">
-	<%= link_to "Edit", edit_admin_user_path(user == current_user ? "current" : user) %>
-        <%= link_to "Destroy", [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
+	<%= link_to t('buttons.edit'), edit_admin_user_path(user == current_user ? "current" : user) %>
+        <%= link_to t('buttons.destroy'), [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New User", new_admin_user_path %></p>
+<p><%= link_to t('users.new_user'), new_admin_user_path %></p>

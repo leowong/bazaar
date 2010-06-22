@@ -1,15 +1,32 @@
-<% title current_user.store_name %>
+<% title t('layout.navigation.products') %>
 
-<div style="border-bottom:1px solid #DDD;margin-bottom:10px">
-  <h3>Products</h3>
-</div>
-<table>
-  <% for product in @products %>
+<table class="products">
+  <thead>
     <tr>
-      <td><%= link_to h(product.name), [:admin, product] %></td>
-      <td style="text-align:right"><%= link_to "Destroy", [:admin, product], :confirm => 'Are you sure?', :method => :delete %></td>
+      <th><%= t('activerecord.attributes.product.name') %></th>
+      <th class="number"><%= t('activerecord.attributes.product.pageviews_count') %></th>
+      <th></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for product in @products %>
+      <tr>
+        <td><%=h product.name %></td>
+        <td class="number"><%= product.pageviews_count %></td>
+        <td style="text-align:right">
+	  <%= link_to t('buttons.edit'), [:admin, product] %> &nbsp;
+	  <%= link_to t('buttons.destroy'), [:admin, product], :confirm => t('messages.are_you_sure'), :method => :delete %>
+	</td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td class="number">&Sigma; <%= @products.sum(:pageviews_count) %></td>
+      <td></td>
+    </tr>
+  </tfoot>
 </table>
 
-<%= link_to "New Product", new_admin_product_path %>
+<%= link_to t('products.new_product'), new_admin_product_path %>

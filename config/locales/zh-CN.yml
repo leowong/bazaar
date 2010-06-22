@@ -144,10 +144,18 @@
         name: "品名"
         price: "价格"
         description: "描述"
+        pageviews_count: "访问量"
       user:
-        store_name: "公司名称"
-        address: "门店地址"
+        username: "用户名"
+        store_name: "公司全称"
+        abbreviation: "公司简称"
         contact: "联系方式"
+        address: "门店地址"
+        description: "店铺介绍"
+        latitude: "北纬"
+        longitude: "东经"
+        password: "登录密码"
+        password_confirmation: "密码验证"
   
   activemodel:
     errors:
@@ -156,6 +164,20 @@
           one: "有 1 个错误发生导致「{{model}}」无法被保存。"
           other: "有 {{count}} 个错误发生导致「{{model}}」无法被保存。"
         body: "如下字段出现错误："
+
+  messages:
+    are_you_sure: "确定要删除吗？"
+    registered_successful: "注册成功"
+    updated_successful: "更新成功"
+    destroyed_successful: "删除成功"
+    created_successful: "创建成功"
+
+  buttons:
+    edit: "修改"
+    submit: "提交"
+    destroy: "删除"
+    cancel: "取消"
+    change: "更换"
   
   site:
     name: "浔城店家"
@@ -196,5 +218,19 @@
     logout_successful: "注销成功"
 
   users:
+    new_user: "添加用户"
     newly_added: "新店推介"
     url: "店铺网址"
+    latitude_n_longitude: "北纬，东经"
+    edit_store: "修改店铺资料"
+    should_be_at_least_001: "不能小于 0.01"
+    is_preserved: "为保留字"
+
+  products:
+    new_product: "添加商品"
+    edit_product: "编辑商品信息"
+
+  images:
+    upload: "上传图片"
+    edit_image: "更换图片"
+

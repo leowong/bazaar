@@ -1,11 +1,11 @@
 <% title @user.store_name, false %>
 
-<div style="border-bottom:1px solid #DDD;margin-bottom:10px">
+<div style="margin-bottom:10px">
   <h3><%=h @user.store_name %></h3>
 </div>
 
 <div style="float:right">
-  <%= link_to "Edit", edit_admin_user_path("current") %>
+  <%= link_to t('buttons.edit'), edit_admin_user_path("current") %>
 </div>
 
 <div style="float:left;margin-right:20px;border:1px solid #DDD">
@@ -13,19 +13,19 @@
 </div>
 
 <div>
-  <strong>Abbreviation:</strong>
+  <strong><%= t('activerecord.attributes.user.abbreviation') %>:</strong>
   <%=h @user.abbreviation %>
 </div>
 <div>
-  <strong>Address:</strong>
+  <strong><%= t('activerecord.attributes.user.address') %>:</strong>
   <%=h @user.address %>
 </div>
 <div>
-  <strong>Contact:</strong>
+  <strong><%= t('activerecord.attributes.user.contact') %>:</strong>
   <%=h @user.contact %>
 </div>
 <div>
-  <strong>Latitude & Longitude:</strong>
+  <strong><%= t('users.latitude_n_longitude') %>:</strong>
   <%=h @user.latitude %>, <%=h @user.longitude %>
 </div>
 <div style="margin-top:15px">

@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::BaseController
   uses_tiny_mce
 
   def index
-    @products = current_user.products
+    @products = current_user.products.descend_by_pageviews_count
     authorize! :read, Product
   end
   
@@ -22,7 +22,7 @@ class Admin::ProductsController < Admin::BaseController
     @product.user_id = current_user.id
     authorize! :create, @product
     if @product.save
-      flash[:notice] = "Successfully created product."
+      flash[:notice] = t('messages.created_successful')
       redirect_to [:admin, @product]
     else
       render :action => 'new'
@@ -38,7 +38,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find(params[:id])
     authorize! :update, @product
     if @product.update_attributes(params[:product])
-      flash[:notice] = "Successfully updated product."
+      flash[:notice] = t('messages.updated_successful')
       redirect_to [:admin, @product]
     else
       render :action => 'edit'
@@ -49,7 +49,7 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find(params[:id])
     authorize! :update, @product
     @product.destroy
-    flash[:notice] = "Successfully destroyed product."
+    flash[:notice] = t('messages.destroyed_successful')
     redirect_to admin_products_url
   end
 end

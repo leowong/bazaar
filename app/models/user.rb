@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_numericality_of :latitude, :longitude
 
   named_scope :with_role, lambda { |role| { :conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
-  named_scope :recent, lambda { |*args| {:conditions => ["created_at > ?", (args.first || 4.weeks.ago)]} }
+  named_scope :recent, lambda { |*args| {:conditions => ["created_at > ?", (args.first || 8.weeks.ago)]} }
 
   ROLES = %w[admin moderator seller]
   PRESERVED_WORDS = %w[
@@ -27,7 +27,11 @@ class User < ActiveRecord::Base
   def self.new_store
     # for SQLite and PostgreSQL only, not MySQL compatible
     ids = with_role(:seller).recent.all(:select => :id, :order => "random()")
-    find(ids[rand(ids.length)].id.to_i)
+    if ids.length == 0
+      last
+    else
+      find(ids[rand(ids.length)].id.to_i)
+    end
   end
 
   def roles=(roles)
@@ -43,6 +47,6 @@ class User < ActiveRecord::Base
   end
 
   def username_can_not_be_preserved_word
-    errors.add(:username, 'has been taken') if PRESERVED_WORDS.include?(username)
+    errors.add(:username, I18n.t('users.is_preserved')) if PRESERVED_WORDS.include?(username)
   end
 end

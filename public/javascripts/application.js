@@ -23,4 +23,13 @@ $(document).ready(function() {
       e.preventDefault();
     });
   }
+
+  $('table.products tbody tr').hover(
+    function() {
+      $(this).addClass('hover');
+    },
+    function() {
+      $(this).removeClass('hover');
+    }
+  );
 });

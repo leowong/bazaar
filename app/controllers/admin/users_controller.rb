@@ -27,7 +27,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.new(params[:user])
     authorize! :create, @user
     if @user.save
-      flash[:notice] = "Registration successful."
+      flash[:notice] = t('messages.registered_successful')
       redirect_to admin_users_url
     else
       render :action => 'new'
@@ -52,7 +52,7 @@ class Admin::UsersController < Admin::BaseController
     end
     authorize! :update, @user
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated profile."
+      flash[:notice] = t('messages.updated_successful')
       redirect_to (admin? && @user != current_user) ? admin_users_url : admin_user_path("current")
     else
       render :action => 'edit'
@@ -63,7 +63,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id])
     authorize! :destroy, @user
     @user.destroy
-    flash[:notice] = "Successfully destroyed user."
+    flash[:notice] = t('messages.destroyed_successful')
     redirect_to admin_users_url
   end
 end

@@ -535,6 +535,37 @@ div.store-listing {
     height: 172px;
 }
 
+/* admin products */
+
+table.products {
+    border-collapse: collapse;
+}
+
+table.products thead th {
+    background-color: #FFF;
+}
+
+table.products tbody tr.hover {
+    background-color: #F0F0F0;
+}
+
+table.products th.number, table.products td.number {
+    text-align: right;
+}
+
+table.products tfoot tr td {
+    font-weight: bold;
+    font-style: normal;
+}
+
+table.products thead th {
+    border-bottom: 1px solid #CCC;
+}
+
+table.products tfoot td {
+    border-top: 1px solid #CCC;
+}
+
 /* pagination */
 
 .pagination {

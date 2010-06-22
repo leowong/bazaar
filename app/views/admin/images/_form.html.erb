@@ -3,8 +3,8 @@
   <p>
     <%= f.hidden_field :viewable_id %>
     <%= f.hidden_field :viewable_type %>
-    <%= f.label :attachment %><br />
+    <%= f.label :attachment, t('images.upload') %><br />
     <%= f.file_field :attachment %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit t('buttons.submit') %></p>
 <% end %>

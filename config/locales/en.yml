@@ -4,6 +4,20 @@
 en:
   hello: "Hello world"
 
+  messages:
+    are_you_sure: "Are you sure?"
+    registered_successful: "Registration successful."
+    updated_successful: "Successfully updated profile."
+    destroyed_successful: "Successfully destroyed user."
+    created_successful: "Successfully created product."
+
+  buttons:
+    edit: "Edit"
+    submit: "Submit"
+    destroy: "Destroy"
+    cancel: "Cancel"
+    change: "Change"
+
   site:
     name: "Bazaar"
     tagline: "Start discovering the world around you"
@@ -42,5 +56,18 @@ en:
     logout_successful: "You have been logged out."
 
   users:
+    new_user: "New User"
     newly_added: "Newly added"
     url: "Store URL"
+    latitude_n_longitude: "Latitude & Longitude"
+    edit_store: "Edit Store"
+    should_be_at_least_001: "should be at least 0.01"
+    is_preserved: "is preserved"
+
+  products:
+    new_product: "New Product"
+    edit_product: "Edit Product"
+
+  images:
+    upload: "Upload image"
+    edit_image: "Change Image"
