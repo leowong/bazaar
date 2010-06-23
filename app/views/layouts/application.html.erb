@@ -10,10 +10,11 @@
     <![endif]-->
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'jquery' %>
-    <%= render :partial => 'shared/googlemaps'%>
+    <%= render :partial => 'shared/googlemaps' %>
     <%= include_tiny_mce_if_needed %>
     <%= yield(:head) %>
     <%= javascript_include_tag 'application' %>
+    <%= render :partial => 'shared/google_analytics' %>
   </head>
   <body onload="initialize()">
     <div id="info">
