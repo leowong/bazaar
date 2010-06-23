@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def cloudfront(url)
-    url.gsub(/https?:\/\/s3.amazonaws.com\/bazaar-\w+/, "http://" +  ENV['CLOUDFRONT_SERVER']) if ENV['CLOUDFRONT_SERVER']
+    url.gsub!(/https?:\/\/s3.amazonaws.com\/bazaar-\w+/, "http://" +  ENV['CLOUDFRONT_SERVER']) if ENV['CLOUDFRONT_SERVER']
     url
   end
 
