@@ -11,4 +11,13 @@ class Image < Asset
   validates_attachment_presence :attachment
   validates_attachment_size :attachment, :less_than => 5.megabytes
   validates_attachment_content_type :attachment, :content_type => ['image/gif', 'image/jpeg', 'image/png']
+
+  before_post_process :randomize_image_file_name
+
+  protected
+
+  def randomize_image_file_name
+    extension = File.extname(attachment_file_name).downcase
+    self.attachment.instance_write(:file_name, "#{ActiveSupport::SecureRandom.hex.first(8)}#{extension}")
+  end
 end
