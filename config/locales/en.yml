@@ -17,6 +17,9 @@ en:
     destroy: "Destroy"
     cancel: "Cancel"
     change: "Change"
+    navigation:
+      home: "Home"
+      toss: "Toss"
 
   site:
     name: "Bazaar"
@@ -42,9 +45,6 @@ en:
   pagination:
     previous: "Previous"
     next: "Next"
-
-  welcome:
-    toss: "Toss!"
 
   user_sessions:
     login: "Login"

@@ -50,7 +50,12 @@
       
         <%= yield %>
       </div>
-      <%= yield(:wrapper) %>
+      <div class="buttons">
+	<ul>
+	  <li><%= link_to t('buttons.navigation.home'), root_url, :class => "button" %></li>
+	  <%= yield(:buttons) %>
+	</ul>
+      </div>
     </div>
     <div id="footer">
       <div class="container">

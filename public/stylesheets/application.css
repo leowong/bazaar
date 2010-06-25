@@ -203,7 +203,7 @@ h2 a, h2 a:hover {
 }
 
 #wrapper .buttons ul li {
-    margin: 0;
+    margin: 0 0 5px 0;
     padding: 0;
 }
 
@@ -211,7 +211,7 @@ h2 a, h2 a:hover {
     text-decoration: none;
     color: #000;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
-    display: inline;
+    /* display: inline; */
     margin: 0;
     padding: 0 0 0 16px;
 }
