@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
     pages about help blog wiki docs support pricing how contact
     jobs legal tos news success business status
     api dev privacy goodies highlight
-    admin seller moderator demo leo
   ]
 
   def self.new_store
