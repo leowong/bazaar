@@ -4,36 +4,43 @@
   <li><%= link_to truncate(@product.user.abbreviation, :omission => "..", :length => 5), store_path(@product.user.username), :class => "button" %></li>
 <% end %>
 
+<% if @product.images.size > 1 %>
+  <% content_for :preloader do %>
+    <% @product.images.each do |i| %>  
+      <%= image_tag cloudfront(i.attachment.url(:product)), :width => "1", :height => "1" %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <div id="product">
   <h2><%= link_to @product.name, @product %></h2>
 
-<div id="product-images">
-  <div id="main-image">
-    <%= render 'image' -%>
+  <div id="product-images">
+    <div id="main-image">
+      <%= render 'image' -%>
+    </div>
+    <div id="thumbnails">
+      <%= render 'thumbnails', :product => @product -%>
+    </div>
   </div>
-  <div id="thumbnails">
-    <%= render 'thumbnails', :product => @product -%>
-  </div>
-</div>
 
-<div>
   <div>
-    <strong><%= t('activerecord.attributes.product.price') %>:</strong>
-    <%= number_to_currency @product.price %>
+    <div>
+      <strong><%= t('activerecord.attributes.product.price') %>:</strong>
+      <%= number_to_currency @product.price %>
+    </div>
+    <div>
+      <strong><%= t('activerecord.models.user') %>:</strong>
+      <% link_to store_path(@product.user.username) do %>
+        <%= @product.user.abbreviation %> -
+        <%= @product.user.address %>
+      <% end %>
+    </div>
   </div>
+
   <div>
-    <strong><%= t('activerecord.models.user') %>:</strong>
-    <% link_to store_path(@product.user.username) do %>
-      <%= @product.user.abbreviation %> -
-      <%= @product.user.address %>
-    <% end %>
+    <div style="margin-top:20px">
+      <%= @product.description %>
+    </div>
   </div>
-</div>
-
-<div>
-
-  <div style="margin-top:20px">
-    <%= @product.description %>
-  </div>
-</div>
 </div>

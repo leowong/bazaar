@@ -209,7 +209,7 @@ h2 a, h2 a:hover {
 
 #wrapper .buttons ul li a {
     text-decoration: none;
-    color: #000;
+    color: #2E6AB1;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
     /* display: inline; */
     margin: 0;
@@ -639,4 +639,26 @@ ul.thumbnails li.selected {
 .pagination .next_page {
     margin-left: 15px;
     padding: 2px 4px;
+}
+
+/* image preloader
+   see http://perishablepress.com/press/2009/01/18/css-image-caching/ */
+
+@media screen {
+    div#preloader {
+	position: absolute;
+	left: -9999px;
+	top:  -9999px;
+    }
+
+    div#preloader img {
+	display: block;
+    }
+}
+
+@media print {
+    div#preloader, div#preloader img {
+	visibility: hidden;
+	display: none;
+    }
 }
