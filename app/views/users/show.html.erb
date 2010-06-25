@@ -1,7 +1,7 @@
-<% title @user.store_name, false %>
+<% title @user.abbreviation, false %>
 
 <div id="store-info">
-  <h2><%= link_to @user.store_name, store_path(@user.username) %></h2>
+  <h2><%= link_to @user.abbreviation, store_path(@user.username) %></h2>
   <div class="clearfix"> <!-- ie6/7 fix -->
     <div id="map_canvas" style="width:270px;height:100px">
       <!-- for google maps -->

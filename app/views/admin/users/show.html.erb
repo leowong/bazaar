@@ -1,7 +1,7 @@
-<% title @user.store_name, false %>
+<% title @user.abbreviation, false %>
 
 <div style="margin-bottom:10px">
-  <h3><%=h @user.store_name %></h3>
+  <h3><%=h @user.abbreviation %></h3>
 </div>
 
 <div style="float:right">
@@ -13,8 +13,8 @@
 </div>
 
 <div>
-  <strong><%= t('activerecord.attributes.user.abbreviation') %>:</strong>
-  <%=h @user.abbreviation %>
+  <strong><%= t('activerecord.attributes.user.store_name') %>:</strong>
+  <%=h @user.store_name %>
 </div>
 <div>
   <strong><%= t('activerecord.attributes.user.address') %>:</strong>
