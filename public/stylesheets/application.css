@@ -209,7 +209,7 @@ h2 a, h2 a:hover {
 
 #wrapper .buttons ul li a {
     text-decoration: none;
-    color: #2E6AB1;
+    color: #000;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
     /* display: inline; */
     margin: 0;
@@ -457,7 +457,7 @@ div.store-listing {
 #store-info .attributes .key {
     width: 5.5em;
     float: left;
-    margin-left: 5px;
+    margin: 0;
 }
 
 #store-info .attributes .value {
