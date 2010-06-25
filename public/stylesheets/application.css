@@ -527,9 +527,9 @@ table.products tfoot td {
 
 #product-images #main-image {
     width: 252px;
-    min-height: 250px;
+    min-height: 252px;
     height: auto !important;
-    height: 250px;
+    height: 252px;
     position: relative;
     border: 1px solid #CCC;
     margin-left: 5px;
@@ -541,8 +541,8 @@ table.products tfoot td {
     bottom: 0;
     left: 0;
     right: 0;
-    /* margin: auto; */
-    margin: 5px;
+    margin: 0;
+    padding: 6px;
 }
 
 ul.thumbnails {
@@ -552,6 +552,7 @@ ul.thumbnails {
 }
 
 ul.thumbnails li {
+    display: inline;
     float: left;
     margin: 0 5px 5px 5px;
     padding: 2px;
@@ -569,7 +570,8 @@ ul.thumbnails li img {
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 0;
+    padding: 3px;
 }
 
 ul.thumbnails li:hover {
