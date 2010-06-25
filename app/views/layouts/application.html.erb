@@ -23,7 +23,7 @@
 	<% @new_store = new_store %>
 	<% link_to store_path(@new_store.username) do %>
           <strong><%= t('users.newly_added') %></strong>:
-          <%= truncate(@new_store.store_name, 18) %> -
+          <%= truncate(@new_store.abbreviation, 18) %> -
 	  <%= truncate(@new_store.description, 54) %>
         <% end %>
       </div>
@@ -32,7 +32,7 @@
       <span class="logo">
 	<%= link_to image_tag('logo.gif'), root_url %>
       </span>
-      <span class="name">
+      <span class="name" style="display:none">
 	<h1><%= link_to t('site.name'), root_url %></h1>
       </span>
       <span class="flash-messages">

@@ -1,5 +1,9 @@
 <% title @user.abbreviation, false %>
 
+<% content_for :buttons do %>
+  <li><%= link_to truncate(@user.abbreviation, 9), store_path(@user.username), :class => "button" %></li>
+<% end %>
+
 <div id="store-info">
   <h2><%= link_to @user.abbreviation, store_path(@user.username) %></h2>
   <div class="clearfix"> <!-- ie6/7 fix -->

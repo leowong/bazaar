@@ -1,5 +1,9 @@
 <% title @product.name, false %>
 
+<% content_for :buttons do %>
+  <li><%= link_to truncate(@product.user.abbreviation, 9), store_path(@product.user.username), :class => "button" %></li>
+<% end %>
+
 <div id="product">
   <h2><%= link_to @product.name, @product %></h2>
 
