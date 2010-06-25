@@ -318,63 +318,6 @@ select {
     text-decoration: none;
 }
 
-#product-images {
-    margin-right: 10px;
-    width: 270px;
-    float: right;
-}
-
-#product-images #main-image {
-    min-height: 250px;
-    height: auto !important;
-    height: 250px;
-    position: relative;
-}
-
-#product-images #main-image img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-ul.thumbnails {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-ul.thumbnails li {
-    float: left;
-    margin-right: 5px;
-    padding: 3px;
-    border: 1px solid #ffffff;
-    min-height: 50px;
-    height: auto !important;
-    height: 50px;
-    width: 50px;
-    position: relative;
-}
-
-ul.thumbnails li img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-ul.thumbnails li:hover {
-    border-color: #cccccc;
-}
-
-ul.thumbnails li.selected {
-    border-color: #999999;
-}
-
 div.product-listing {
     margin: 48px 0 0 48px;
     font-size: larger;
@@ -492,14 +435,16 @@ div.store-listing {
     width: 210px;
 }
 
+/* stores show */
+
 #store-info {
     width: 759px;
     margin-left: 65px;
 }
 
 #store-info #map_canvas {
-    float: left;
-    margin: 0 20px 0 0;
+    float: right;
+    margin: 0 0 0 20px;
     padding: 0;
     border: 1px solid #DDD;
 }
@@ -564,6 +509,75 @@ table.products thead th {
 
 table.products tfoot td {
     border-top: 1px solid #CCC;
+}
+
+/* products show */
+
+#product {
+    width: 759px;
+    margin-left: 65px;
+}
+
+#product-images {
+    margin: 0 0 0 16px;
+    padding: 0;
+    width: 264px;
+    float: right;
+}
+
+#product-images #main-image {
+    width: 252px;
+    min-height: 250px;
+    height: auto !important;
+    height: 250px;
+    position: relative;
+    border: 1px solid #CCC;
+    margin-left: 5px;
+}
+
+#product-images #main-image img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* margin: auto; */
+    margin: 5px;
+}
+
+ul.thumbnails {
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.thumbnails li {
+    float: left;
+    margin: 0 5px 5px 5px;
+    padding: 2px;
+    border: 1px solid #FFF;
+    min-height: 50px;
+    height: auto !important;
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+ul.thumbnails li img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+ul.thumbnails li:hover {
+    border-color: #CCC;
+}
+
+ul.thumbnails li.selected {
+    border-color: #999999;
 }
 
 /* pagination */

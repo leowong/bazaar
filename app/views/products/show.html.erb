@@ -1,5 +1,7 @@
-<% title @product.name %>
-<% javascript "product" %>
+<% title @product.name, false %>
+
+<div id="product">
+  <h2><%= link_to @product.name, @product %></h2>
 
 <div id="product-images">
   <div id="main-image">
@@ -10,17 +12,24 @@
   </div>
 </div>
 
-<div style="width:60%">
+<div>
   <div>
-    <strong>Price:</strong>
+    <strong><%= t('activerecord.attributes.product.price') %>:</strong>
     <%= number_to_currency @product.price %>
   </div>
   <div>
-    <strong>Store:</strong>
-    <%= link_to @product.user.store_name, store_path(@product.user.username) %> -
-    <%= @product.user.address %>
+    <strong><%= t('activerecord.models.user') %>:</strong>
+    <% link_to store_path(@product.user.username) do %>
+      <%= @product.user.store_name %> -
+      <%= @product.user.address %>
+    <% end %>
   </div>
+</div>
+
+<div>
+
   <div style="margin-top:20px">
     <%= @product.description %>
   </div>
+</div>
 </div>
