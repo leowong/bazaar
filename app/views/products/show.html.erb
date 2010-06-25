@@ -20,7 +20,7 @@
   <div>
     <strong><%= t('activerecord.models.user') %>:</strong>
     <% link_to store_path(@product.user.username) do %>
-      <%= @product.user.store_name %> -
+      <%= @product.user.abbreviation %> -
       <%= @product.user.address %>
     <% end %>
   </div>
