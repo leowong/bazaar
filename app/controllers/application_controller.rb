@@ -27,8 +27,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_domain
     if request.env['HTTP_HOST'] == "www.xuncheng.net"
-      headers["Status"] = "301 Moved Permanently"
-      redirect_to request.url.gsub('www.xuncheng.net', 'xuncheng.net')
+      redirect_to request.url.gsub('www.xuncheng.net', 'xuncheng.net'), :status => 301
     end
   end
 end
