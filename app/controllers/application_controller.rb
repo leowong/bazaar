@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-  before_filter :redirect_domain
+  before_filter :set_cache_buster, :redirect_domain
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message # "Access denied."
@@ -19,9 +19,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
   def redirect_domain
     if request.env['HTTP_HOST'] == "www.xuncheng.net"
-      response.headers["Status"] = "301 Moved Permanently"
+      headers["Status"] = "301 Moved Permanently"
       redirect_to request.url.gsub('www.xuncheng.net', 'xuncheng.net')
     end
   end
