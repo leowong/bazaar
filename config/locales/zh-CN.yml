@@ -112,8 +112,8 @@
     errors:
       template: # ~ 2.3.5 backward compatible
         header:
-          one: "有 1 个错误发生导致「{{model}}」无法被保存。"
-          other: "有 {{count}} 个错误发生导致「{{model}}」无法被保存。"
+          one: "出现 1 处错误。"
+          other: "出现 {{count}} 处错误。"
         body: "如下字段出现错误："
       messages:
         inclusion: "不包含于列表中"
@@ -161,9 +161,32 @@
     errors:
       template:
         header:
-          one: "有 1 个错误发生导致「{{model}}」无法被保存。"
-          other: "有 {{count}} 个错误发生导致「{{model}}」无法被保存。"
+          one: "出现 1 处错误。"
+          other: "出现 {{count}} 处错误。"
         body: "如下字段出现错误："
+
+  authlogic:
+    error_messages:
+      login_blank: "不能为空"
+      login_not_found: "错误"
+      login_invalid: "只能包括字母、数字、空格以及 .-_@ 字符。"
+      consecutive_failed_logins_limit_exceeded: "超过登录次数限制，帐号失效。"
+      email_invalid: "格式不正确。"
+      password_blank: "不能为空"
+      password_invalid: "错误"
+      not_active: "帐号停用"
+      not_confirmed: "无法通过验证"
+      not_approved: "没有通过批准"
+      no_authentication_details: "未输入登录信息。"
+    models:
+      user_session: UserSessions
+    attributes:
+      user_session:
+        login: "用户名"
+        username: "用户名"
+        email: "电子邮件"
+        password: "密码"
+        remember_me: "保持登录状态"
 
   messages:
     are_you_sure: "确定要删除吗？"
