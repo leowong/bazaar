@@ -38,7 +38,7 @@
         <div class="info">
           <div class="title">
             <% link_to store_path(user.username) do %>
-	      <%= truncate h(user.store_name), 18 %> -
+	      <%= truncate h(user.abbreviation), 18 %> -
 	      <%= truncate h(user.address), 30 %>
 	    <% end %>
           </div>
