@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :buttons do %>
-  <li><a id="toss" class="button" href="#"><%= t('buttons.navigation.toss') %></a></li>
+  <li><a id="toss" class="button" href="javascript:"><%= t('buttons.navigation.toss') %></a></li>
 <% end %>
 
 <div id="search">
@@ -30,7 +30,7 @@
     <li data-id="product-<%= product.id %>">
       <div class="image-shadow">
 	<% link_to product do %>
-          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px") unless product.images.empty? %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "") unless product.images.empty? %>
 	<%  end %>
       </div>
       <div>

@@ -1,7 +1,11 @@
 <% if product.images.size > 1 %>
   <ul id="product-thumbnails" class="thumbnails">
-    <% product.images.each do |i| %>  
-      <li><%= link_to(image_tag(cloudfront(i.attachment.url(:mini))), cloudfront(i.attachment.url(:product))) %></li>
+    <% product.images.each do |i| %>
+      <li>
+        <a href="<%= cloudfront(i.attachment.url(:original)) %>" class="cloud-zoom-gallery" rel="useZoom: 'zoom-product', smallImage: '<%= cloudfront(i.attachment.url(:product)) %>'"> 
+          <img src="<%= cloudfront(i.attachment.url(:mini)) %>" />
+	</a>
+      </li> 
     <% end %>
   </ul>
 <% end %>

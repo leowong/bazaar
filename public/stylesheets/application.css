@@ -521,17 +521,17 @@ table.products tfoot td {
 #product-images {
     margin: 0 0 0 16px;
     padding: 0;
-    width: 264px;
+    width: 256px;
     float: right;
 }
 
 #product-images #main-image {
-    width: 252px;
-    min-height: 252px;
+    width: 240px;
+    min-height: 240px;
     height: auto !important;
-    height: 252px;
+    height: 240px;
     position: relative;
-    border: 1px solid #CCC;
+    border: 4px solid #CCC;
     margin-left: 5px;
 }
 
@@ -542,7 +542,7 @@ table.products tfoot td {
     left: 0;
     right: 0;
     margin: 0;
-    padding: 6px;
+    padding: 0;
 }
 
 ul.thumbnails {
@@ -554,9 +554,9 @@ ul.thumbnails {
 ul.thumbnails li {
     display: inline;
     float: left;
-    margin: 0 5px 5px 5px;
+    margin: 4px;
     padding: 2px;
-    border: 1px solid #FFF;
+    border: 1px solid #CCC;
     min-height: 50px;
     height: auto !important;
     height: 50px;
@@ -575,7 +575,7 @@ ul.thumbnails li img {
 }
 
 ul.thumbnails li:hover {
-    border-color: #CCC;
+    border-color: #999;
 }
 
 ul.thumbnails li.selected {

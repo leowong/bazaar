@@ -9,8 +9,8 @@
     <!--[if lt IE 8]>
       <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
     <![endif]-->
-    <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag 'jquery' %>
+    <%= stylesheet_link_tag 'cloud-zoom', 'application', :cache => 'base' %>
+    <%= javascript_include_tag 'jquery', 'cloud-zoom', :cache => 'base' %>
     <%= render :partial => 'shared/googlemaps' %>
     <%= include_tiny_mce_if_needed %>
     <%= yield(:head) %>
