@@ -9,7 +9,7 @@
 </div>
 
 <p>
-  <strong><%= t('activerecord.attributes.product.price') %>:</strong>
+  <strong><%= t('activerecord.attributes.product.price') %>:</strong> &nbsp;&nbsp;
   <%= number_to_currency(@product.price) %>
 </p>
 <%= @product.description %>
@@ -17,7 +17,7 @@
 <hr />
 <% for image in @product.images %>
   <div class="clear">
-    <div style="float:left;width:50px;border:1px solid #DDD;margin:0 20px 10px 0"><%= image_tag cloudfront(image.attachment.url(:mini)) %></div>
+    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0"><%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48" %></div>
     <div style="padding-top:12px">
       <%= link_to t('buttons.change'), edit_admin_image_path(image) %> &nbsp;
       <%= link_to t('buttons.destroy'), [:admin, image], :confirm => t('messages.are_you_sure'), :method => :delete %>

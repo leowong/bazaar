@@ -26,11 +26,11 @@
 
   <div>
     <div>
-      <strong><%= t('activerecord.attributes.product.price') %>:</strong>
+      <strong><%= t('activerecord.attributes.product.price') %>:</strong> &nbsp;&nbsp;
       <%= number_to_currency @product.price %>
     </div>
     <div>
-      <strong><%= t('activerecord.models.user') %>:</strong>
+      <strong><%= t('activerecord.models.user') %>:</strong> &nbsp;&nbsp;
       <% link_to store_path(@product.user.username) do %>
         <%= @product.user.abbreviation %> -
         <%= @product.user.address %>
