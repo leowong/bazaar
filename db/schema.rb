@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100531224553) do
+ActiveRecord::Schema.define(:version => 20100626054504) do
 
   create_table "assets", :force => true do |t|
     t.integer   "viewable_id"
@@ -21,15 +21,18 @@ ActiveRecord::Schema.define(:version => 20100531224553) do
   end
 
   create_table "products", :force => true do |t|
-    t.string    "name",            :default => "", :null => false
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "user_id",         :default => 0,  :null => false
-    t.decimal   "price"
-    t.integer   "assets_count",    :default => 0
-    t.integer   "pageviews_count", :default => 0
+    t.string   "name",            :default => "", :null => false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",         :default => 0,  :null => false
+    t.decimal  "price"
+    t.integer  "assets_count",    :default => 0
+    t.integer  "pageviews_count", :default => 0
+    t.string   "permalink"
   end
+
+  add_index "products", ["permalink"], :name => "index_products_on_permalink"
 
   create_table "sessions", :force => true do |t|
     t.string    "session_id", :null => false

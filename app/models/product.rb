@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name, :price, :description
   validates_numericality_of :price
+  validates_uniqueness_of :permalink
   validate :price_must_be_at_least_a_cent
 
   named_scope :with_images, :conditions => ['assets_count > 0']
@@ -25,6 +26,18 @@ class Product < ActiveRecord::Base
 
   def has_images?
     assets_count > 0
+  end
+
+  def to_param
+    permalink
+  end
+
+  def update_permalink
+    pl = Digest::MD5.hexdigest(id.to_s + created_at.to_s)
+    while Product.find_by_permalink(pl) do
+      pl = Digest::MD5.hexdigest(pl)
+    end
+    update_attribute(:permalink, pl)
   end
 
   protected

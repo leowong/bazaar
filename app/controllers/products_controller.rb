@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find_by_permalink(params[:id])
     Product.increment_counter(:pageviews_count, @product.id)
   end
 end
