@@ -1,5 +1,5 @@
 <% unless @product.images.empty? %>
   <a href="<%= cloudfront(@product.images.first.attachment.url(:original)) %>" class="cloud-zoom" id="zoom-product" rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4"> 
-    <img src="<%= cloudfront(@product.images.first.attachment.url(:product)) %>" title="Your caption here" />
+    <img src="<%= cloudfront(@product.images.first.attachment.url(:product)) %>" />
   </a>
 <% end %>
