@@ -31,4 +31,10 @@ module ApplicationHelper
   def new_store
     User.new_store
   end
+
+  def setup_product(product)
+    returning(product) do |p|
+      p.images.build # if p.images.empty?
+    end
+  end
 end

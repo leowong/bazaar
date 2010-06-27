@@ -256,4 +256,5 @@
   images:
     upload: "上传图片"
     edit_image: "更换图片"
-
+    remove_this_image: "删除"
+    add_an_image: "添加图片"

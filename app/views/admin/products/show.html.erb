@@ -15,15 +15,22 @@
 <%= @product.description %>
 
 <hr />
-<% for image in @product.images %>
-  <div class="clear">
-    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0"><%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48" %></div>
-    <div style="padding-top:12px">
-      <%= link_to t('buttons.change'), edit_admin_image_path(image) %> &nbsp;
-      <%= link_to t('buttons.destroy'), [:admin, image], :confirm => t('messages.are_you_sure'), :method => :delete %>
+<strong><%= t('images.upload') %></strong>
+<hr class="space" />
+
+
+<% nested_form_for [:admin, setup_product(@product)], :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <div>
+    <% for image in @product.images %>
+        <% f.fields_for :images, image do |builder| %>
+          <%= render 'image_fields', :f => builder, :image => image %>
+        <% end %>
+    <% end %>
+    <div style="margin:10px 0">
+      <%= f.link_to_add t('images.add_an_image'), :images %>
     </div>
   </div>
-<% end %>
 
-<hr class="space" />
-<%= render :partial => 'admin/images/form' %>
+  <p><%= f.submit t('buttons.submit') %></p>
+<% end %>

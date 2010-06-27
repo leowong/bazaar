@@ -1,0 +1,11 @@
+<div class="clearfix">
+    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0">
+  <% if image.id %>
+      <%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48" %>
+  <% end %>
+    </div>
+  <div>
+    <%= f.file_field :attachment %>
+    <%= f.link_to_remove t('images.remove_this_image') %>
+  </div>
+</div>

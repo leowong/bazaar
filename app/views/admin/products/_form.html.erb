@@ -1,4 +1,4 @@
-<% form_for [:admin, @product], :html => { :multipart => true } do |f| %>
+<% nested_form_for [:admin, @product], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %><br />
@@ -13,14 +13,5 @@
     <%= f.text_area :description, :class=> "mceEditor", :style => "width:50%;height:36em" %>
   </p>
 
-  <strong><%= f.label :attachment, t('images.upload') %></strong>
-
-  <% 4.times { @product.images.build } %>
-
-  <% for image in @product.images %>
-    <% f.fields_for :images, image do |image_fields| %>
-      <%= render 'image_fields', :f => image_fields, :image => image %>
-    <% end %>
-  <% end %>
   <p><%= f.submit t('buttons.submit') %></p>
 <% end %>
