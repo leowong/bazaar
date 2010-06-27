@@ -28,7 +28,6 @@ module ApplicationHelper
     url
   end
 
-
   def new_store
     User.new_store
   end

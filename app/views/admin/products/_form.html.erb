@@ -19,16 +19,8 @@
 
   <% for image in @product.images %>
     <% f.fields_for :images, image do |image_fields| %>
-      <div class="clearfix">
-        <% if image.id %>
-	  <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0">
-	    <%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48" %>
-	  </div>
-        <% end %>
-	<%= image_fields.file_field :attachment %>
-      </div>
+      <%= render 'image_fields', :f => image_fields, :image => image %>
     <% end %>
   <% end %>
-
   <p><%= f.submit t('buttons.submit') %></p>
 <% end %>

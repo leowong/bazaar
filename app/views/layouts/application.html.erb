@@ -26,8 +26,8 @@
 	<% @new_store = new_store %>
 	<% link_to store_path(@new_store.username) do %>
           <strong><%= t('users.newly_added') %></strong>:
-          <%= truncate(@new_store.abbreviation, 18) %> -
-	  <%= truncate(@new_store.description, 54) %>
+          <%= truncate(@new_store.abbreviation, :length => 18) %> -
+	  <%= truncate(@new_store.description, :length => 54) %>
         <% end %>
       </div>
     </div>
