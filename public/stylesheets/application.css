@@ -271,6 +271,7 @@ input#q {
     border-right: 1px solid #BBB;
     border-bottom: 1px solid #BBB;
     border-left: 1px solid #CCC;
+    outline: none;
 }
 
 #search .info {

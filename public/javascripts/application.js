@@ -44,4 +44,6 @@ $(document).ready(function() {
   );
 
   add_image_handlers();
+
+  $("#q").focus();
 });
