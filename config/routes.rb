@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products, :only => [:index, :show]
 
   map.namespace :admin do |admin|
-    admin.resources :products
+    admin.resources :products, :collection => { :sort => :post }
     admin.resources :users, :as => 'stores'
     admin.resources :images, :except => [:index, :show]
   end

@@ -252,9 +252,11 @@
   products:
     new_product: "添加商品"
     edit_product: "编辑商品信息"
+    images_count: "图片数量"
 
   images:
     upload: "上传图片"
     edit_image: "更换图片"
     remove_this_image: "删除"
     add_an_image: "添加图片"
+    drag_n_drop: "拖拽图片以排序"

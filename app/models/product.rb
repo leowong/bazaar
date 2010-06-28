@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   attr_accessible :name, :price, :description, :images_attributes
   belongs_to :user, :touch => true
-  has_many :images, :as => :viewable, :dependent => :destroy
+  has_many :images, :as => :viewable, :order => "position", :dependent => :destroy
 
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
 

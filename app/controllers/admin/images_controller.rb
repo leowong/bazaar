@@ -9,6 +9,7 @@ class Admin::ImagesController < Admin::BaseController
   def create
     @image = Image.new(params[:image])
     if @image.save
+      @image.move_to_bottom
       flash[:notice] = t('messages.created_successful')
       redirect_to admin_product_url(@image.viewable)
     else

@@ -1,5 +1,30 @@
 <% title @product.name, false %>
 
+<% content_for :head do %>
+  <% javascript_tag do %>
+    $(document).ready(function() {
+      $("#images-list").sortable({
+        axis: 'y',
+        handle: '.handle',
+        items: 'li',
+        opacity: 0.5,
+        scroll: true,
+        update: function() {
+          $.ajax({
+            type: 'post', 
+            data: $('#images-list').sortable('serialize') + '&id=<%=@product.id-%>', 
+            dataType: 'script', 
+            complete: function(request) {
+              // $('#images-list').effect('highlight');
+            },
+            url: '/admin/products/sort'
+          })
+        }
+      });
+    });
+  <% end %>
+<% end %>
+
 <div style="margin-bottom:10px">
   <h2 style="margin-bottom:0"><%= @product.name %></h2>
 </div>
@@ -14,17 +39,39 @@
 </p>
 <%= @product.description %>
 
-<hr />
-<strong><%= t('images.upload') %></strong>
-<hr class="space" />
+<% if @product.images.size > 0 %>
+  <hr />
+<% end %>
 
+<% if @product.images.size > 1 %>
+  <p><strong><%= t('images.drag_n_drop') %></strong></p>
+<% end %>
+
+<ul id="images-list">
+<% for image in @product.images.all(:order => 'position') %>
+  <% content_tag_for :li, image, :class => "clearfix" do %>
+    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0">
+      <%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48", :class => "handle" %>
+    </div>
+    <div style="padding-top:12px">
+      <%= link_to t('buttons.change'), edit_admin_image_path(image) %> &nbsp;
+      <%= link_to t('buttons.destroy'), [:admin, image], :confirm => t('messages.are_you_sure'), :method => :delete %>
+    </div>
+  <% end %>
+<% end %>
+</ul>
+
+<hr />
+<p><strong><%= t('images.upload') %></strong></p>
 
 <% nested_form_for [:admin, setup_product(@product)], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <div>
     <% for image in @product.images %>
         <% f.fields_for :images, image do |builder| %>
-          <%= render 'image_fields', :f => builder, :image => image %>
+          <% unless image.id %>
+            <%= render 'image_fields', :f => builder, :image => image %>
+	  <% end %>
         <% end %>
     <% end %>
     <div style="margin:10px 0">
