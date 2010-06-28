@@ -11,7 +11,7 @@ class Image < Asset
 
   validates_attachment_presence :attachment
   validates_attachment_size :attachment, :less_than => 5.megabytes
-  validates_attachment_content_type :attachment, :content_type => ['image/gif', 'image/jpeg', 'image/png']
+  validates_attachment_content_type :attachment, :content_type => ['image/gif', 'image/jpeg', 'image/pjpeg','image/png', 'image/x-png']
 
   before_post_process :randomize_image_file_name
 
