@@ -12,12 +12,12 @@
         update: function() {
           $.ajax({
             type: 'post', 
-            data: $('#images-list').sortable('serialize') + '&id=<%=@product.id-%>', 
+            data: $('#images-list').sortable('serialize') + '&id=<%=@product.id-%>' + '&authenticity_token=' + encodeURIComponent(AUTH_TOKEN), 
             dataType: 'script', 
             complete: function(request) {
               // $('#images-list').effect('highlight');
             },
-            url: '/admin/products/sort'
+            url: '<%= sort_admin_products_path %>'
           })
         }
       });
