@@ -74,3 +74,7 @@ en:
     remove_this_image: "Remove this image"
     add_an_image: "Add an image"
     drag_n_drop: "Drag 'n' drop"
+
+  google_maps:
+   show_map: "+ Show map"
+   hide_map: "- Hide map"

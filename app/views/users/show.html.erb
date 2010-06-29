@@ -4,30 +4,57 @@
   <li><%= link_to truncate(@user.abbreviation, :omission => "..", :length => 5), store_path(@user.username), :class => "button" %></li>
 <% end %>
 
+<% content_for :head do %>
+  <% javascript_tag do %>
+    $(document).ready(function() {
+      var map = initializeMap();
+      var zoom = map.getZoom();
+      var center = map.getCenter();
+
+      $('#show_map').toggle(
+        function() {
+          $("#map_canvas").show();
+          google.maps.event.trigger(map, 'resize');
+          map.setZoom(zoom);
+          map.setCenter(center);
+          $("#show_map").html("<%= t('google_maps.hide_map') %>");
+        },
+        function() {
+          $('#map_canvas').slideUp(200);
+          $("#show_map").html("<%= t('google_maps.show_map') %>");
+        }
+      );
+    });
+  <% end %>
+<% end %>
+
 <div id="store-info">
   <h2><%= link_to @user.abbreviation, store_path(@user.username) %></h2>
-  <div class="clearfix"> <!-- ie6/7 fix -->
-    <div id="map_canvas" style="width:270px;height:100px">
+  <div class="clearfixxxxxxx"> <!-- ie6/7 fix -->
+    <div id="show_map" style="float:right;cursor:pointer;">
+      <%= t('google_maps.show_map') %>
+    </div>
+    <div id="map_canvas" class="clear" style="width:758px;height:468px;display:none">
       <!-- for google maps -->
     </div>
-    <div class="attributes">
-      <div class="clearfix">
-        <div class="key"><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</div>
-        <div class="value"><%=h @user.store_name %></div>
-      </div>
-      <div  class="clearfix">
-        <div class="key"><strong><%= t('activerecord.attributes.user.address') %></strong>:</div>
-        <div class="value"><%=h @user.address %></div>
-      </div>
-      <div class="clearfix">
-        <div class="key"><strong><%= t('activerecord.attributes.user.contact') %></strong>:</div>
-        <div class="value"><%=h @user.contact %></div>
-      </div>
-      <div class="clearfix">
-        <div class="key"><strong><%= t('users.url') %></strong>:</div>
-        <div class="value"><%= link_to store_url(@user.username), store_url(@user.username) %></div>
-      </div>
-    </div>
+    <table class="attributes" style="width:auto">
+      <tr>
+        <td><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</td>
+        <td><%=h @user.store_name %></td>
+      </tr>
+      <tr>
+        <td><strong><%= t('activerecord.attributes.user.address') %></strong>:</td>
+        <td><%=h @user.address %></td>
+      </tr>
+      <tr>
+        <td><strong><%= t('activerecord.attributes.user.contact') %></strong>:</td>
+        <td><%=h @user.contact %></td>
+      </tr>
+      <tr>
+        <td><strong><%= t('users.url') %></strong>:</td>
+        <td><%= link_to store_url(@user.username), store_url(@user.username) %></td>
+      </tr>
+    </table>
   </div>
   <div class="description">
     <%= simple_format h(@user.description) %>

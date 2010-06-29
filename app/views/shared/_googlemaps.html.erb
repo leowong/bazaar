@@ -4,17 +4,18 @@
     document.write([
       '<script src="http://ditu.google.cn/maps/api/js?v=3&amp;sensor=false&amp;language=zh-CN&amp;region=CN&amp;key=', {
         'localhost': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRHSzd3a6K1IEq1xpn8dAXXEWiNcA',
-        'bazaar.heroku.com': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxRxmaxseuRV0u0rG5KRQ9rlkPoa_RREv5uGDJhVJ8nRnzdG_SFKIS88RA'
+        'bazaar.heroku.com': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxRxmaxseuRV0u0rG5KRQ9rlkPoa_RREv5uGDJhVJ8nRnzdG_SFKIS88RA',
+        'xuncheng.net': 'ABQIAAAAUgGGJBfnEusX7IAitmGBfxTm9gQFwf9nuBoQMAOI1n0ydnCbsBRkTwl6ZVoMxg4Vofx0Q6CCgM2ZhA'
       }[window.location.host],
       '" type="text/javascript"><\/script>'
     ].join(''));
   </script>
 
   <script type="text/javascript">
-    function initialize() {
+    function initializeMap() {
       var latlng = new google.maps.LatLng(<%= @user.latitude %>, <%= @user.longitude %>);
       var myOptions = {
-        zoom: 14,
+        zoom: 16,
         center: latlng,
         mapTypeControl: false,
         navigationControl: true,
@@ -27,11 +28,8 @@
         title: "<%= "#{@user.store_name}: #{@user.address}" %>"
       });
       marker.setMap(map);
-    };
-  </script>
-<% else %>
-  <script type="text/javascript">
-    function initialize() {
+
+      return map;
     };
   </script>
 <% end %>

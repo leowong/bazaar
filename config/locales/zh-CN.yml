@@ -244,7 +244,7 @@
     new_user: "添加用户"
     newly_added: "新店推介"
     url: "店铺网址"
-    latitude_n_longitude: "北纬，东经"
+    latitude_n_longitude: "北纬东经"
     edit_store: "修改店铺资料"
     should_be_at_least_001: "不能小于 0.01"
     is_preserved: "为保留字"
@@ -260,3 +260,7 @@
     remove_this_image: "删除"
     add_an_image: "添加图片"
     drag_n_drop: "拖拽图片调整顺序"
+
+  google_maps:
+   show_map: "+ 查看地图"
+   hide_map: "- 隐藏地图"

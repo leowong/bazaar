@@ -443,30 +443,21 @@ div.store-listing {
     margin-left: 65px;
 }
 
-#store-info #map_canvas {
+#store-info #show_map {
     float: right;
-    margin: 0 0 0 20px;
+    cursor: pointer;
+    color: #2E6AB1;
+}
+
+#store-info #map_canvas {
+    /* float: right; */
+    margin: 0 0 20px;
     padding: 0;
     border: 1px solid #DDD;
 }
 
-#store-info .attributes {
-    float: left;
-    line-height: 26px;
-}
-
-#store-info .attributes .key {
-    width: 5.5em;
-    float: left;
-    margin: 0;
-}
-
-#store-info .attributes .value {
-    float: left;
-}
-
-#store-info .description {
-    margin-top: 20px;
+table.attributes tr td {
+  padding-left: 0;
 }
 
 #store-products ul.product-listing {
