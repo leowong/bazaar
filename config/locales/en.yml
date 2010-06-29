@@ -19,6 +19,7 @@ en:
     change: "Change"
     navigation:
       home: "Home"
+      recent: "Recent"
       toss: "Toss"
 
   site:
