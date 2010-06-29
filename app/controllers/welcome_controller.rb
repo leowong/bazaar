@@ -1,6 +1,12 @@
 class WelcomeController < ApplicationController
   def index
-    @products = Product.with_images.all(:order => "pageviews_count DESC", :limit => 15)
+    @products = Product.with_images.popular
+    @products_count = Product.with_images.size
+    @stores_count = User.with_role(:seller).size
+  end
+
+  def recent
+    @products = Product.with_images.recent
     @products_count = Product.with_images.size
     @stores_count = User.with_role(:seller).size
   end

@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
     pages about help blog wiki docs support pricing how contact
     jobs legal tos news success business status
     api dev privacy goodies highlight
+    hot popular recent latest news new
   ]
 
   def self.new_store

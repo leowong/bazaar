@@ -58,6 +58,7 @@ class Admin::ProductsController < Admin::BaseController
     params[:image].each_with_index do |id, index|
       Image.update_all(['position=?', index+1], ['id=?', id])
     end
+    Product.find(params[:id]).touch
     render :nothing => true
   end
 end

@@ -203,6 +203,7 @@
     change: "更换"
     navigation:
       home: "回首页"
+      recent: "新产品"
       toss: "碰碰看！"
   
   site:

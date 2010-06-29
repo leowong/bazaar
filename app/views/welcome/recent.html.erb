@@ -1,0 +1,50 @@
+<% content_for :title do %>
+  <%= t('buttons.navigation.recent') %>
+<% end %>
+
+<% content_for :head do %>
+  <%= javascript_include_tag 'quicksand' %>
+<% end %>
+
+<% content_for :buttons do %>
+  <li><a id="toss" class="button" href="javascript:void(0)"><%= t('buttons.navigation.toss') %></a></li>
+<% end %>
+
+<div id="search">
+  <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>
+    <div class="input">
+      <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
+      <%= submit_tag '', :name => nil, :class => "submit" %>
+    </div>
+    <div class="info clear">
+      <div class="search-options">
+        <%= radio_button_tag 'type', "products", true %><%= label_tag "type_products", t('activerecord.models.product') %>
+        &nbsp;
+        <%= radio_button_tag 'type', "stores" %><%= label_tag "type_stores", t('activerecord.models.user') %>
+      </div>
+      <div class="count-number">
+	<%= t('search.total', :products => @products_count, :stores => @stores_count) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<ul id="product-listing" class="product-listing clear">
+  <% for product in @products %>
+    <li data-id="product-<%= product.id %>">
+      <div class="image-shadow">
+	<% link_to product do %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "") unless product.images.empty? %>
+	<%  end %>
+      </div>
+      <div>
+	<!-- for ie6/7's sake -->
+      </div>
+      <div class="info">
+        <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
+        <span class="price"><%= number_to_currency product.price %></span>
+        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+      </div>
+    </li>
+  <% end %>
+</ul>
