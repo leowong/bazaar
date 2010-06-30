@@ -6,8 +6,7 @@ class AdminAbility
     if user.role? :admin
       can :manage, :all
     elsif user.role? :seller
-      can :show, User
-      can :update, User do |u|
+      can [:show, :update], User do |u|
         u == user
       end
 
