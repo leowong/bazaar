@@ -16,7 +16,8 @@
 	<td class="number"><%= product.images.size %></td>
         <td class="number"><%= product.pageviews_count %></td>
         <td style="text-align:right">
-	  <%= link_to t('buttons.edit'), [:admin, product] %> &nbsp;
+          <%= link_to t('buttons.view'), product %> |
+	  <%= link_to t('buttons.edit'), [:admin, product] %> |
 	  <%= link_to t('buttons.destroy'), [:admin, product], :confirm => t('messages.are_you_sure'), :method => :delete %>
 	</td>
       </tr>

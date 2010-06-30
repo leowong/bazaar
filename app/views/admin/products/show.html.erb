@@ -29,15 +29,15 @@
   <h2 style="margin-bottom:0"><%= @product.name %></h2>
 </div>
 
-<div style="float:right">
-  <%= link_to t('buttons.edit'), edit_admin_product_path(@product) %>
-</div>
-
 <p>
   <strong><%= t('activerecord.attributes.product.price') %>:</strong> &nbsp;&nbsp;
   <%= number_to_currency(@product.price) %>
 </p>
 <%= @product.description %>
+<p>
+  <%= link_to t('buttons.view'), @product %> |
+  <%= link_to t('buttons.edit'), edit_admin_product_path(@product) %>
+</p>
 
 <% if @product.images.size > 0 %>
   <hr />
@@ -54,7 +54,7 @@
       <%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48", :class => "handle" %>
     </div>
     <div style="padding-top:12px">
-      <%= link_to t('buttons.change'), edit_admin_image_path(image) %> &nbsp;
+      <%= link_to t('buttons.change'), edit_admin_image_path(image) %> |
       <%= link_to t('buttons.destroy'), [:admin, image], :confirm => t('messages.are_you_sure'), :method => :delete %>
     </div>
   <% end %>

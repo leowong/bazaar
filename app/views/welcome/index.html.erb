@@ -3,6 +3,7 @@
 <% end %>
 
 <% content_for :buttons do %>
+  <li><%= link_to t('buttons.navigation.recent'), recent_path, :class => "button" %></li>
   <li><a id="toss" class="button" href="javascript:void(0)"><%= t('buttons.navigation.toss') %></a></li>
 <% end %>
 

@@ -12,6 +12,7 @@ en:
     created_successful: "Successfully created product."
 
   buttons:
+    view: "View"
     edit: "Edit"
     submit: "Submit"
     destroy: "Destroy"

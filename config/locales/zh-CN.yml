@@ -196,6 +196,7 @@
     created_successful: "创建成功"
 
   buttons:
+    view: "查看"
     edit: "修改"
     submit: "提交"
     destroy: "删除"
