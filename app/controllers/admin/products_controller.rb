@@ -8,7 +8,7 @@ class Admin::ProductsController < Admin::BaseController
   
   def show
     @product = Product.find_by_permalink(params[:id])
-    authorize! :read, @product
+    authorize! :update, @product
     @image = Image.new(:viewable_id => @product.id, :viewable_type => "Product")
   end
 
