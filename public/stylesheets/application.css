@@ -510,6 +510,16 @@ table.products tfoot td {
     margin-left: 65px;
 }
 
+.description table {
+    width: auto;
+    border-collapse: collapse;
+}
+
+.description table tr,
+.description table td {
+    border: 1px solid #CCC;
+}
+
 #product-images {
     margin: 0 0 0 16px;
     padding: 0;
