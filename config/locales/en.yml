@@ -26,6 +26,7 @@ en:
   site:
     name: "Bazaar"
     tagline: "Start discovering the world around you"
+    location: "Jiujiang City, Jiangxi Province, PRC"
 
   layout:
     navigation:
@@ -37,6 +38,10 @@ en:
   search:
     search: "Search"
     result: "results"
+    all_products: "All products"
+    all_stores: "All stores"
+    product_search: "Product search"
+    store_search: "Store search"
     total: "{{products}} products, {{stores}} stores"
     price_low_to_high: "Price: low to high"
     price_high_to_low: "Price: high to low"

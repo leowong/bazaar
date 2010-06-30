@@ -210,6 +210,7 @@
   site:
     name: "浔城店家"
     tagline: "体验逛街的乐趣"
+    location: "江西九江"
 
   layout:
     navigation:
@@ -222,6 +223,10 @@
   search:
     search: "搜索"
     result: "条搜索结果"
+    all_products: "所有商品"
+    all_stores: "所有店铺"
+    product_search: "商品搜索"
+    store_search: "店铺搜索"
     total: "{{products}} 件商品, &nbsp; {{stores}} 家店铺"
     price_low_to_high: "价格: 由低到高"
     price_high_to_low: "价格: 由高到低"

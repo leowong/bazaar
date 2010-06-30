@@ -1,4 +1,8 @@
-<% title "Stores", false %>
+<% if params[:q].empty? %>
+  <% title t('search.all_stores'), false %>
+<% else %>
+  <% title t('search.store_search') + ' - ' + params[:q], false %>
+<% end %>
 
 <div id="search">
   <% form_tag search_url, :name => "sitesearch", :method => 'get' do %>

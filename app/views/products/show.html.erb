@@ -1,4 +1,4 @@
-<% title @product.name, false %>
+<% title t('activerecord.models.product') + ' - ' + @product.name, false %>
 
 <% content_for :buttons do %>
   <li><%= link_to truncate(@product.user.abbreviation, :omission => "..", :length => 5), store_path(@product.user.username), :class => "button" %></li>
@@ -24,19 +24,21 @@
     </div>
   </div>
 
-  <div>
-    <div>
-      <strong><%= t('activerecord.attributes.product.price') %>:</strong> &nbsp;&nbsp;
-      <%= number_to_currency @product.price %>
-    </div>
-    <div>
-      <strong><%= t('activerecord.models.user') %>:</strong> &nbsp;&nbsp;
-      <% link_to store_path(@product.user.username) do %>
-        <%= @product.user.abbreviation %> -
-        <%= @product.user.address %>
-      <% end %>
-    </div>
-  </div>
+  <table class="attributes" style="width:auto">
+    <tr>
+      <td><strong><%= t('activerecord.models.user') %></strong>:</td>
+      <td>
+        <% link_to store_path(@product.user.username) do %>
+          <%= @product.user.abbreviation %> -
+          <%= @product.user.address %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><strong><%= t('activerecord.attributes.product.price') %></strong>:</td>
+      <td><%= number_to_currency @product.price %></td>
+    </tr>
+  </table>
 
   <div class="description" style="margin-top:20px">
     <%= @product.description %>
