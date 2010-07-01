@@ -1,4 +1,4 @@
-<% if params[:q].empty? %>
+<% if params && params[:q].empty? %>
   <% title t('search.all_stores'), false %>
 <% else %>
   <% title t('search.store_search') + ' - ' + params[:q], false %>

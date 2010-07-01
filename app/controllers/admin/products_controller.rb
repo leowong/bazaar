@@ -48,17 +48,20 @@ class Admin::ProductsController < Admin::BaseController
   
   def destroy
     @product = Product.find_by_permalink(params[:id])
-    authorize! :update, @product
+    authorize! :destroy, @product
     @product.destroy
     flash[:notice] = t('messages.destroyed_successful')
     redirect_to admin_products_url
   end
 
   def sort
+    @product = Product.find(params[:id])
+    authorize! :update, @product
     params[:image].each_with_index do |id, index|
+      authorize! :update, Image.find(id)
       Image.update_all(['position=?', index+1], ['id=?', id])
     end
-    Product.find(params[:id]).touch
+    @product.touch
     render :nothing => true
   end
 end
