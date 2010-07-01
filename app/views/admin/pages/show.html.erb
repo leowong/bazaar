@@ -1,0 +1,20 @@
+<% title "Page" %>
+
+<p>
+  <strong>Slug:</strong>
+  <%=h @page.slug %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%=h @page.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @page.content %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_page_path(@page) %> |
+  <%= link_to "Destroy", [:admin, @page], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_pages_path %>
+</p>
