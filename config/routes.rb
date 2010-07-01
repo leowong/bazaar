@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.recent 'recent', :controller => 'welcome', :action => 'recent'
   map.toss 'toss', :controller => 'welcome', :action => 'toss'
 
+  map.with_options :controller => 'pages' do |page|
+    page.about 'about', :action => 'show', :id => 'about'
+  end
+
   map.resources :user_sessions
   map.resources :users, :as => 'stores', :only => [:index, :show]
   map.resources :products, :only => [:index, :show]
