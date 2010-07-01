@@ -1,0 +1,9 @@
+one:
+  slug: MyString
+  title: MyString
+  content: MyText
+
+two:
+  slug: MyString
+  title: MyString
+  content: MyText

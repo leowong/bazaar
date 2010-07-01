@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100628145421) do
+ActiveRecord::Schema.define(:version => 20100701145952) do
 
   create_table "assets", :force => true do |t|
     t.integer   "viewable_id"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20100628145421) do
     t.integer   "attachment_file_size"
     t.timestamp "attachment_updated_at"
     t.integer   "position"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "slug"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", :force => true do |t|
