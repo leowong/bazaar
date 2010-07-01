@@ -709,3 +709,8 @@ ul#images-list {
     margin: 0;
     padding: 0;
 }
+
+#page {
+    width: 759px;
+    margin-left: 65px;
+}

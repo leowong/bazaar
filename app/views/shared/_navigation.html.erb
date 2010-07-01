@@ -8,8 +8,10 @@
     <% if seller? %>
       <%= link_to t('layout.navigation.products'), admin_products_path %> |
     <% end %>
-    <%= link_to t('layout.navigation.logout'), logout_path %>
+    <%= link_to t('layout.navigation.logout'), logout_path %> |
+    <%= link_to t('pages.about'), about_path %>
   <% else %>
-    <%= link_to t('layout.navigation.login'), login_path %>
+    <%= link_to t('layout.navigation.login'), login_path %> |
+    <%= link_to t('pages.about'), about_path %>
   <% end %>
 </div>

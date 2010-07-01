@@ -82,6 +82,9 @@ en:
     add_an_image: "Add an image"
     drag_n_drop: "Drag 'n' drop"
 
+  pages:
+    about: "About"
+
   google_maps:
    show_map: "+ Show map"
    hide_map: "- Hide map"

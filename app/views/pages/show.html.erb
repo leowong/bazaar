@@ -1,14 +1,9 @@
-<% title "Page" %>
+<% title @page.title, false %>
 
-<p>
-  <strong>Slug:</strong>
-  <%=h @page.slug %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%=h @page.title %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%=h @page.content %>
-</p>
+<div id="page">
+  <h2><%= @page.title %></h2>
+
+  <div>
+    <%= @page.content %>
+  </div>
+</div>
