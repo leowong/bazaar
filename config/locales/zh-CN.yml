@@ -271,3 +271,9 @@
   google_maps:
    show_map: "+ 查看地图"
    hide_map: "- 隐藏地图"
+
+  authentication:
+    login_required: "请先登录"
+
+  cancan:
+    unauthorized: "没有权限"

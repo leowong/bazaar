@@ -85,3 +85,9 @@ en:
   google_maps:
    show_map: "+ Show map"
    hide_map: "- Hide map"
+
+  authentication:
+    login_required: "You must first log in before accessing this page."
+
+  cancan:
+    unauthorized: "You are not authorized to access this page."

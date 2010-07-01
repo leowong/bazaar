@@ -44,7 +44,7 @@ module Authentication
   def login_required
     unless current_user
       store_target_location
-      flash[:error] = "You must first log in before accessing this page."
+      flash[:error] = t('authentication.login_required')
       store_target_location
       redirect_to login_url
     end
