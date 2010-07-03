@@ -3,7 +3,6 @@
 <div id="login" style="margin:36px auto;width:240px">
 <h2><%= t('user_sessions.login') %></h2>
 <% form_for @user_session do |f| %>
-  <%= f.error_messages %>
   <div class="text">
   <p>
     <%= f.label :username, t('user_sessions.username') %><br />

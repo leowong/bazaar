@@ -246,6 +246,7 @@
     sign_in: "登录"
     login_successful: "登录成功"
     logout_successful: "注销成功"
+    login_or_password_invalid: "用户名或密码错误"
 
   users:
     new_user: "添加用户"

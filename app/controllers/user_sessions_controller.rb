@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = t('user_sessions.login_successful')
       redirect_to_target_or_default root_url
     else
+      flash[:error] = t('user_sessions.login_or_password_invalid')
       render :action => 'new'
     end
   end

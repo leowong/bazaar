@@ -61,6 +61,7 @@ en:
     sign_in: "Sign in"
     login_successful: "Logged in successfully"
     logout_successful: "You have been logged out."
+    login_or_password_invalid: "Login or password invalid"
 
   users:
     new_user: "New User"
