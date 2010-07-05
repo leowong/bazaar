@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::BaseController
   uses_tiny_mce
 
   def index
-    @products = current_user.products.descend_by_pageviews_count
+    @products = current_user.products.ascend_by_created_at
     authorize! :read, Product
   end
   

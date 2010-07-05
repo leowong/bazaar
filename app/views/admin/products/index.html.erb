@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th><%= t('activerecord.attributes.product.name') %></th>
+      <th class="number"><%= t('activerecord.attributes.product.price') %></th>
       <th class="number"><%= t('products.images_count') %></th>
       <th class="number"><%= t('activerecord.attributes.product.pageviews_count') %></th>
       <th></th>
@@ -13,6 +14,7 @@
     <% for product in @products %>
       <tr>
         <td><%=h product.name %></td>
+        <td class="number"><%= number_to_currency(product.price) %></td>
 	<td class="number"><%= product.images.size %></td>
         <td class="number"><%= product.pageviews_count %></td>
         <td style="text-align:right">
@@ -25,6 +27,7 @@
   </tbody>
   <tfoot>
     <tr>
+      <td></td>
       <td></td>
       <td></td>
       <td class="number">&Sigma; <%= @products.sum(:pageviews_count) %></td>
