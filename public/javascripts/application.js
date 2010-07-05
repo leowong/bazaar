@@ -20,6 +20,7 @@ $(document).ready(function() {
         $('#product-listing').replaceWith($(data));
         $('#toss').delay(500).fadeIn(500);
       });
+      $("#q").focus();
       e.preventDefault();
     });
   } else {
@@ -30,6 +31,7 @@ $(document).ready(function() {
           $('#toss').delay(500).fadeIn(500);
         });
       });
+      $("#q").focus();
       e.preventDefault();
     });
   }

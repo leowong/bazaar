@@ -35,7 +35,7 @@
     <li data-id="product-<%= product.id %>">
       <div class="image-shadow">
 	<% link_to product do %>
-          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "") unless product.images.empty? %>
+          <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "#{product.name}", :title => "#{product.name}") unless product.images.empty? %>
 	<%  end %>
       </div>
       <div>
