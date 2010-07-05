@@ -228,6 +228,8 @@
     product_search: "商品搜索"
     store_search: "店铺搜索"
     total: "{{products}} 件商品, &nbsp; {{stores}} 家店铺"
+    products_total: "{{products}} 件商品"
+    stores_total: "{{stores}} 家店铺"
     price_low_to_high: "价格: 由低到高"
     price_high_to_low: "价格: 由高到低"
     pageviews_high_to_low: "关注度: 由高到低"
