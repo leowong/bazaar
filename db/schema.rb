@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100701145952) do
+ActiveRecord::Schema.define(:version => 20100706140627) do
 
   create_table "assets", :force => true do |t|
     t.integer   "viewable_id"
@@ -22,23 +22,23 @@ ActiveRecord::Schema.define(:version => 20100701145952) do
   end
 
   create_table "pages", :force => true do |t|
-    t.string   "slug"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "slug"
+    t.string    "title"
+    t.text      "content"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "products", :force => true do |t|
-    t.string   "name",            :default => "", :null => false
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id",         :default => 0,  :null => false
-    t.decimal  "price"
-    t.integer  "assets_count",    :default => 0
-    t.integer  "pageviews_count", :default => 0
-    t.string   "permalink"
+    t.string    "name",            :default => "",  :null => false
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id",         :default => 0,   :null => false
+    t.decimal   "price",           :default => 0.0
+    t.integer   "assets_count",    :default => 0
+    t.integer   "pageviews_count", :default => 0
+    t.string    "permalink"
   end
 
   add_index "products", ["permalink"], :name => "index_products_on_permalink"
@@ -53,6 +53,19 @@ ActiveRecord::Schema.define(:version => 20100701145952) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "taggings", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string    "username"
     t.string    "email"
@@ -63,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20100701145952) do
     t.timestamp "updated_at"
     t.string    "address"
     t.string    "store_name"
-    t.decimal   "latitude"
-    t.decimal   "longitude"
+    t.decimal   "latitude",          :default => 0.0
+    t.decimal   "longitude",         :default => 0.0
     t.text      "description"
     t.integer   "roles_mask"
     t.string    "contact"
