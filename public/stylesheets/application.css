@@ -12,6 +12,10 @@ body {
     width: 900px;
 }
 
+.admin .container {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: #2E6AB1;

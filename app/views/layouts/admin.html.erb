@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><%= t('site.name') %> - <%= h(yield(:title) || t('site.tagline')) %></title>
+    <link rel="shortcut icon" href="/images/favicon.ico" /> 
+    <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
+    <![endif]-->
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui-custom', 'nested_form', 'cloud-zoom' %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
+    <%= render :partial => 'shared/googlemaps' %>
+    <%= include_tiny_mce_if_needed %>
+    <%= yield(:head) %>
+    <%= javascript_include_tag 'application' %>
+    <%= render :partial => 'shared/google_analytics' %>
+  </head>
+  <body>
+    <div id="info">
+      <%= render :partial => 'shared/navigation' %>
+    </div>
+    <div id="header" class="clear">
+      <span class="logo">
+	<%= link_to image_tag('logo.gif'), root_url %>
+      </span>
+      <span class="name" style="display:none">
+	<h1><%= link_to t('site.name'), root_url %></h1>
+      </span>
+      <span class="flash-messages">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+      </span>
+      <%= yield(:header) %>
+    </div>
+    <div id="wrapper" class="admin">
+      <div id="main" class="container clear">
+        <%- if show_title? -%>
+          <h2><%=h yield(:title) %></h2>
+        <%- end -%>
+      
+        <%= yield %>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+	<div class="note">
+	  &copy; 2010 - <%= link_to t('site.name'), root_url %> -
+          <%= t('site.location') %>
+	</div>
+      </div>
+    </div>
+    <div id="preloader">
+      <%= yield(:preloader) %>
+    </div>
+  </body>
+</html>
