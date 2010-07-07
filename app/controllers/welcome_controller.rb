@@ -1,13 +1,13 @@
 class WelcomeController < ApplicationController
   def index
     @products = Product.published.with_images.popular
-    @products_count = Product.with_images.size
+    @products_count = Product.published.with_images.size
     @stores_count = User.with_role(:seller).size
   end
 
   def recent
     @products = Product.published.with_images.recent
-    @products_count = Product.with_images.size
+    @products_count = Product.published.with_images.size
     @stores_count = User.with_role(:seller).size
   end
 
