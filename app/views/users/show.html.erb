@@ -37,7 +37,7 @@
     <div id="map_canvas" class="clear" style="width:758px;height:468px;display:none">
       <!-- for google maps -->
     </div>
-    <table class="attributes" style="width:auto">
+    <table class="attributes">
       <tr>
         <td><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</td>
         <td><%=h @user.store_name %></td>
@@ -63,12 +63,13 @@
 
 <div id="store-products">
   <div>
-    <% for tag in @user.products.collect { |p| p.tags }.flatten.uniq %>
+    <% for category in @user.categories %>
+      <% unless category.products.empty? %>
       <div class="category clear">
-        <strong><%= tag.name %></strong>
+        <strong><%= category.name %></strong>
       </div>
   <ul id="product-listing" class="product-listing clear">
-    <% for product in tag.products.with_images.descend_by_pageviews_count %>
+    <% for product in category.products.with_images.descend_by_pageviews_count %>
       <li data-id="product-<%= product.id %>">
         <div class="image-shadow">
           <% link_to product do %>
@@ -85,6 +86,7 @@
       </li>
     <% end %>
   </ul>
+      <% end %>
     <% end %>
   </div>
 </div>

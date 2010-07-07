@@ -23,10 +23,10 @@ class Admin::ProductsController < Admin::BaseController
     authorize! :create, @product
     if @product.save
       @product.update_permalink
-      unless @product.tags.empty? and @product.has_tags == true
-        @product.update_attribute(:has_tags, true)
-      else
-        @product.update_attribute(:has_tags, false)
+      if @product.published.blank? and !@product.category.nil?
+        @product.update_attribute(:published, true)
+      elsif @product.published == true and @product.category.nil?
+        @product.update_attribute(:published, false)
       end
       flash[:notice] = t('messages.created_successful')
       redirect_to [:admin, @product]
@@ -44,10 +44,10 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find_by_permalink(params[:id])
     authorize! :update, @product
     if @product.update_attributes(params[:product])
-      unless @product.tags.empty? and @product.has_tags == true
-        @product.update_attribute(:has_tags, true)
-      else
-        @product.update_attribute(:has_tags, false)
+      if @product.published.blank? and !@product.category.nil?
+        @product.update_attribute(:published, true)
+      elsif @product.published == true and @product.category.nil?
+        @product.update_attribute(:published, false)
       end
       flash[:notice] = t('messages.updated_successful')
       redirect_to [:admin, @product]

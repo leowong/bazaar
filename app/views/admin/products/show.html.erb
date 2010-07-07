@@ -29,18 +29,29 @@
   <h2 style="margin-bottom:0"><%= @product.name %></h2>
 </div>
 
-<p>
-  <strong><%= t('activerecord.attributes.product.price') %>:</strong> &nbsp;&nbsp;
-  <%= number_to_currency(@product.price) %>
-</p>
-<div class="description">
-  <%= @product.description %>
-</div>
-<p>
-  <%= link_to t('buttons.view'), @product %> |
-  <%= link_to t('buttons.edit'), edit_admin_product_path(@product) %>
-</p>
+<table class="attributes">
+  <tr>
+    <td><strong><%= t('activerecord.attributes.product.price') %>:</strong></td>
+    <td><%= number_to_currency(@product.price) %></td>
+  </tr>
+  <tr>
+    <td><strong><%= t('activerecord.models.category') %>:</strong></td>
+    <% unless @product.category.blank? %>
+      <td><%=h @product.category.name %></td>
+    <% else %>
+      <td><%=h t('products.unpublished') %></td>
+    <% end %>
+  </tr>
+</table>
 
+<p><strong><%= t('activerecord.attributes.product.description') %></strong></p>
+<div class="description" style="width:640px">
+  <%= @product.description %>
+  <p>
+    <%= link_to t('buttons.view'), @product %> |
+    <%= link_to t('buttons.edit'), edit_admin_product_path(@product) %>
+  </p>
+</div>
 <% if @product.images.size > 0 %>
   <hr />
 <% end %>

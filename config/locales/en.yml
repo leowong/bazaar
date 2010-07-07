@@ -78,7 +78,8 @@ en:
     new_product: "New Product"
     edit_product: "Edit Product"
     images_count: "Images"
-    tag_names: "Category"
+    tag_names: "Tags"
+    unpublished: "(unpublished)"
 
   images:
     upload: "Upload image"

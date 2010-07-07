@@ -473,6 +473,10 @@ div.store-listing {
     border: 1px solid #DDD;
 }
 
+table.attributes {
+    width: auto;
+}
+
 table.attributes tr td {
   padding-left: 0;
 }

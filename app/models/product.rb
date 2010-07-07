@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price, :description, :images_attributes, :tag_names
+  attr_accessible :name, :price, :description, :images_attributes, :tag_names, :category_id
   belongs_to :user, :touch => true
   belongs_to :category
   has_many :images, :as => :viewable, :order => "position", :dependent => :destroy
@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
   named_scope :with_images, :conditions => ['assets_count > 0']
   named_scope :popular, :order => "pageviews_count DESC", :limit => 15
   named_scope :recent, :order => "updated_at DESC", :limit => 15
-  named_scope :published, :conditions => { :has_tags => true }
+  named_scope :published, :conditions => { :published => true }
 
   def self.random_ids(total)
     # for SQLite and PostgreSQL only, not MySQL compatible

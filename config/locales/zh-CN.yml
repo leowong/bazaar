@@ -139,13 +139,14 @@
     models:
       product: "商品"
       user: "店铺"
-      category: "栏目分类"
+      category: "栏目"
     attributes:
       product:
         name: "品名"
         price: "价格"
         description: "描述"
         pageviews_count: "访问量"
+        category_id: "栏目"
       user:
         username: "用户名"
         store_name: "公司全称"
@@ -264,7 +265,8 @@
     new_product: "添加商品"
     edit_product: "编辑商品信息"
     images_count: "图片数量"
-    tag_names: "类别"
+    tag_names: "关键字"
+    unpublished: "(未发布)"
 
   images:
     upload: "上传图片"
