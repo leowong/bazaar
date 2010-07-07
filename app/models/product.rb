@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price, :description, :images_attributes
+  attr_accessible :name, :price, :description, :images_attributes, :tag_names
   belongs_to :user, :touch => true
   has_many :images, :as => :viewable, :order => "position", :dependent => :destroy
   has_many :taggings, :dependent => :destroy
@@ -15,10 +15,11 @@ class Product < ActiveRecord::Base
   named_scope :with_images, :conditions => ['assets_count > 0']
   named_scope :popular, :order => "pageviews_count DESC", :limit => 15
   named_scope :recent, :order => "updated_at DESC", :limit => 15
+  named_scope :published, :conditions => { :has_tags => true }
 
   def self.random_ids(total)
     # for SQLite and PostgreSQL only, not MySQL compatible
-    ps = with_images.all :select => :id , :order => "random()"
+    ps = published.with_images.all :select => :id , :order => "random()"
     ids = []
     until ids.length == total || ps.length == 0 do
       # id =  ps[rand(ps.length)]["id"].to_i
@@ -44,6 +45,14 @@ class Product < ActiveRecord::Base
       pl = Digest::MD5.hexdigest(pl)
     end
     update_attribute(:permalink, pl)
+  end
+
+  def tag_names=(names)
+    self.tags = Tag.with_names(names.split(/\s+/))
+  end
+
+  def tag_names
+    tags.map(&:name).join(' ')
   end
 
   protected

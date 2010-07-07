@@ -263,6 +263,7 @@
     new_product: "添加商品"
     edit_product: "编辑商品信息"
     images_count: "图片数量"
+    tag_names: "类别"
 
   images:
     upload: "上传图片"

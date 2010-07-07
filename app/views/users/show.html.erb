@@ -62,8 +62,13 @@
 </div>
 
 <div id="store-products">
+  <div>
+    <% for tag in @user.products.collect { |p| p.tags }.flatten.uniq %>
+      <div class="category clear">
+        <strong><%= tag.name %></strong>
+      </div>
   <ul id="product-listing" class="product-listing clear">
-    <% for product in @user.products.with_images.descend_by_pageviews_count %>
+    <% for product in tag.products.with_images.descend_by_pageviews_count %>
       <li data-id="product-<%= product.id %>">
         <div class="image-shadow">
           <% link_to product do %>
@@ -80,4 +85,6 @@
       </li>
     <% end %>
   </ul>
+    <% end %>
+  </div>
 </div>

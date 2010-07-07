@@ -28,6 +28,7 @@ class Admin::ProductsController < Admin::BaseController
       else
         @product.update_attribute(:has_tags, false)
       end
+      (Tag.product_id_equals(@product.id) - @product.tags)
       flash[:notice] = t('messages.created_successful')
       redirect_to [:admin, @product]
     else

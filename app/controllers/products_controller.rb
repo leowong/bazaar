@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @search = Product.with_images.name_like_all(params[:q].to_s.split)
+    if (params[:q].blank?)
+      @search = Product.published.with_images.name_like_all(params[:q].to_s.split)
+    else
+      @search = Product.published.with_images.name_or_tags_name_like_all(params[:q].to_s.split)
+    end
 
     if params[:order] == "pvd"
       @search = @search.descend_by_pageviews_count
@@ -13,7 +17,7 @@ class ProductsController < ApplicationController
     end
 
     @products_count = @search.size
-    @products = @search.paginate :page => params[:page], :per_page => 15
+    @products = @search.paginate :select => 'DISTINCT products.*', :page => params[:page], :per_page => 15
   end
   
   def show

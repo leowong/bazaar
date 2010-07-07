@@ -11,31 +11,38 @@
     </p>
   <% end %>
   <p>
-    <%= f.label :username %><br />
+    <%= f.label :username %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :store_name %><br />
+    <%= f.label :store_name %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :store_name %>
   </p>
   <p>
-    <%= f.label :abbreviation %><br />
+    <%= f.label :abbreviation %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :abbreviation %>
   </p>
   <p>
-    <%= f.label :contact %><br />
+    <%= f.label :contact %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :contact %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label :address %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.label :description %><br />
+    <%= f.label :description %>
+    <span style="color:red">*</span><br />
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :email, t('users.latitude_n_longitude') %><br />
+    <%= f.label :latitude, t('users.latitude_n_longitude') %>
+    <span style="color:red">*</span><br />
     <%= f.text_field :latitude %> <%= f.text_field :longitude %>
   </p>
   <p>
