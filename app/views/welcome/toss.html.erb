@@ -10,9 +10,9 @@
 	<!-- for ie6/7's sake -->
       </div>
       <div class="info">
-        <span class="name"><%= link_to (truncate(h(product.name), :length => 12)), product %></span>
+        <span class="name"><%= link_to (truncate(h(product.name), :length => 10)), product %></span>
         <span class="price"><%= number_to_currency product.price %></span>
-        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 12), store_path(product.user.username) %></span>
+        <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 10), store_path(product.user.username) %></span>
       </div>
     </li>
   <% end %>

@@ -449,9 +449,9 @@ div.store-listing {
 
 #store-products .category {
     width: 759px;
-    border-bottom: 2px solid #EEE;
+    border: 1px solid #EEE;
     padding: 3px 5px;
-    /* margin: 40px 0 18px 65px; */
+    background-color: #E0E0E0;
     margin: 0px 0 18px 65px;
 }
 
