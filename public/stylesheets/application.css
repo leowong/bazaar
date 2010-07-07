@@ -168,7 +168,7 @@ h2 a, h2 a:hover {
     color: #EEE;
 }
 
-#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #DDD; }
+#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #FFF; }
 
 #header .logo     { position:absolute; top:10px; left:32px; }
 #header .name     { position:absolute; top:20px; left:88px; }
@@ -310,7 +310,7 @@ select {
     min-height: 80px;
     height: auto !important;
     height: 80px;
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #FFF;
 }
 
 #footer .note {
@@ -449,7 +449,10 @@ div.store-listing {
 
 #store-products .category {
     width: 759px;
-    border: 1px solid #EEE;
+    border-top: 1px solid #DDD;
+    border-right: 1px solid #AAA;
+    border-left: 1px solid #DDD;
+    border-bottom: 1px solid #AAA;
     padding: 3px 5px;
     background-color: #E0E0E0;
     margin: 0px 0 18px 65px;
