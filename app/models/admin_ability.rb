@@ -20,6 +20,11 @@ class AdminAbility
       can [:update, :destroy], Image do |i|
         i.try(:viewable).try(:user) == user
       end
+
+      can :create, Category
+      can [:update, :destroy], Category do |c|
+        c.try(:user) == user
+      end
     end
   end
 end

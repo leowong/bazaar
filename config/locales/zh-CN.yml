@@ -139,6 +139,7 @@
     models:
       product: "商品"
       user: "店铺"
+      category: "栏目分类"
     attributes:
       product:
         name: "品名"
@@ -271,6 +272,11 @@
     remove_this_image: "删除"
     add_an_image: "添加图片"
     drag_n_drop: "拖拽图片调整顺序"
+
+  categories:
+    remove_this_category: "删除"
+    add_a_category: "添加分类"
+    drag_n_drop: "（拖拽文字调整顺序）"
 
   pages:
     about: "关于本站"

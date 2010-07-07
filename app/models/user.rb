@@ -1,11 +1,14 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :contact, :password, :password_confirmation, :address, :latitude, :longitude, :store_name, :abbreviation, :description, :roles
+  attr_accessible :username, :email, :contact, :password, :password_confirmation, :address, :latitude, :longitude, :store_name, :abbreviation, :description, :roles, :categories_attributes
 
   acts_as_authentic do |c|
     c.validate_email_field = false
   end
 
   has_many :products, :dependent => :destroy
+  has_many :categories, :order => "position", :dependent => :destroy
+
+  accepts_nested_attributes_for :categories, :reject_if => :all_blank, :allow_destroy => true
 
   validates_presence_of :username, :store_name, :abbreviation, :contact, :address, :description, :latitude, :longitude
   validate :username_can_not_be_preserved_word

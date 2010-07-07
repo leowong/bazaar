@@ -85,7 +85,12 @@ en:
     edit_image: "Change Image"
     remove_this_image: "Remove this image"
     add_an_image: "Add an image"
-    drag_n_drop: "Drag 'n' drop"
+    drag_n_drop: "Sorting by drag 'n' drop"
+
+  categories:
+    remove_this_category: "Remove"
+    add_a_category: "Add a category"
+    drag_n_drop: "Sorting by drag 'n' drop"
 
   pages:
     about: "About"

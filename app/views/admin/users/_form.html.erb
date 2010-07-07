@@ -1,4 +1,4 @@
-<% form_for [:admin, @user] do |f| %>
+<% nested_form_for [:admin, setup_user(@user)] do |f| %>
   <%= f.error_messages %>
   <% if admin? %>
     <p>
@@ -45,6 +45,17 @@
     <span style="color:red">*</span><br />
     <%= f.text_field :latitude %> <%= f.text_field :longitude %>
   </p>
+  <div><strong><%= t('activerecord.models.category') %></strong></div>
+  <div>
+    <% for category in @user.categories %>
+      <% f.fields_for :categories, category do |builder| %>
+        <%= render 'category_fields', :f => builder %>
+      <% end %>
+    <% end %>
+    <div style="margin:10px 0">
+      <%= f.link_to_add t('categories.add_a_category'), :categories %>
+    </div>
+  </div>
   <p>
     <%= f.label :password %><br />
     <%= f.password_field :password %>

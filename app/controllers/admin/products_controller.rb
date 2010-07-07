@@ -68,10 +68,10 @@ class Admin::ProductsController < Admin::BaseController
     @product = Product.find(params[:id])
     authorize! :update, @product
     params[:image].each_with_index do |id, index|
-      authorize! :update, Image.find(id)
+      # authorize! :update, Image.find(id) # commented out for performance reason
       Image.update_all(['position=?', index+1], ['id=?', id])
     end
-    @product.touch
+    # @product.touch # commented out for performance reason
     render :nothing => true
   end
 end

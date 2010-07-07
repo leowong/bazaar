@@ -16,9 +16,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
     admin.resources :products, :collection => { :sort => :post }
-    admin.resources :users, :as => 'stores'
+    admin.resources :users, :as => 'stores', :collection => { :sort => :post }
     admin.resources :images, :except => [:index, :show]
     admin.resources :pages
+    admin.resources :categories
   end
 
   map.root :controller => "welcome"

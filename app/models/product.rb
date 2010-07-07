@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   attr_accessible :name, :price, :description, :images_attributes, :tag_names
   belongs_to :user, :touch => true
+  belongs_to :category
   has_many :images, :as => :viewable, :order => "position", :dependent => :destroy
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings

@@ -183,10 +183,12 @@ h2 a, h2 a:hover {
 
 #flash_notice {
     color: #FFF;
+    font-size: larger;
 }
 
 #flash_error {
     color: #F00;
+    font-size: larger;
 }
 
 #wrapper .buttons {
@@ -716,10 +718,6 @@ ul.thumbnails li.selected {
     border:1px solid #000;
 }
 
-img.handle {
-    cursor: move;
-}
-
 ul#images-list {
     margin: 0;
     padding: 0;
@@ -728,4 +726,8 @@ ul#images-list {
 #page {
     width: 759px;
     margin-left: 65px;
+}
+
+ul li .handle {
+    cursor: move;
 }

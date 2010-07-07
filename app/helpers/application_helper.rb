@@ -37,4 +37,10 @@ module ApplicationHelper
       p.images.build # if p.images.empty?
     end
   end
+
+  def setup_user(user)
+    returning(user) do |u|
+      u.categories.build if u.categories.empty?
+    end
+  end
 end

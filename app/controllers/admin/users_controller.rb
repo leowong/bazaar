@@ -66,4 +66,15 @@ class Admin::UsersController < Admin::BaseController
     flash[:notice] = t('messages.destroyed_successful')
     redirect_to admin_users_url
   end
+
+  def sort
+    @user = User.find(params[:id])
+    authorize! :update, @user
+    params[:category].each_with_index do |id, index|
+      # authorize! :update, Category.find(id) # commented out for performance reason
+      Category.update_all(['position=?', index+1], ['id=?', id])
+    end
+    # @user.touch # commented out for performance reason
+    render :nothing => true
+  end
 end
