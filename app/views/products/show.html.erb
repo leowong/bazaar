@@ -1,4 +1,4 @@
-<% title t('activerecord.models.product') + ' - ' + @product.name, false %>
+<% title @product.name + ' - ' + @product.user.abbreviation, false %>
 
 <% content_for :buttons do %>
   <li><%= link_to truncate(@product.user.abbreviation, :omission => "..", :length => 5), store_path(@product.user.username), :class => "button" %></li>

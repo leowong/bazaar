@@ -168,7 +168,7 @@ h2 a, h2 a:hover {
     color: #EEE;
 }
 
-#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #FFF; }
+#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #DDD; }
 
 #header .logo     { position:absolute; top:10px; left:32px; }
 #header .name     { position:absolute; top:20px; left:88px; }
@@ -312,7 +312,7 @@ select {
     min-height: 80px;
     height: auto !important;
     height: 80px;
-    border-top: 1px solid #FFF;
+    border-top: 1px solid #DDD;
 }
 
 #footer .note {

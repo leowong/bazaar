@@ -27,13 +27,17 @@ en:
     name: "Bazaar"
     tagline: "Start discovering the world around you"
     location: "Jiujiang City, Jiangxi Province, PRC"
-
+    location_dot_separated: "Jiujiang · Jiangxi"
   layout:
     navigation:
       stores: "Stores"
       products: "Products"
       profile: "Profile"
       logout: "Logout"
+    title:
+      meta:
+        keywords: "xuncheng"
+        description: "Searching products nearby."
 
   search:
     search: "Search"

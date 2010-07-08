@@ -1,0 +1,5 @@
+<% if yield(:title) %>
+  <title><%=h yield(:title) %> - <%= t('site.location') + t('site.name') %></title>
+<% else %>
+  <title><%= t('site.name') %> - <%= h(yield(:title) || t('site.tagline')) %></title>
+<% end %>

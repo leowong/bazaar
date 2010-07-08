@@ -2,7 +2,8 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><%= t('site.name') %> - <%= h(yield(:title) || t('site.tagline')) %></title>
+    <%= render :partial => "shared/meta" %>
+    <%= render :partial => "shared/title" %>
     <link rel="shortcut icon" href="/images/favicon.ico" /> 
     <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print" />
@@ -62,8 +63,8 @@
     <div id="footer">
       <div class="container">
 	<div class="note">
-	  &copy; 2010 - <%= link_to t('site.name'), root_url %> -
-          <%= t('site.location') %>
+	  &copy; 2010 - <%= link_to t('site.name'), root_url %><br />
+	  <%= t('site.location_dot_separated') %>
 	</div>
       </div>
     </div>

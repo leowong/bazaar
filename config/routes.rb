@@ -5,6 +5,8 @@ ActionController::Routing::Routes.draw do |map|
   map.recent 'recent', :controller => 'welcome', :action => 'recent'
   map.toss 'toss', :controller => 'welcome', :action => 'toss'
 
+  map.connect "sitemap.xml", :controller => "sitemap", :action => "sitemap"
+
   map.with_options :controller => 'pages' do |page|
     page.about 'about', :action => 'show', :id => 'about'
   end
