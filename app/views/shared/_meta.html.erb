@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="nuvFfJjBp7vg386HkcJQHZ87zSr4-CygihgPC31TT2M" />
 <% if controller_name == "products" && controller.action_name == "show" %>
   <meta name="keywords" content="<%= I18n.t('layout.title.meta.keywords') + (',' + h(@product.tag_names.gsub(' ', '')) unless @product.tag_names.blank?) %>" />
   <meta name="description" content="<%=h truncate(strip_tags(@product.description), :omission => '', :length => 200) %>" />
