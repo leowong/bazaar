@@ -60,10 +60,10 @@
   <p><strong><%= t('images.drag_n_drop') %></strong></p>
 <% end %>
 
-<ul id="images-list">
+<ul id="images-list" style="margin-bottom:20px">
 <% for image in @product.images.all(:order => 'position') %>
-  <% content_tag_for :li, image, :class => "clearfix" do %>
-    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 10px 0;padding:0">
+  <% content_tag_for :li, image, :class => "clearfix", :style => "margin-bottom:10px" do %>
+    <div style="float:left;width:48px;height:48px;border:1px solid #CCC;margin:0 20px 0px 0;padding:0">
       <%= image_tag cloudfront(image.attachment.url(:mini)), :size => "48x48", :class => "handle" %>
     </div>
     <div style="padding-top:12px">

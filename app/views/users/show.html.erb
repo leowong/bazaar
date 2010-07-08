@@ -65,8 +65,9 @@
   <div>
     <% for category in @user.categories %>
       <% unless category.products.empty? %>
+      <div style="height:18px" class="clear"></div>
       <div class="category clear">
-        <strong><%= category.name %></strong>
+        <%= category.name %>
       </div>
   <ul id="product-listing" class="product-listing clear">
     <% for product in category.products.with_images.descend_by_pageviews_count %>

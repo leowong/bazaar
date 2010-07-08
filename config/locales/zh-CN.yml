@@ -139,14 +139,14 @@
     models:
       product: "商品"
       user: "店铺"
-      category: "栏目"
+      category: "分类"
     attributes:
       product:
         name: "品名"
         price: "价格"
         description: "描述"
         pageviews_count: "访问量"
-        category_id: "栏目"
+        category_id: "分类"
       user:
         username: "用户名"
         store_name: "公司全称"
