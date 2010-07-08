@@ -15,8 +15,8 @@
     <%= f.collection_select :category_id, @product.user.categories, :id, :name, :include_blank => true %>
   </p>
   <p>
-    <%= f.label :tag_names, t('products.tag_names') %><br />
-    <%= f.text_field :tag_names %>
+    <%= f.label :tag_names, t('products.tag_names') %><%= t('products.tag_names_info') %><br />
+    <%= f.text_field :tag_names, :size => 60 %>
   </p>
   <p>
     <%= f.label :description %>

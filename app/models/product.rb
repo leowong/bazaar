@@ -49,11 +49,11 @@ class Product < ActiveRecord::Base
   end
 
   def tag_names=(names)
-    self.tags = Tag.with_names(names.split(/\s+/))
+    self.tags = Tag.with_names(names.strip.split(/\s*[,，]\s*/))
   end
 
   def tag_names
-    tags.map(&:name).join(' ')
+    tags.map(&:name).join(', ')
   end
 
   protected

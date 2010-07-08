@@ -265,7 +265,8 @@
     new_product: "添加商品"
     edit_product: "编辑商品信息"
     images_count: "图片数量"
-    tag_names: "关键字"
+    tag_names: "附加关键字"
+    tag_names_info: "（用于提高搜索准确度，多个关键字之间用逗号隔开）"
     unpublished: "(未发布)"
 
   images:
