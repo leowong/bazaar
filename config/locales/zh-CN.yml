@@ -158,6 +158,7 @@
         longitude: "东经"
         password: "登录密码"
         password_confirmation: "密码验证"
+        created_at: "创建时间"
   
   activemodel:
     errors:
@@ -265,6 +266,7 @@
     edit_store: "修改店铺资料"
     should_be_at_least_001: "不能小于 0.01"
     is_preserved: "为保留字"
+    pageviews: "访问量"
 
   products:
     new_product: "添加商品"

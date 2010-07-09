@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
   def index
     if params[:q] && !params[:q].empty?
-      @search = User.username_or_store_name_like_all(params[:q].to_s.split)
+      @search = User.username_or_abbreviation_or_store_name_or_contact_like_all(params[:q].to_s.split)
       @users = @search.descend_by_created_at
     else
       @users = User.descend_by_created_at

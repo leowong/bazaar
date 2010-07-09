@@ -36,6 +36,15 @@ $(document).ready(function() {
     });
   }
 
+  $('table.stores tbody tr').hover(
+    function() {
+      $(this).addClass('hover');
+    },
+    function() {
+      $(this).removeClass('hover');
+    }
+  );
+
   $('table.products tbody tr').hover(
     function() {
       $(this).addClass('hover');

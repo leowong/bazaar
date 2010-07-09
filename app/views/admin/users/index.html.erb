@@ -1,39 +1,50 @@
 <% title "Stores", false %>
 
-<div id="search" style="margin-left:0">
+<div style="float:right">
   <% form_tag admin_users_url, :name => "sitesearch", :method => 'get' do %>
-    <div class="input" style="margin-left:0">
+    <div style="margin-left:0">
       <%= text_field_tag :q, params[:q], :autocomplete => "off", :size => "25" %>
-      <%= submit_tag '', :name => nil, :class => "submit" %>
+      <%= submit_tag t('search.search'), :name => nil, :class => "submit" %>
     </div>
   <% end %>
 </div>
 
+<h2><%= link_to t('layout.navigation.stores'), admin_users_path %></h2>
+
 <hr class="space" />
-<table>
-  <% for user in @users %>
+<table class="stores">
+  <thead>
     <tr>
-      <td>
-	<%= link_to user.username, store_path(user.username) %>
-      </td>
-      <td>
-	<%=h user.abbreviation %>
-      </td>
-      <td>
-	<%=h user.store_name %>
-      </td>
-      <td>
-	<%=h user.contact %>
-      </td>
-      <td>
-	<%=h user.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %>
-      </td>
-      <td style="text-align:right">
-	<%= link_to t('buttons.edit'), edit_admin_user_path(user == current_user ? "current" : user) %>
-        <%= link_to t('buttons.destroy'), [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
-      </td>
+      <th><%= t('activerecord.attributes.user.username') %></th>
+      <th><%= t('activerecord.attributes.user.abbreviation') %></th>
+      <th><%= t('activerecord.attributes.user.store_name') %></th>
+      <th><%= t('activerecord.attributes.user.contact') %></th>
+      <th><%= t('users.pageviews') %></th>
+      <th><%= t('activerecord.attributes.user.created_at') %></th>
+      <th></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for user in @users %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%=h user.abbreviation %></td>
+        <td><%=h user.store_name %></td>
+        <td><%=h user.contact %></td>
+        <td><%= user.products.sum(:pageviews_count) %></td>
+        <td><%=h user.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td style="text-align:right">
+	  <%= link_to t('buttons.view'), store_path(user.username) %>
+	  <%= link_to t('buttons.edit'), edit_admin_user_path(user == current_user ? "current" : user) %>
+          <%= link_to t('buttons.destroy'), [:admin, user], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7"></td>
+    </tr>
 </table>
 
 <p><%= link_to t('users.new_user'), new_admin_user_path %></p>

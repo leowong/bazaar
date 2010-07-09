@@ -266,7 +266,7 @@ h2 a, h2 a:hover {
     font-weight: normal;
 }
 
-input#q {
+#search input#q {
     height: 29px;
     background-color: #FFFFDD;
     color: #222;
@@ -491,33 +491,40 @@ table.attributes tr td {
     height: 172px;
 }
 
-/* admin products */
+/* admin stores and products */
 
+table.stores,
 table.products {
     border-collapse: collapse;
 }
 
+table.stores thead th,
 table.products thead th {
     background-color: #FFF;
 }
 
+table.stores tbody tr.hover,
 table.products tbody tr.hover {
     background-color: #F0F0F0;
 }
 
+table.stores th.number, table.stores td.number,
 table.products th.number, table.products td.number {
     text-align: right;
 }
 
+table.stores tfoot tr td,
 table.products tfoot tr td {
     font-weight: bold;
     font-style: normal;
 }
 
+table.stores thead th,
 table.products thead th {
     border-bottom: 1px solid #CCC;
 }
 
+table.stores tfoot td,
 table.products tfoot td {
     border-top: 1px solid #CCC;
 }
