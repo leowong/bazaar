@@ -7,4 +7,16 @@ task :cron => :environment do
     Net::HTTP.get('www.google.com', '/ping?sitemap=' + URI.escape(sitemap_url))
     puts "<<< [#{Time.now.httpdate}] Done."
   end
+
+  # [2] Trimming unused tags
+  if true
+    puts ""
+    puts ">>> [#{Time.now.httpdate}] Trimming unused tags..."
+    Tag.all.each do |t|
+      if t.products.size == 0
+        t.destroy
+      end
+    end
+    puts "<<< [#{Time.now.httpdate}] Done."
+  end
 end
