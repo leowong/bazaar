@@ -3,6 +3,12 @@ xml.urlset :xmlns => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   xml.url do
     xml.loc root_url
   end
+  xml.url do
+    xml.loc users_url
+  end
+  xml.url do
+    xml.loc products_url
+  end
   @pages.each do |page|
     xml.url do
       xml.loc url_for(:controller => :pages, :action => :show, :id => page.slug, :only_path => false)
