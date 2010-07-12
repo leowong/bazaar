@@ -1,0 +1,19 @@
+<% form_for @comment do |f| %>
+  <%= f.error_messages %>
+  <div>
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div>
+    <%= f.text_field :name %> &nbsp;
+    <%= f.label :name %> <span style="color:red">*</span>
+  </div>
+  <div>
+    <%= f.text_field :contact %> &nbsp;
+    <%= f.label :contact %><%= t('comments.contact_info') %>
+  </div>
+  <div>
+    <!--<%# f.label :content %><br /> -->
+    <%= f.text_area :content, :style => "width:50%;height:100px" %>
+  </div>
+  <p><%= f.submit t('buttons.submit') %></p>
+<% end %>

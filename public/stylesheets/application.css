@@ -491,6 +491,11 @@ table.attributes tr td {
     height: 172px;
 }
 
+.comments {
+    width: 759px;
+    margin-left: 65px;
+}
+
 /* admin stores and products */
 
 table.stores,

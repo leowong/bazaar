@@ -69,25 +69,44 @@
       <div class="category clear">
         <%= category.name %>
       </div>
-  <ul id="product-listing" class="product-listing clear">
-    <% for product in category.products.with_images.descend_by_pageviews_count %>
-      <li data-id="product-<%= product.id %>">
-        <div class="image-shadow">
-          <% link_to product do %>
-            <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "#{product.name}", :title => "#{product.name}") unless product.images.empty? %>
-	  <%  end %>
-        </div>
-        <div>
-          <!-- for ie6/7's sake -->
-        </div>
-        <div class="info">
-          <span class="name"><%= link_to (truncate(h(product.name), :length => 10)), product %></span>
-          <span class="price"><%= number_to_currency product.price %></span>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        <ul id="product-listing" class="product-listing clear">
+          <% for product in category.products.with_images.descend_by_pageviews_count %>
+            <li data-id="product-<%= product.id %>">
+              <div class="image-shadow">
+                <% link_to product do %>
+                  <%= image_tag(cloudfront(product.images.first.attachment.url(:small)), :width => "100px", :height => "100px", :alt => "#{product.name}", :title => "#{product.name}") unless product.images.empty? %>
+	        <%  end %>
+              </div>
+              <div>
+                <!-- for ie6/7's sake -->
+              </div>
+              <div class="info">
+                <span class="name"><%= link_to (truncate(h(product.name), :length => 10)), product %></span>
+                <span class="price"><%= number_to_currency product.price %></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>
+</div>
+
+
+<div class="comments">
+  <% @comment = Comment.new(:user_id => @user.id) %>
+
+  <hr class="space" />
+  <h3><%= t('comments.talk_to_manager') %></h3>
+  <hr />
+
+  <div class="add_comment">
+    <%= render :partial => 'comments/form' %>
+  </div>
+
+  <% unless @user.comments.empty? %>
+    <div id="comments" class="clear">
+      <%= render @user.comments.all(:order => "updated_at DESC") %>
+    </div>
+  <% end %>
 </div>

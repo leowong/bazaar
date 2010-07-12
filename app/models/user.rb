@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :products, :dependent => :destroy
   has_many :categories, :order => "position", :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   accepts_nested_attributes_for :categories, :reject_if => :all_blank, :allow_destroy => true
 

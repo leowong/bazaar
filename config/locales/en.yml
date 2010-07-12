@@ -79,6 +79,11 @@ en:
     is_preserved: "is preserved"
     pageviews: "Pageviews"
 
+  comments:
+    talk_to_manager: "Talk to manager"
+    redirect_notice: "To submit a comment, please go to a specific product first."
+    contact_info: " (not published)"
+
   products:
     new_product: "New Product"
     edit_product: "Edit Product"
