@@ -1,7 +1,14 @@
 <% title  @user.abbreviation, false %>
 
 <% content_for :buttons do %>
-  <li><%= link_to truncate(@user.abbreviation, :omission => "..", :length => 5), store_path(@user.username), :class => "button" %></li>
+  <li><strong><%= link_to truncate(@user.abbreviation, :omission => "..", :length => 5), store_path(@user.username), :class => "button" %></strong></li>
+  <% for category in @user.categories %>
+    <% unless category.products.empty? %>
+      <ul>
+	<li><a href="#<%= category.name %>"><%= category.name %></a></li>
+      </ul>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% content_for :head do %>
@@ -31,10 +38,10 @@
 <div id="store-info">
   <h2><%= link_to @user.abbreviation, store_path(@user.username) %></h2>
   <div class="clearfixxxxxxx"> <!-- ie6/7 fix -->
-    <div id="show_map" style="float:right;cursor:pointer;">
+    <div id="show_map">
       <%= t('google_maps.show_map') %>
     </div>
-    <div id="map_canvas" class="clear" style="width:758px;height:468px;display:none">
+    <div id="map_canvas" class="clear" style="width:594px;height:369px;display:none">
       <!-- for google maps -->
     </div>
     <table class="attributes">
@@ -65,9 +72,10 @@
   <div>
     <% for category in @user.categories %>
       <% unless category.products.empty? %>
-      <div style="height:18px" class="clear"></div>
+      <div class="clear"></div>
       <div class="category clear">
-        <%= category.name %>
+	<div style="float:right;font-size:smaller;margin-right:2px"><a href="#">▲</a></div>
+        <div><a name="<%= category.name %>"><%= category.name %></a></div>
       </div>
         <ul id="product-listing" class="product-listing clear">
           <% for product in category.products.with_images.descend_by_pageviews_count %>
@@ -93,20 +101,22 @@
 </div>
 
 
-<div class="comments">
+<% content_for :comments do %>
   <% @comment = Comment.new(:user_id => @user.id) %>
 
-  <hr class="space" />
-  <h3><%= t('comments.talk_to_manager') %></h3>
-  <hr />
-
-  <div class="add_comment">
-    <%= render :partial => 'comments/form' %>
-  </div>
-
-  <% unless @user.comments.empty? %>
-    <div id="comments" class="clear">
-      <%= render @user.comments.all(:order => "updated_at DESC") %>
+  <div class="group">
+    <div class="title">
+      <%= t('comments.talk_to_manager') %>
     </div>
-  <% end %>
-</div>
+
+    <div class="add_comment">
+      <%= render :partial => 'comments/form' %>
+    </div>
+
+    <% unless @user.comments.empty? %>
+      <div id="comments" class=" content clear">
+	 <%= render @user.comments.recent %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

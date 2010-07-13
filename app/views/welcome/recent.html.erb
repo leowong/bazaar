@@ -7,7 +7,6 @@
 <% end %>
 
 <% content_for :buttons do %>
-  <li><%= link_to t('buttons.navigation.recent'), recent_path, :class => "button" %></li>
   <li><a id="toss" class="button" href="javascript:void(0)"><%= t('buttons.navigation.toss') %></a></li>
 <% end %>
 
@@ -50,3 +49,17 @@
     </li>
   <% end %>
 </ul>
+
+<% content_for :comments do %>
+  <div class="group">
+    <div class="title">
+      <%= t('comments.broadcasting') %>
+    </div>
+
+    <% unless Comment.all.empty? %>
+      <div id="comments" class=" content clear">
+	 <%= render Comment.from_manager.recent %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -17,11 +17,12 @@ class ProductsController < ApplicationController
     end
 
     @products_count = @search.size
-    @products = @search.paginate :select => 'DISTINCT products.*', :page => params[:page], :per_page => 15
+    @products = @search.paginate :select => 'DISTINCT products.*', :page => params[:page], :per_page => 20
   end
   
   def show
     @product = Product.find_by_permalink(params[:id])
+    @user = @product.user
     Product.increment_counter(:pageviews_count, @product.id)
   end
 end

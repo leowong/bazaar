@@ -7,3 +7,23 @@
     <%= @page.content %>
   </div>
 </div>
+
+<% content_for :comments do %>
+  <% @comment = Comment.new(:user_id => @user.id) %>
+
+  <div class="group">
+    <div class="title">
+      <%= t('comments.talk_to_webmaster') %>
+    </div>
+
+    <div class="add_comment">
+      <%= render :partial => 'comments/form' %>
+    </div>
+
+    <% unless @user.comments.empty? %>
+      <div id="comments" class=" content clear">
+	 <%= render @user.comments.recent %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

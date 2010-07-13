@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments = Comment.all :order => 'created_at DESC'
   end
   
   def show
@@ -8,38 +8,23 @@ class CommentsController < ApplicationController
   end
   
   def new
-    flash[:notice] = t("comments.redirect_notice")
     redirect_to root_url
   end
   
   def create
+    return_to = params[:comment][:return_to]
+    params[:comment].delete(:return_to)
+    if current_user
+      params[:comment][:composer_id] = current_user.id
+      params[:comment][:name] = current_user.abbreviation
+      params[:comment][:contact] = current_user.contact
+    end
     @comment = Comment.new(params[:comment])
     if @comment.save
-      flash[:notice] = "Successfully created comment."
-      redirect_to store_path(@comment.user.username)
+      flash[:notice] = t('messages.published_successful')
+      redirect_to return_to
     else
-      render :action => 'new'
+      redirect_to return_to
     end
-  end
-  
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-  
-  def update
-    @comment = Comment.find(params[:id])
-    if @comment.update_attributes(params[:comment])
-      flash[:notice] = "Successfully updated comment."
-      redirect_to store_path(@comment.user.usernam)
-    else
-      render :action => 'edit'
-    end
-  end
-  
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    flash[:notice] = "Successfully destroyed comment."
-    redirect_to comments_url
   end
 end

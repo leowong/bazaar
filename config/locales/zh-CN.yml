@@ -27,38 +27,38 @@
     distance_in_words:
       half_a_minute: "半分钟"
       less_than_x_seconds:
-        one: "不到一秒"
-        other: "不到 {{count}} 秒"
+        one: "1 秒"
+        other: "{{count}} 秒"
       x_seconds:
-        one: "一秒"
+        one: "1 秒"
         other: "{{count}} 秒"
       less_than_x_minutes:
-        one: "不到一分钟"
-        other: "不到 {{count}} 分钟"
+        one: "1 分钟"
+        other: "{{count}} 分钟"
       x_minutes:
-        one: "一分钟"
+        one: "1 分钟"
         other: "{{count}} 分钟"
       about_x_hours:
-        one: "大约一小时"
-        other: "大约 {{count}} 小时"
+        one: "1 小时"
+        other: "{{count}} 小时"
       x_days:
-        one: "一天"
+        one: "1 天"
         other: "{{count}} 天"
       about_x_months:
-        one: "大约一个月"
-        other: "大约 {{count}} 个月"
+        one: "1 个月"
+        other: "{{count}} 个月"
       x_months:
-        one: "一个月"
+        one: "1 个月"
         other: "{{count}} 个月"
       about_x_years:
-        one: "大约一年"
-        other: "大约 {{count}} 年"
+        one: "1 年"
+        other: "{{count}} 年"
       over_x_years:
-        one: "一年多"
-        other: "{{count}} 年多"
+        one: "1 年"
+        other: "{{count}} 年"
       almost_x_years:
-        one:   "接近一年"
-        other: "接近 {{count}} 年"
+        one:   "1 年"
+        other: "1 {{count}} 年"
     prompts:
       year:   "年"
       month:  "月"
@@ -162,7 +162,7 @@
       comment:
         name: "称呼"
         contact: "联系方式"
-        content: "内容"
+        content: "正文"
   
   activemodel:
     errors:
@@ -201,19 +201,24 @@
     updated_successful: "更新成功"
     destroyed_successful: "删除成功"
     created_successful: "创建成功"
+    published_successful: "发布成功"
 
   buttons:
     view: "查看"
     edit: "修改"
     submit: "提交"
+    publish: "发布"
     destroy: "删除"
     cancel: "取消"
     change: "更换"
     navigation:
-      home: "回首页"
-      recent: "新产品"
+      home: "热门商品"
+      recent: "最新商品"
       toss: "碰碰看！"
-  
+
+  info:
+    ago: "前"
+
   site:
     name: "浔城店家"
     tagline: "体验逛街的乐趣"
@@ -273,7 +278,9 @@
     pageviews: "访问量"
 
   comments:
-    talk_to_manager: "和店长交流"
+    broadcasting: "全站消息"
+    talk_to_manager: "店铺消息"
+    talk_to_webmaster: "站点消息"
     redirect_notice: "提交问题请先访问店铺或商品页面。"
     contact_info: "（仅店长可见）"
 

@@ -1,6 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments
-
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.search 'search', :controller => 'search', :action => 'index'
@@ -13,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
     page.about 'about', :action => 'show', :id => 'about'
   end
 
+  map.resources :comments, :only => [:index, :show, :new, :create]
   map.resources :user_sessions
   map.resources :users, :as => 'stores', :only => [:index, :show]
   map.resources :products, :only => [:index, :show]

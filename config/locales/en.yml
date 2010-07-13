@@ -10,11 +10,13 @@ en:
     updated_successful: "Successfully updated profile."
     destroyed_successful: "Successfully destroyed user."
     created_successful: "Successfully created product."
+    published_successful: "Successfully created comment."
 
   buttons:
     view: "View"
     edit: "Edit"
     submit: "Submit"
+    publish: "Publish"
     destroy: "Destroy"
     cancel: "Cancel"
     change: "Change"
@@ -22,6 +24,9 @@ en:
       home: "Home"
       recent: "Recent"
       toss: "Toss"
+
+  info:
+    ago: "ago"
 
   site:
     name: "Bazaar"
@@ -80,7 +85,9 @@ en:
     pageviews: "Pageviews"
 
   comments:
+    broadcasting: "Site news"
     talk_to_manager: "Talk to manager"
+    talk_webmaster: "Talk to webmaster"
     redirect_notice: "To submit a comment, please go to a specific product first."
     contact_info: " (not published)"
 

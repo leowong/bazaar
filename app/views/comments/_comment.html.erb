@@ -1,11 +1,41 @@
-<div style="padding:5px 0">
-  <div style="float:right;color:#999">
-    <%= comment.created_at.to_datetime.strftime('%Y-%m-%d %H:%M:%S') %>
+<% unless controller_name == "welcome" %>
+<div class="comment">
+  <div class="datetime">
+    <%= time_ago_in_words(comment.created_at) %><%= I18n.t('info.ago') %>
   </div>
-  <div>
-    <strong><%= comment.name %></strong>:
+  <div style="font-size:smaller;color:#777">
+    <% if comment.composer_id %>
+      <% composer = User.find(comment.composer_id) %>
+      <% if composer.role?(:admin) %>
+        <span class="admin"><%= link_to composer.abbreviation, about_path %>:</span>
+      <% elsif comment.composer_id == @user.id %>
+        <span class="manager"><%= link_to comment.user.abbreviation, store_path(comment.user.username) %>:</span>
+      <% else %>
+        <span><%= link_to composer.abbreviation, store_path(composer.username) %>:</span>
+      <% end %>
+    <% else %>
+      <%= comment.name %>:
+    <% end %>
   </div>
-  <div>
+  <div style="padding:5px 0;font-size:smaller">
     <%= comment.content %>
   </div>
 </div>
+<% else %>
+  <div class="<%= comment_counter == 0 ? "comment first" : "comment" %>">
+    <div class="datetime">
+      <%= time_ago_in_words(comment.created_at) %><%= I18n.t('info.ago') %>
+    </div>
+    <div style="font-size:smaller;color:#777">
+      <% composer = User.find(comment.composer_id) %>
+      <% if composer.role?(:admin) %>
+        <span class="admin"><%= link_to composer.abbreviation, about_path %>:</span>
+      <% else %>
+        <span><%= link_to composer.abbreviation, store_path(composer.username) %>:</span>
+      <% end %>
+    </div>
+    <div style="padding:5px 0;font-size:smaller">
+      <%= comment.content %>
+    </div>
+  </div>
+<% end %>

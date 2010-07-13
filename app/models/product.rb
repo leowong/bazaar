@@ -14,8 +14,8 @@ class Product < ActiveRecord::Base
   validate :price_must_be_at_least_a_cent
 
   named_scope :with_images, :conditions => ['assets_count > 0']
-  named_scope :popular, :order => "pageviews_count DESC", :limit => 15
-  named_scope :recent, :order => "updated_at DESC", :limit => 15
+  named_scope :popular, :order => "pageviews_count DESC", :limit => 20
+  named_scope :recent, :order => "updated_at DESC", :limit => 20
   named_scope :published, :conditions => { :published => true }
 
   def self.random_ids(total)

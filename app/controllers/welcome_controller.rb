@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 
   def toss
     # For SQLite and PostgreSQL only, not MySQL compatible.
-    @products = Product.published.with_images.id_equals(Product.random_ids(15)).all(:order => "random()", :limit => 15)
+    @products = Product.published.with_images.id_equals(Product.random_ids(20)).all(:order => "random()", :limit => 20)
     render :layout => false
   end
 end

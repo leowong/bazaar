@@ -1,19 +1,23 @@
+<% @comment.return_to = request.request_uri %>
 <% form_for @comment do |f| %>
   <%= f.error_messages %>
   <div>
     <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :return_to %>
   </div>
+  <% unless current_user %>
+    <div>
+      <%= f.label :name %> <span style="color:red;font-size:smaller">*</span><br />
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :contact %><span style="font-size:smaller"><%= t('comments.contact_info') %></span><br />
+      <%= f.text_field :contact %>
+    </div>
+  <% end %>
   <div>
-    <%= f.text_field :name %> &nbsp;
-    <%= f.label :name %> <span style="color:red">*</span>
+    <%= f.label :content %> <span style="color:red;font-size:smaller">*</span><br />
+    <%= f.text_area :content %>
   </div>
-  <div>
-    <%= f.text_field :contact %> &nbsp;
-    <%= f.label :contact %><%= t('comments.contact_info') %>
-  </div>
-  <div>
-    <!--<%# f.label :content %><br /> -->
-    <%= f.text_area :content, :style => "width:50%;height:100px" %>
-  </div>
-  <p><%= f.submit t('buttons.submit') %></p>
+  <p><%= f.submit t('buttons.publish') %></p>
 <% end %>

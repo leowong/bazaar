@@ -77,7 +77,8 @@ h2 a, h2 a:hover {
     margin: 0;
 }
 
-#wrapper2 {
+#wrapper {
+    padding: 20px 80px;
     margin: 0px;
     min-height: 697px;
     height: auto !important;
@@ -87,11 +88,7 @@ h2 a, h2 a:hover {
 }
 
 #main {
-    float: left;
-    width: 678px;
-    margin: 25px 0;
-    background-color: #FFF;
-    border-right: 1px solid #CCC;
+    margin-bottom: 25px;
 }
 
 .fieldWithErrors {
@@ -140,7 +137,7 @@ h2 a, h2 a:hover {
     height: 18px;
     margin: 0;
     padding: 0.45em 1em;
-    border: 1px solid #DDD;
+    border-bottom: 1px solid #777
 }
 
 #info a {
@@ -171,36 +168,12 @@ h2 a, h2 a:hover {
     color: #EEE;
 }
 
-#header {
-    height:66px;
-    margin:0;
-    padding:0;
-    position:relative;
-    text-align:center;
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-}
+#header           { height:66px; margin:0; padding=0; position:relative; text-align:center; width:100%; border-bottom:1px solid #DDD; }
 
-#header .logo {
-    position:absolute;
-    top:10px;
-    left:32px;
-}
-
-#header .name {
-    position:absolute;
-    top:20px;
-    left:88px;
-}
-
-#header .name h1 {
-    font-size: 28px;
-}
-
-#header a {
-    color:#FFF;
-}
+#header .logo     { position:absolute; top:10px; left:32px; }
+#header .name     { position:absolute; top:20px; left:88px; }
+#header .name h1  { font-size: 28px; }
+#header a         { color:#FFF; }
 
 #header .flash-messages {
     position: absolute;
@@ -218,31 +191,29 @@ h2 a, h2 a:hover {
     font-size: larger;
 }
 
-#wrapper2 .buttons {
+#wrapper .buttons {
     margin: 0;
     padding: 0;
+    /* font-size: 14px; */
     width: 80px;
+    position: absolute;
+    top: 32px;
+    left: 52px;
     text-align: left; /* for ie6/7 */
 }
 
-#wrapper2 #side {
-    float: right;
-    width: 190px;
-    padding: 40px 15px 0 15px;
-}
-
-#wrapper2 .buttons ul {
+#wrapper .buttons ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-#wrapper2 .buttons ul li {
+#wrapper .buttons ul li {
     margin: 0 0 5px 0;
     padding: 0;
 }
 
-#wrapper2 .buttons ul li a {
+#wrapper .buttons ul li a {
     text-decoration: none;
     color: #000;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
@@ -251,57 +222,8 @@ h2 a, h2 a:hover {
     padding: 0 0 0 20px;
 }
 
-#wrapper2 .buttons ul li a:hover {
+#wrapper .buttons ul li a:hover {
     /* background: url("/images/button-green.png") no-repeat scroll left center transparent; */
-}
-
-#wrapper2 .buttons ul ul li a {
-    margin-left: 20px;
-}
-
-#wrapper2 #side .group {
-    margin-top: 20px;
-}
-
-#wrapper2 #side .group .title {
-    font-weight: bold;
-    padding: 2px 4px;
-    margin-bottom: 12px;
-    background: #EEE;
-}
-
-#wrapper2 #side .group #comments .datetime {
-    float: right;
-    color: #999;
-    font-size: smaller;
-}
-
-#wrapper2 #side .group label {
-    font-size: smaller;
-}
-
-#wrapper2 #side .group input#comment_name,
-#wrapper2 #side .group input#comment_contact {
-    width: 130px;
-}
-
-#wrapper2 #side .group textarea#comment_content {
-    width: 160px;
-    height: 80px;
-}
-
-#wrapper2 #side .group #comments .comment {
-    padding-top: 5px;
-    border-top: 1px dotted #DDD;
-}
-
-#wrapper2 #side .group #comments .first {
-    border: none;
-}
-
-#wrapper2 #side .group #comments .manager a,
-#wrapper2 #side .group #comments .admin a {
-    font-weight: bold;
 }
 
 #search {
@@ -310,8 +232,7 @@ h2 a, h2 a:hover {
 
 #search .input {
     text-align: left;
-    /* margin: 0 45px; */
-    margin: 0 0 0 20px;
+    margin: 0 45px;
     padding-top: 1px;
     padding-bottom: 1px;
     position: relative;
@@ -320,7 +241,7 @@ h2 a, h2 a:hover {
 #search .input input {
     height: 30px;
     font-size: 200%;
-    width: 534px;
+    width: 721px;
     vertical-align: middle;
     /* background: url(/images/search.gif) no-repeat bottom right #FFFFDD; */
 }
@@ -334,10 +255,10 @@ h2 a, h2 a:hover {
     margin: 0;
     padding: 0;
     height: 29px;
-    width: 58px;
+    width: 29px;
     position: absolute;
     top: 16px;
-    left: 538px;
+    left: 729px;
     overflow: hidden;
 }
 
@@ -351,7 +272,7 @@ h2 a, h2 a:hover {
     color: #222;
     margin-top: 12px;
     margin-bottom: 12px;
-    padding-right: 64px;
+    padding-right: 36px;
     border-top: 1px solid #CCC;
     border-right: 1px solid #BBB;
     border-bottom: 1px solid #BBB;
@@ -361,8 +282,8 @@ h2 a, h2 a:hover {
 
 #search .info {
     text-align: left;
-    width: 600px;
-    margin: 0 0 24px 16px;
+    width: 758px;
+    margin: 0 0 24px 45px;
 }
 
 #search .info .search-options {
@@ -374,12 +295,8 @@ h2 a, h2 a:hover {
     margin-left: 7px;
 }
 
-#search .info .count-number a {
-    color: #275c9f;
-}
-
 .sorting-options {
-    width: 574px;
+    width: 759px;
     margin-top: -12px;
     margin-bottom: 12px;
     margin-left: 65px;
@@ -395,13 +312,12 @@ select {
     min-height: 80px;
     height: auto !important;
     height: 80px;
-    border-top: 1px solid #FFF;
+    border-top: 1px solid #DDD;
 }
 
 #footer .note {
     text-align:center;
     margin-top: 15px;
-    margin-bottom: 35px;
 }
 
 #footer .note a {
@@ -421,11 +337,9 @@ div.product-listing {
 ul.product-listing {
     list-style: none;
     display: block;
-    /* min-height: 570px; */
-    /* height: auto !important; */
-    /* height: 570px; */
-    margin: 0;
-    padding-left: 15px;
+    min-height: 570px;
+    height: auto !important;
+    height: 570px;
 }
 
 ul.product-listing li {
@@ -466,8 +380,9 @@ ul.product-listing li .info .store a {
 
 ul.store-listing {
     list-style: none;
-    margin: 48px 0 0 38px;
+    margin: 48px 0 0 34px;
     padding: 0;
+    width: 80%;
     min-height: 570px;
     height: auto !important;
     height: 570px;
@@ -475,7 +390,7 @@ ul.store-listing {
 
 ul.store-listing li {
     display: list-item;
-    margin: 0;
+    margin: 0 27px;
     clear: both;
 }
 
@@ -491,8 +406,10 @@ ul.store-listing li a img {
 }
 
 ul.store-listing li .info {
+    width: 85%;
     float: left;
     font-size: 12px;
+    /* margin: 0 0 0 80px; */
     padding: 2px 0 0 0;
     min-height: 80px;
     height: auto !important;
@@ -504,7 +421,6 @@ ul.store-listing li .info .title {
 }
 
 ul.store-listing li .info .description {
-    width: 520px;
     margin-top: 3px;
 }
 
@@ -529,23 +445,23 @@ div.store-listing {
 /* stores show */
 
 #store-info {
-    padding: 15px 42px;
+    width: 759px;
+    margin-left: 65px;
 }
 
 #store-products .category {
-    color: #427AC0;
-    font-size: larger;
+    width: 759px;
+    font-size: 1.5em;
     font-weight: bold;
-    padding: 3px 14px;
-    margin: 3px 32px 16px 28px;
-    background-color: #EEE;
+    border-bottom: 1px solid #DDD;
+    padding: 3px 5px;
+    margin: 0px 0 18px 65px;
 }
 
 #store-info #show_map {
     float: right;
     cursor: pointer;
     color: #2E6AB1;
-    font-size: larger;
 }
 
 #store-info #map_canvas {
@@ -616,7 +532,8 @@ table.products tfoot td {
 /* products show */
 
 #product {
-    margin: 0 54px;
+    width: 759px;
+    margin-left: 65px;
 }
 
 .description table {
@@ -630,10 +547,10 @@ table.products tfoot td {
 }
 
 #product-images {
-    margin: 0 24px 0 -4px;
+    margin: 0 0 0 16px;
     padding: 0;
     width: 256px;
-    float: left;
+    float: right;
 }
 
 #product-images #main-image {
@@ -643,7 +560,7 @@ table.products tfoot td {
     height: 240px;
     position: relative;
     border: 4px solid #CCC;
-    margin: 0 0 10px 5px;
+    margin-left: 5px;
 }
 
 #product-images #main-image img {
@@ -816,8 +733,8 @@ ul#images-list {
 }
 
 #page {
-    /* width: 759px; */
-    margin: 0 54px;
+    width: 759px;
+    margin-left: 65px;
 }
 
 ul li .handle {

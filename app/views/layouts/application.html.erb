@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" />
     <![endif]-->
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag 'jquery', 'jquery-ui-custom', 'nested_form', 'cloud-zoom' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui-custom', 'cloud-zoom' %>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
     <%= render :partial => 'shared/googlemaps' %>
     <%= include_tiny_mce_if_needed %>
@@ -20,6 +20,7 @@
     <%= render :partial => 'shared/google_analytics' %>
   </head>
   <body>
+    <div id="wrapper" class="container">
     <div id="info">
       <%= render :partial => 'shared/navigation' %>
       <div class="new_store">
@@ -45,23 +46,31 @@
       </span>
       <%= yield(:header) %>
     </div>
-    <div id="wrapper">
-      <div id="main" class="container clear">
-        <%- if show_title? -%>
-          <h2><%=h yield(:title) %></h2>
-        <%- end -%>
-      
-        <%= yield %>
-      </div>
-      <div class="buttons">
-	<ul>
-	  <li><%= link_to t('buttons.navigation.home'), root_url, :class => "button" %></li>
-	  <%= yield(:buttons) %>
-	</ul>
+    <div id="wrapper2" class="clearfix">
+      <div class="clear">
+	<div id="main">
+          <%- if show_title? -%>
+            <h2><%=h yield(:title) %></h2>
+          <%- end -%>
+          <%= yield %>
+	</div>
+	<div id="side">
+	  <div class="buttons">
+	    <ul>
+	      <li><%= link_to t('buttons.navigation.home'), root_url, :class => "button" %></li>
+	      <li><%= link_to t('buttons.navigation.recent'), recent_path, :class => "button" %></li>
+              <li><%= link_to t('pages.about'), about_path, :class => "button" %></li>
+	      <%= yield(:buttons) %>
+	    </ul>
+	  </div>
+          <div class="comments">
+	    <%= yield(:comments) %>
+	  </div>
+	</div>
       </div>
     </div>
     <div id="footer">
-      <div class="container">
+      <div class="clear">
 	<div class="note">
 	  &copy; 2010 - <%= link_to t('site.name'), root_url %><br />
 	  <%= t('site.location_dot_separated') %>
@@ -71,5 +80,6 @@
     <div id="preloader">
       <%= yield(:preloader) %>
     </div>
+  </div>
   </body>
 </html>

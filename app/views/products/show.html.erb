@@ -1,7 +1,14 @@
 <% title @product.name + ' - ' + @product.user.abbreviation, false %>
 
 <% content_for :buttons do %>
-  <li><%= link_to truncate(@product.user.abbreviation, :omission => "..", :length => 5), store_path(@product.user.username), :class => "button" %></li>
+  <li><strong><%= link_to truncate(@product.user.abbreviation, :omission => "...", :length => 9), store_path(@product.user.username), :class => "button" %></strong></li>
+  <% for category in @user.categories %>
+    <% unless category.products.empty? %>
+      <ul>
+	<li><a href="<%= store_path(@user.username) %>#<%= category.name %>"><%= category.name %></a></li>
+      </ul>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if @product.images.size > 1 %>
@@ -44,3 +51,23 @@
     <%= @product.description %>
   </div>
 </div>
+
+<% content_for :comments do %>
+  <% @comment = Comment.new(:user_id => @user.id) %>
+
+  <div class="group">
+    <div class="title">
+      <%= t('comments.talk_to_manager') %>
+    </div>
+
+    <div class="add_comment">
+      <%= render :partial => 'comments/form' %>
+    </div>
+
+    <% unless @user.comments.empty? %>
+      <div id="comments" class=" content clear">
+	 <%= render @user.comments.recent %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
