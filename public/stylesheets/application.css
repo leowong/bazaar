@@ -1,10 +1,10 @@
-body, #wrapper, .container {
+body, #wrapper, .container, .columns {
     font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
     font-size: 12px;
 }
 
 body {
-    background-color: #B9B9B9;
+    background-color: #DEDEDC;
     color: #000;
 }
 
@@ -47,6 +47,7 @@ h2 a, h2 a:hover {
     position: relative;
     background-color: #fff;
     border: 1px solid #a9a9a9;
+    border: 1px solid #CCC;
     margin: -6px 6px 6px -6px;
     padding: 4px;
 }
@@ -77,21 +78,23 @@ h2 a, h2 a:hover {
     margin: 0;
 }
 
-#wrapper2 {
-    margin: 0px;
-    min-height: 697px;
-    height: auto !important;
-    height: 697px;
+.columns {
+    margin: 0 auto;
+    width: 900px;
+    /* min-height: 697px; */
+    /* height: auto !important; */
+    /* height: 697px; */
     background-color: #FFF;
-    position: relative;
 }
 
 #main {
-    float: left;
+    vertical-align: top;
     width: 678px;
-    margin: 25px 0;
     background-color: #FFF;
-    border-right: 1px solid #CCC;
+    padding: 25px 0;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #B9B9B9;
+    border-left: 1px solid #B9B9B9;
 }
 
 .fieldWithErrors {
@@ -133,14 +136,16 @@ h2 a, h2 a:hover {
 }
 
 #info {
-    background-color: #444;
+    background-color: #333;
     color: #CCC;
+    color: #000;
     font-size: 12px;
     text-align: left;
     height: 18px;
     margin: 0;
     padding: 0.45em 1em;
-    border: 1px solid #DDD;
+    border-top: 1px solid #B9B9B9;
+    border-bottom: 1px solid #B9B9B9;
 }
 
 #info a {
@@ -172,18 +177,19 @@ h2 a, h2 a:hover {
 }
 
 #header {
-    height:66px;
-    margin:0;
-    padding:0;
-    position:relative;
-    text-align:center;
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
+    height: 66px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    background-color: #B9B9B9;
+    border-left: 1px solid #B9B9B9;
+    border-right: 1px solid #B9B9B9;
+    border-bottom: 1px solid #B9B9B9;
 }
 
 #header .logo {
-    position:absolute;
+    position: absolute;
     top:10px;
     left:32px;
 }
@@ -218,89 +224,92 @@ h2 a, h2 a:hover {
     font-size: larger;
 }
 
-#wrapper2 .buttons {
+#side {
+    /* float: right; */
+    /* width: 190px; */
+    vertical-align: top;
+    padding: 40px 15px;
+    background-color: #F6F6F6;
+    border-right: 1px solid #B9B9B9;
+    border-bottom: 1px solid #B9B9B9;
+}
+
+.columns .buttons {
     margin: 0;
     padding: 0;
-    width: 80px;
+    /* width: 80px; */
     text-align: left; /* for ie6/7 */
 }
 
-#wrapper2 #side {
-    float: right;
-    width: 190px;
-    padding: 40px 15px 0 15px;
-}
-
-#wrapper2 .buttons ul {
+.columns .buttons ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-#wrapper2 .buttons ul li {
+.columns .buttons ul li {
     margin: 0 0 5px 0;
     padding: 0;
 }
 
-#wrapper2 .buttons ul li a {
+.columns .buttons ul li a {
     text-decoration: none;
     color: #000;
     background: url("/images/button-green.png") no-repeat scroll left center transparent;
-    /* display: inline; */
     margin: 0;
     padding: 0 0 0 20px;
 }
 
-#wrapper2 .buttons ul li a:hover {
+.columns .buttons ul li a:hover {
     /* background: url("/images/button-green.png") no-repeat scroll left center transparent; */
 }
 
-#wrapper2 .buttons ul ul li a {
+.columns .buttons ul ul li a {
     margin-left: 20px;
 }
 
-#wrapper2 #side .group {
+.columns #side .group {
     margin-top: 20px;
 }
 
-#wrapper2 #side .group .title {
+.columns #side .group .title {
     font-weight: bold;
     padding: 2px 4px;
     margin-bottom: 12px;
     background: #EEE;
 }
 
-#wrapper2 #side .group #comments .datetime {
+.columns #side .group #comments .datetime {
     float: right;
     color: #999;
-    font-size: smaller;
+    font-size: 12px;
 }
 
-#wrapper2 #side .group label {
-    font-size: smaller;
+.columns #side .group label {
+    font-size: 12px;
 }
 
-#wrapper2 #side .group input#comment_name,
-#wrapper2 #side .group input#comment_contact {
+.columns #side .group input#comment_name,
+.columns #side .group input#comment_contact {
     width: 130px;
 }
 
-#wrapper2 #side .group textarea#comment_content {
+.columns #side .group textarea#comment_content {
     width: 160px;
     height: 80px;
 }
 
-#wrapper2 #side .group #comments .comment {
+.columns #side .group #comments .comment {
     padding-top: 5px;
     border-top: 1px dotted #DDD;
 }
 
-#wrapper2 #side .group #comments .first {
+.columns #side .group #comments .first {
     border: none;
 }
 
-#wrapper2 #side .group #comments .manager a,
-#wrapper2 #side .group #comments .admin a {
+.columns #side .group #comments .manager a,
+.columns #side .group #comments .admin a {
     font-weight: bold;
 }
 
@@ -310,7 +319,6 @@ h2 a, h2 a:hover {
 
 #search .input {
     text-align: left;
-    /* margin: 0 45px; */
     margin: 0 0 0 20px;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -391,20 +399,20 @@ select {
 }
 
 #footer {
-    height: 80px;
-    min-height: 80px;
+    min-height: 81px;
     height: auto !important;
-    height: 80px;
-    border-top: 1px solid #FFF;
+    height: 81px;
 }
 
 #footer .note {
     text-align:center;
+    font-size: 12px;
     margin-top: 15px;
     margin-bottom: 35px;
 }
 
 #footer .note a {
+    font-size: 12px;
     color: #000;
     text-decoration: none;
 }
@@ -421,9 +429,9 @@ div.product-listing {
 ul.product-listing {
     list-style: none;
     display: block;
-    /* min-height: 570px; */
+    /* min-height: 760px; */
     /* height: auto !important; */
-    /* height: 570px; */
+    /* height: 760px; */
     margin: 0;
     padding-left: 15px;
 }
@@ -480,7 +488,6 @@ ul.store-listing li {
 }
 
 ul.store-listing li .image {
-    /* display: none; */
     width: 80px;
     float: left;
 }
@@ -536,8 +543,8 @@ div.store-listing {
     color: #427AC0;
     font-size: larger;
     font-weight: bold;
-    padding: 3px 14px;
-    margin: 3px 32px 16px 28px;
+    padding: 3px 14px 3px 8px;
+    margin: 3px 40px 16px 40px;
     background-color: #EEE;
 }
 
@@ -553,6 +560,10 @@ div.store-listing {
     margin: 0 0 20px;
     padding: 0;
     border: 1px solid #DDD;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 table.attributes {
@@ -576,11 +587,6 @@ table.attributes tr td {
 }
 
 /* admin stores and products */
-
-table.stores,
-table.products {
-    border-collapse: collapse;
-}
 
 table.stores thead th,
 table.products thead th {
@@ -752,9 +758,7 @@ ul.thumbnails li.selected {
     padding: 2px 4px;
 }
 
-/* image preloader
-   see http://perishablepress.com/press/2009/01/18/css-image-caching/ */
-
+/*  image preloader [http://perishablepress.com/press/2009/01/18/css-image-caching/] */
 @media screen {
     div#preloader {
 	position: absolute;
@@ -775,15 +779,13 @@ ul.thumbnails li.selected {
 }
 
 
-/* This is the moving lens square underneath the mouse pointer. */
+/* cloud-zoom [http://www.professorcloud.com/mainsite/cloud-zoom.htm] */
 .cloud-zoom-lens {
 	border: 4px solid #888;
-	margin:-4px;	/* Set this to minus the border thickness. */
+	margin:-4px;
 	background-color:#fff;	
 	cursor:move;		
 }
-
-/* cloud-zoom */
 
 .cloud-zoom-title {
     font-family:Arial, Helvetica, sans-serif;
@@ -816,7 +818,6 @@ ul#images-list {
 }
 
 #page {
-    /* width: 759px; */
     margin: 0 54px;
 }
 

@@ -7,16 +7,16 @@
   </div>
   <% unless current_user %>
     <div>
-      <%= f.label :name %> <span style="color:red;font-size:smaller">*</span><br />
-      <%= f.text_field :name %>
+      <%= f.label :name %> <span style="color:red">*</span><br />
+      <%= f.text_field :name, :style => "margin:6px 0;padding: 1px 0" %>
     </div>
     <div>
-      <%= f.label :contact %><span style="font-size:smaller"><%= t('comments.contact_info') %></span><br />
-      <%= f.text_field :contact %>
+      <%= f.label :contact %><span style="font-size:12px"><%= t('comments.contact_info') %></span><br />
+      <%= f.text_field :contact, :style => "margin:6px 0;padding: 1px 0" %>
     </div>
   <% end %>
   <div>
-    <%= f.label :content %> <span style="color:red;font-size:smaller">*</span><br />
+    <%= f.label :content %> <span style="color:red">*</span><br />
     <%= f.text_area :content %>
   </div>
   <p><%= f.submit t('buttons.publish') %></p>

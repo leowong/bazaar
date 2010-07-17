@@ -21,65 +21,67 @@
   </head>
   <body>
     <div id="wrapper" class="container">
-    <div id="info">
-      <%= render :partial => 'shared/navigation' %>
-      <div class="new_store">
-	<% @new_store = new_store %>
-	<% link_to store_path(@new_store.username) do %>
-          <strong><%= t('users.newly_added') %></strong>:
-          <%= truncate(@new_store.abbreviation, :length => 18) %> -
-	  <%= truncate(@new_store.description, :length => 54) %>
-        <% end %>
+      <div id="info">
+        <%= render :partial => 'shared/navigation' %>
+        <div class="new_store">
+	  <% @new_store = new_store %>
+	  <% link_to store_path(@new_store.username) do %>
+            <strong><%= t('users.newly_added') %></strong>:
+            <%= truncate(@new_store.abbreviation, :length => 18) %> -
+	    <%= truncate(@new_store.description, :length => 54) %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div id="header" class="clear">
-      <span class="logo">
-	<%= link_to image_tag('logo.gif'), root_url %>
-      </span>
-      <span class="name" style="display:none">
-	<h1><%= link_to t('site.name'), root_url %></h1>
-      </span>
-      <span class="flash-messages">
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <%- end -%>
-      </span>
-      <%= yield(:header) %>
-    </div>
-    <div id="wrapper2" class="clearfix">
-      <div class="clear">
-	<div id="main">
-          <%- if show_title? -%>
-            <h2><%=h yield(:title) %></h2>
+      <div id="header" class="clear">
+        <span class="logo">
+	  <%= link_to image_tag('logo.gif'), root_url %>
+        </span>
+        <span class="name" style="display:none">
+	  <h1><%= link_to t('site.name'), root_url %></h1>
+        </span>
+        <span class="flash-messages">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
           <%- end -%>
-          <%= yield %>
-	</div>
-	<div id="side">
-	  <div class="buttons">
-	    <ul>
-	      <li><%= link_to t('buttons.navigation.home'), root_url, :class => "button" %></li>
-	      <li><%= link_to t('buttons.navigation.recent'), recent_path, :class => "button" %></li>
-              <li><%= link_to t('pages.about'), about_path, :class => "button" %></li>
-	      <%= yield(:buttons) %>
-	    </ul>
+        </span>
+        <%= yield(:header) %>
+      </div>
+      <table class="columns" callspacing="0">
+        <tbody>
+	  <tr>
+	    <td id="main">
+              <%- if show_title? -%>
+                <h2><%=h yield(:title) %></h2>
+              <%- end -%>
+              <%= yield %>
+	    </td>
+	    <td id="side">
+	      <div class="buttons">
+	        <ul>
+		  <li><%= link_to t('buttons.navigation.home'), root_url, :class => "button" %></li>
+		  <li><%= link_to t('buttons.navigation.recent'), recent_path, :class => "button" %></li>
+		  <li><%= link_to t('pages.about'), about_path, :class => "button" %></li>
+		  <%= yield(:buttons) %>
+	        </ul>
+	      </div>
+              <div class="comments">
+	        <%= yield(:comments) %>
+	      </div>
+	    </td>
+	  </tr>
+        </tbody>
+      </table>
+      <div id="footer">
+        <div class="clear">
+	  <div class="note">
+	    &copy; 2010 - <%= link_to t('site.name'), root_url %><br />
+	    <%= t('site.location_dot_separated') %>
 	  </div>
-          <div class="comments">
-	    <%= yield(:comments) %>
-	  </div>
-	</div>
+        </div>
+      </div>
+      <div id="preloader">
+        <%= yield(:preloader) %>
       </div>
     </div>
-    <div id="footer">
-      <div class="clear">
-	<div class="note">
-	  &copy; 2010 - <%= link_to t('site.name'), root_url %><br />
-	  <%= t('site.location_dot_separated') %>
-	</div>
-      </div>
-    </div>
-    <div id="preloader">
-      <%= yield(:preloader) %>
-    </div>
-  </div>
   </body>
 </html>
