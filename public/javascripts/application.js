@@ -10,6 +10,8 @@ var add_image_handlers = function() {
 $(document).ready(function() {
   $('.flash-messages').delay(5000).fadeOut(500);
 
+  $('#toss').hide();
+
   var toss_uri = '/toss'
   var badBrowser = (/MSIE ((5\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
 
