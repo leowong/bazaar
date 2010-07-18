@@ -566,6 +566,11 @@ table {
     border-collapse: collapse;
 }
 
+table td.key {
+    vertical-align: top;
+    white-space: nowrap;
+}
+
 table.attributes {
     width: auto;
 }

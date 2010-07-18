@@ -46,19 +46,19 @@
     </div>
     <table class="attributes">
       <tr>
-        <td><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</td>
+        <td class="key"><strong><%= t('activerecord.attributes.user.store_name') %></strong>:</td>
         <td><%=h @user.store_name %></td>
       </tr>
       <tr>
-        <td><strong><%= t('activerecord.attributes.user.address') %></strong>:</td>
+        <td class="key"><strong><%= t('activerecord.attributes.user.address') %></strong>:</td>
         <td><%=h @user.address %></td>
       </tr>
       <tr>
-        <td><strong><%= t('activerecord.attributes.user.contact') %></strong>:</td>
+        <td class="key"><strong><%= t('activerecord.attributes.user.contact') %></strong>:</td>
         <td><%=h @user.contact %></td>
       </tr>
       <tr>
-        <td><strong><%= t('users.url') %></strong>:</td>
+        <td class="key"><strong><%= t('users.url') %></strong>:</td>
         <td><%= link_to store_url(@user.username), store_url(@user.username) %></td>
       </tr>
     </table>
