@@ -43,4 +43,22 @@ module ApplicationHelper
       u.categories.build if u.categories.empty?
     end
   end
+
+  def friendly_datetime(datetime)
+    if published_today? datetime
+      datetime.strftime("%H:%M")         # 04:46
+    elsif published_this_year? datetime
+      datetime.strftime("%m-%d")         # 01-04
+    else
+      datetime.strftime("%y-%m-%d")      # 09-12-17
+    end
+  end
+
+  def published_today?(datetime)
+    datetime.to_date == Time.zone.now.to_date
+  end
+
+  def published_this_year?(datetime)
+    datetime.strftime("%Y") == Time.zone.now.strftime("%Y")
+  end
 end
