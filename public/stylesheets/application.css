@@ -710,7 +710,7 @@ ul.thumbnails li.selected {
     padding: 15px 0 0 0;
     font-size: 12px;
     text-align: center;
-    margin: 24px 32px 0;
+    margin: 0 32px;
 }
 
 .pagination:hover {
