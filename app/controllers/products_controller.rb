@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     if (params[:q].blank?)
       @search = Product.published.with_images.name_like_all(params[:q].to_s.split)
     else
-      @search = Product.published.with_images.name_or_tags_name_or_category_name_like_all(params[:q].to_s.split)
+      @search = Product.published.with_images.name_or_category_name_like_all(params[:q].to_s.split)
     end
 
     if params[:order] == "pvd"
