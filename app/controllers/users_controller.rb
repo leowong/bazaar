@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       @search = User.with_role(:seller)
     end
     @users_count = @search.size
-    @users = @search.paginate :page => params[:page], :per_page => 10 
+    @users = @search.descend_by_created_at.paginate :page => params[:page], :per_page => 10 
   end
   
   def show
