@@ -12,7 +12,7 @@
   </p>
   <p>
     <%= f.label :category_id %><br />
-    <%= f.collection_select :category_id, @product.user.categories, :id, :name, :include_blank => true %>
+    <%= f.collection_select :category_id, current_user.categories, :id, :name, :include_blank => true %>
   </p>
   <p>
     <%= f.label :tag_names, t('products.tag_names') %><%= t('products.tag_names_info') %><br />

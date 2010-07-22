@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name, :price, :description
   validates_numericality_of :price
-  validates_uniqueness_of :permalink
+  # validates_uniqueness_of :permalink
   validate :price_must_be_at_least_a_cent
 
   named_scope :with_images, :conditions => ['assets_count > 0']
