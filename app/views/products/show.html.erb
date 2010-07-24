@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td class="key"><strong><%= t('activerecord.attributes.product.price') %></strong>:</td>
-      <td><%= number_to_currency @product.price %></td>
+      <td><%= @product.price == 0.01 ? t('products.nil_price_short') : number_to_currency(@product.price) %></td>
     </tr>
   </table>
 

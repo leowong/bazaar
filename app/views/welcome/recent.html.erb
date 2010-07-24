@@ -43,7 +43,7 @@
       </div>
       <div class="info">
         <span class="name"><%= link_to (truncate(h(product.name), :length => 10)), product %></span>
-        <span class="price"><%= number_to_currency product.price %></span>
+        <span class="price"><%= product.price == 0.01 ? t('products.nil_price_long') : number_to_currency(product.price) %></span>
         <span class="store"><%= link_to truncate(h(product.user.abbreviation), :length => 10), store_path(product.user.username) %></span>
       </div>
     </li>

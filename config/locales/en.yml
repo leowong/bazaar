@@ -97,6 +97,9 @@ en:
     images_count: "Images"
     tag_names: "Tags"
     unpublished: "(unpublished)"
+    nil_price_long: "(empty)"
+    nil_price_short: "(empty)"
+    price_info: "(input 0.01 for empty price)"
 
   images:
     upload: "Upload image"

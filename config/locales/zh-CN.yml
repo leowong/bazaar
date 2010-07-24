@@ -291,6 +291,9 @@
     tag_names: "附加关键字"
     tag_names_info: "（用于提高搜索准确度，多个关键字之间用逗号隔开）"
     unpublished: "(未发布)"
+    nil_price_long: "价格面议"
+    nil_price_short: "面议"
+    price_info: "（如价格面议请填写 0.01）"
 
   images:
     upload: "上传图片"
