@@ -3,11 +3,10 @@
   <% user = @product.user %>
   <meta name="keywords" content="<%= I18n.t('layout.title.meta.keywords') + (@product.tag_names.blank? ? "" : (',' + h(@product.tag_names.gsub(' ', '')))) %>" />
   <meta name="description" content="<%= 
-t('activerecord.attributes.user.store_name') + ": " + h(user.store_name) + "。 " + t('activerecord.attributes.user.address') + ": " + h(user.address) + "。 " + t('activerecord.models.product') + 
-t('activerecord.attributes.product.description') + ": " + h(truncate(strip_tags(@product.description), :omission => '', :length => 200)) %>" />
+h(user.store_name) + " - " + h(user.address) + " - " + h(truncate(strip_tags(@product.description), :omission => '', :length => 200)) %>" />
 <% elsif controller_name == "users" && controller.action_name == "show" %>
   <meta name="keywords" content="<%= I18n.t('layout.title.meta.keywords') + ',' + h(@user.abbreviation) %>" />
-  <meta name="description" content="<%= t('activerecord.attributes.user.store_name') + ": " + h(@user.store_name) + "。 " + t('activerecord.attributes.user.address') + ": " + h(@user.address) + "。 " + t('activerecord.attributes.user.description') + ": " + h(@user.description) %>" />
+  <meta name="description" content="<%= h(@user.store_name) + " - " + h(@user.address) + " - " + h(@user.description) %>" />
 <% elsif controller_name == "pages" && controller.action_name == "show" %>
   <meta name="keywords" content="<%= I18n.t('layout.title.meta.keywords') + ',' + h(@page.title) %>" />
   <meta name="description" content="<%=h truncate(strip_tags(@page.content), :omission => '', :length => 200) %>" />

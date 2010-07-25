@@ -1,11 +1,11 @@
 <% title  @user.abbreviation, false %>
 
 <% content_for :buttons do %>
-  <li><strong><%= link_to truncate(@user.abbreviation, :omission => "..", :length => 5), store_path(@user.username), :class => "button" %></strong></li>
+  <li><strong><%= link_to truncate(h(@user.abbreviation), :length => 12), store_path(@user.username), :class => "button" %></strong></li>
   <% for category in @user.categories %>
     <% unless category.products.empty? %>
       <ul>
-	<li><a href="#<%= category.name %>"><%= category.name %></a></li>
+	<li><a href="#<%=h category.name %>"><%= truncate(h(category.name), :length => 12) %></a></li>
       </ul>
     <% end %>
   <% end %>

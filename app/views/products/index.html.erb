@@ -56,3 +56,17 @@
     <%= will_paginate @products, :previous_label => t('pagination.previous'), :next_label => t('pagination.next') %>
   </div>
 <% end %>
+
+<% content_for :comments do %>
+  <div class="group">
+    <div class="title">
+      <%= t('comments.broadcasting') %>
+    </div>
+
+    <% unless Comment.all.empty? %>
+      <div id="comments" class=" content clear">
+	 <%= render Comment.news.recent %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

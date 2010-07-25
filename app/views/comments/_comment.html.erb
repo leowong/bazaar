@@ -1,4 +1,4 @@
-<% unless controller_name == "welcome" %>
+<% unless controller_name == "welcome" || controller_name == "products" && controller.action_name == "index" || controller_name == "users" && controller.action_name == "index" %>
 <div class="comment">
   <div class="datetime">
     <%= friendly_datetime(comment.created_at) %>

@@ -4,7 +4,7 @@ body, #wrapper, .container, .columns {
 }
 
 body {
-    background-color: #DEDEDC;
+    background-color: #E6E6E6;
     color: #000;
 }
 
@@ -93,8 +93,8 @@ h2 a, h2 a:hover {
     background-color: #FFF;
     padding: 25px 0;
     border-right: 1px solid #DDD;
-    border-bottom: 1px solid #B9B9B9;
-    border-left: 1px solid #B9B9B9;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
 }
 
 .fieldWithErrors {
@@ -230,8 +230,8 @@ h2 a, h2 a:hover {
     vertical-align: top;
     padding: 40px 15px;
     background-color: #F6F6F6;
-    border-right: 1px solid #B9B9B9;
-    border-bottom: 1px solid #B9B9B9;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
 }
 
 .columns .buttons {
